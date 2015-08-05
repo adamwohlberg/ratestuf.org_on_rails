@@ -9,3 +9,5 @@ Our brand map is dynamic so it changes over time as users rate the changing qual
 Thanks for your help!
 
 - Adam Zuckerberg
+
+P.S.  This was originally a PHP project on Bluehost which I am migrating over to Rails and Heroku.
