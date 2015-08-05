@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>RatestufDotOrgOnRails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="http://ratestuf.org/images/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateStuf | Top 10 Brand Map, Reviews - User-Generated Ratings</title>
+    <meta name="description" content="A dynamic user-generated brand map to help you discover the best brands in every category. Real-time user-generated ratings of the top 10 brands in any class: the best hosting services, best airlines, best rental cars, best online ride sharing services...you name it. Add your ratings of price and service quality to help others find the best-value brands or, add a new brand to our database to help others discover new, innovative products and services in any category.">
+    <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Lilita+One|Passion+One:700,400,900|Chivo:400,900,900italic' rel='stylesheet' type='text/css'>
 
-<%= yield %>
+<!--     <ORIGINAL PHP FACEBOOK SHARING SECTION OMITTED> -->
 
-</body>
+    <title><% content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <%= yield %>
+
+  </body>
 </html>

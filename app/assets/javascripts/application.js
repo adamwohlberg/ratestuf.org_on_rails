@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require_tree .
 
+$(document).foundation();
 
 $(document).ready(function() {
   // verticallyAlignDollarIcons();
@@ -583,3 +585,5 @@ $(".draggable").mouseup(function(){
   }
 }); 
   
+
+$(function(){ $(document).foundation(); });
