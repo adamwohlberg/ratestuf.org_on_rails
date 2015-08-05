@@ -1,28 +1,11 @@
-== README
+RateStuf™ is an online review website. Our users work together to create a dynamic, real-time brand map to help other consumers discover the best-value brands and make better purchase decisions.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A brand map displays the competing brands in a given class that are all competing for your business.
 
-Things you may want to cover:
+Our brand map represents the collective, user-generated reviews of any brand which our users care to add to our website. We collect user reviews of our users’ perceived quality and perceived price of each brand. Based on our proprietary algorithm, we aggregate the data to display the collective opinion of our users.
 
-* Ruby version
+Our brand map is dynamic so it changes over time as users rate the changing quality and price of any brand relative to its current competitors. Since markets are constantly shifting, brands on our map will shift to reflect the changing perceptions of our users.
 
-* System dependencies
+Thanks for your help!
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Adam Zuckerberg
