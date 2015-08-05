@@ -10,4 +10,4 @@ Thanks for your help!
 
 - Adam Zuckerberg
 
-P.S.  This was originally a PHP project on Bluehost which I am migrating over to Rails and Heroku.
+P.S.  This was originally a PHP project which I am migrating over to Rails.
