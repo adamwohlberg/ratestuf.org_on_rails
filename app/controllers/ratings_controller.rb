@@ -3,6 +3,7 @@ class RatingsController < ApplicationController
 	layout 'application'
 
   def index
-  	@user = User.first
+  	@users = User.all
+  	@items = Item.all
   end
 end
