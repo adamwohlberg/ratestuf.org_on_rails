@@ -1,8 +1,8 @@
     <div class="container-fluid">
-          <header class="row" style="border: 2px solid red;">
-            <div class="large-2 medium-2 small-12 columns"></div>
-            <div class="large-6 medium-6 show-for-medium-up columns"></div>
-            <div class="large-4 medium-4 small-12 columns show-for-medium-up">
+          <header class="row row_border">
+            <div class="large-2 medium-2 small-12 columns section_border"></div>
+            <div class="large-6 medium-6 show-for-medium-up columns section_border"></div>
+            <div class="large-4 medium-4 small-12 columns show-for-medium-up section_border">
               <% if true %>
                 <%= link_to(image_tag('facebook-login.png'), id: "loginFacebook", alt: "Log in with Facebook", title: "Log in with facebook to validate your identity") %>
                 <p id="fbTagline">Log in to add YOUR ratings...</p>
@@ -15,20 +15,20 @@
             </div>
           </div>
           </header>
-          <div class="row">
-            <div class="large-3 medium-3 show-for-medium-up columns">
+          <div class="row row_border">
+            <div class="large-3 medium-3 show-for-medium-up columns section_border">
               </div>
-            <div class="large-6 medium-6 show-for-medium-up columns">
-<!-- adsense -->
+            <div class="large-6 medium-6 show-for-medium-up columns section_border">
+<!-- adsense option spaceholder  -->
 <div id="heightRestriction">
 </div>
 <!-- adsense -->
             </div>         
-            <div class="large-3 medium-3 show-for-medium-up columns"></div>
+            <div class="large-3 medium-3 show-for-medium-up columns section_border"></div>
           </div>   
-          <div class="row">
-            <div class="large-4 medium-2 show-for-medium-up columns"></div>
-            <div class="large-5 medium-8 small-12 columns">
+          <div class="row row_border">
+            <div class="large-4 medium-2 show-for-medium-up columns section_border"></div>
+            <div class="large-5 medium-8 small-12 columns section_border">
 
               <div id="logo3-container" class="logo" alt="RateStuf logo">
                 <p id="logo3">Ratestuf<span id="dotOrg">.org</span></p>
@@ -50,14 +50,14 @@
                   });
                   </script>
             </div>
-            <div class="large-3 medium-2 show-for-medium-up columns"></div>
+            <div class="large-3 medium-2 show-for-medium-up columns section_border"></div>
           </div>
-          <div class="row">
-            <div class="large-3 medium-3 show-for-medium-up columns"></div>
-            <div class="large-7 medium-8 small-12 columns">
+          <div class="row row_border">
+            <div class="large-3 medium-3 show-for-medium-up columns section_border"></div>
+            <div class="large-7 medium-7 small-12 columns section_border">
                 <h1 id="headline" title="the best (and the worst)"></h1>
             </div>  
-            <div class="large-3 medium-2 show-for-medium-up columns"></div>
+            <div class="large-2 medium-2 show-for-medium-up columns section_border"></div>
           </div>
 
       <div class="row">
@@ -134,7 +134,8 @@
 
 <div id="rateTableScreenCapture">
                 <div id="containmentWrapper"></div>
-                <%= image_tag('/rateTable.png', id: "rateTable") %>
+
+                <%= image_tag("rateTable.png", id: "rateTable") %>
                 <span id="starCounter">0.0</span>
                 <div class="starRating"> 
                     <span id="star1" class="star fa fa fa-star"></span>

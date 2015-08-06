@@ -1,0 +1,8 @@
+.row_border {
+	border: 2px solid green;
+	min-height: 20px;
+}
+.section_border {
+	border: 2px solid red;
+	min-height: 20px;
+}
