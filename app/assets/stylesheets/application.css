@@ -620,7 +620,7 @@ background: repeating-linear-gradient(
 	display: none;
 }
 #starCounter {
-	font-size: 2.0em;
+	font-size: 1.6em;
 	font-weight: 800;
 	color: orange;
 	position: absolute;
@@ -799,7 +799,7 @@ h3.trending {
 }
 .trendingVS {
 	font-family: "Arial Bold", sans-serif; 
-	font-size: 1.8em;
+	font-size: 1.2em;
 	line-height: 0.6em;
 	margin: 0px 0px 0px -30px;
 }
@@ -843,7 +843,21 @@ ul li {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
+ 	  min-height: 200px;
 /*   	border: 10px solid green;*/
+}
+#trendingBox {
+    width: 100%;
+    height: 100%;
+/*    background:#CFE3FF;*/
+    color:#0066FF;
+    padding: 20px 5px 5px 5px;
+    border: 6px solid #559DFF;
+    text-align:center;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin-top: -20px;
 }
  
 #tagcloud a:link, #tagcloud a:visited {
@@ -1101,12 +1115,12 @@ body {
 	margin-left: 5%;
 }
 #starCounter {
-	font-size: 2.5em;
+	font-size: 1.8em;
 	font-weight: 900;
 	color: orange;
 	position: absolute;
 	z-index: 100;
-	margin: -25px 0px 0px -13px;
+	margin: -20px 0px 0px -10px;
 }	
 p.paragraphs {
 	font-size: 1.5em;
@@ -1258,7 +1272,7 @@ hr.line {
 }
 #footerLinks {
 	margin: 180px 0px 0px 0px;
-	font-size: 1.4em;
+/*	font-size: 1.4em;*/
 /*	border: 2px solid green;*/
 	width: 100%;
 	text-align: center;

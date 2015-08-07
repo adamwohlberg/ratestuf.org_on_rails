@@ -20,8 +20,7 @@
               </div>
             <div class="large-6 medium-6 show-for-medium-up columns section_border">
 <!-- adsense option spaceholder  -->
-<div id="heightRestriction">
-</div>
+<div id="heightRestriction"></div>
 <!-- adsense -->
             </div>         
             <div class="large-3 medium-3 show-for-medium-up columns section_border"></div>
@@ -67,10 +66,10 @@
 
 <div id="responsiveAd1">
 
-<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Large Skyscraper -->
 <ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:600px"
+     style="display:inline-block;width:300px;height:600px;margin:-20px 0px 0px -20px"
      data-ad-client="ca-pub-1429880673944819"
      data-ad-slot="5824155682"></ins>
 <script>
@@ -174,57 +173,14 @@
             <div class="large-9 medium-10 small-12 columns section_border"></div>
             <div class="large-2 medium-1 show-for-medium-up columns section_border"></div>  
         </div>
-      <div class="row">
+      <div class="row row_border">
         <div id="blankRow2"></div>
       </div>
-      <div class="row">
-        <div class="large-7 medium-7 small-12 columns">    
+      <div class="row row_border">
+        <div class="large-7 medium-7 small-12 columns section_border">    
 
-  <p id="DynamicRatingsSectionHeadline">
-                <?php
-
-                // if (isset($_GET['s'])) {
-                // if (is_a_subcategory($_GET['s'])) {
-                //   echo 'Top 10 '.ucwords(strtolower(stripslashes($_GET['s']))).':';
-                // } else {
-                // if (position_of_vs_term_in_the_search($_GET['s']) > 0 ) {  
-                // echo 'User Ratings for '. substr_replace(ucwords(strtolower(stripslashes($_GET['s']))),'v',position_of_vs_term_in_the_search($_GET['s'])+1,1).':';
-                // } else {
-                // echo 'User Ratings for '.ucwords(strtolower(stripslashes($_GET['s']))).':';
-                // }
-                //   }
-                // }  else {
-                // echo ""; 
-                // }
-
-                ?>
-
-  </p>
-<div id="DynamicRatingsSection">
-<!-- INSERT QUERY TO ECHO THE TEXTRATING, USER, VALUE BASED ON AVERAGE RATING ETC. -->
-                    <?php
-                    // $search_term="";
-                    // if (isset($_GET["s"])) {
-                    //   $search_term = trim($_GET["s"]);
-                    //   if ($search_term != "") {
-                    //   $position_of_vs_term = position_of_vs_term_in_the_search($search_term);
-                    //     if ($position_of_vs_term !== 0) {
-                    //         $firstSearchTerm = trim(substr($search_term, 0, ($position_of_vs_term) ));
-                    //         $length_of_vs_term = length_of_vs_term_in_the_search($search_term);
-                    //         $secondSearchTerm = trim(substr($search_term, ($position_of_vs_term + $length_of_vs_term),100));
-                    //         $length_of_vs_term = length_of_vs_term_in_the_search($search_term);
-                    //         print_textratings_to_screen($firstSearchTerm);
-                    //         print_textratings_to_screen($secondSearchTerm);
-                    //     } else {
-                    //         print_textratings_to_screen($search_term);
-                    //         } 
-                    //       } 
-                    //     }
-                    ?>
-                  
-
-
-</div>
+<!--   <p id="DynamicRatingsSectionHeadline"></p> -->
+<div id="DynamicRatingsSection"></div>
 <h3 class='paragraphs'> Online Reviews </h3>
 <p class='paragraphs'> RateStuf&trade; is an <strong>online review website</strong>.  Our users work together to create a dynamic, real-time brand map to help other consumers discover the best-value brands and make better purchase decisions. </p>
 <h3 class='paragraphs'> What is a Brand Map? </h3>
@@ -256,105 +212,46 @@
         </div>
 
 
-        <div class="col-lg-5 col-md-5 hidden-xs hidden-sm">
+        <div class="large-5 medium-5 show-for-medium-up columns section_border">
 
-<!-- ///Trending Categories -->
-          <?php
-          // Step 2. Perform database query to get the 5 most TRENDING ratings
-            $query = "SELECT COUNT(items_table.itemId) AS count,items_table.itemId, items_table.itemName, subcategories_table.subcategoryName "; 
-            $query .= "FROM ratings_table JOIN items_table ON ratings_table.itemId=items_table.itemId ";
-            $query .= "JOIN item_subcategory_map ON items_table.itemId = item_subcategory_map.itemId JOIN subcategories_table ON subcategories_table.subcategoryId = item_subcategory_map.subcategoryId ";
-            //switch interval from 30 to 7 to 1 etc. when site has more traffic
-            $query .= "WHERE ratings_table.ratingDateTime >= CURDATE() - INTERVAL 30 DAY ";
-            // excludes uncategorized items newly added and not yet verified
-            $query .= "AND subcategories_table.subcategoryId <> 0 ";
-            $query .= "GROUP BY subcategoryName ";
-            $query .= "ORDER BY count DESC "; 
-            $query .= "LIMIT 15;"; 
-            $trending = mysqli_query($connection, $query);
-          //test is there was a query error
-            if (!$trending) {
-              die("Database query trending failed");
-              echo "not able to get trending data";
-            }
-          ?>
-<!--           <div class="trending">  Trending Top 10 Searches </div> -->
-                <ul>
-                <?php
-                while ($row = mysqli_fetch_assoc($trending)) {
-                ?>
-                <li id="trendingStuf"><a href="?s=<?php echo $row['subcategoryName']; ?>"><?php echo 'top 10 '.$row['subcategoryName']; ?></a></li></br>
-                <?php
-                  echo "<li " . $row['count'] . "</li>";
-                    }
-                ?>
-                </ul>
-                <?php 
-                  mysqli_free_result($trending);
-                ?>
-          <h3 class="trending" id="trendingVsHeadline"> Trending a vs. b Searches </h3>
+          <h3 class="trending" id="trendingVsHeadline"> Trending <em>a vs. b</em> Searches </h3>
+              <div id="trendingBox">                
                 <ul>
                     <li class="trendingVS"><a href="http://ratestuf.org/?s=uber+vs.+lyft">uber vs. lyft<a></li></br>
                     <li class="trendingVS"><a href="http://ratestuf.org/?s=geico+vs.+progressive">geico vs. progressive<a></li></br>
                     <li class="trendingVS"><a href="http://ratestuf.org/?s=discover+home+loans+vs.+quicken+loans">discover home loans vs. quicken loans<a></li></br>
                     <li class="trendingVS"><a href="http://ratestuf.org/?s=geico+vs.+state+farm">geico vs. state farm<a></li></br>
                     <li class="trendingVS"><a href="http://ratestuf.org/?s=southwest+vs.+delta">southwest vs. delta<a></li></br>
-                    <li class="trendingVS"><a href="http://ratestuf.org/?s=betty+ford+vs+hazelden">betty ford vs. hazelden</a></li></br>          
+                    <li class="trendingVS"><a href="http://ratestuf.org/?s=betty+ford+vs+hazelden">betty ford vs. hazelden</a></li>      
                 </ul>
+              </div>
 
-                  <?php
-                    $query = "SELECT COUNT(items_table.itemId) AS count,items_table.itemId, items_table.itemName "; 
-                    $query .= "FROM ratings_table JOIN items_table ON ratings_table.itemId=items_table.itemId "; 
-                    $query .= "GROUP BY itemName ";
-                    $query .= "ORDER BY count DESC ";
-                    $query .= "LIMIT 12;"; 
-                    $popular = mysqli_query($connection, $query);
-                  //test is there was a query error
-                    if (!$popular) {
-                      die("Database query select count failed");
-                      echo "not able to get popular";
-                    }
-                  ?>
                   <h3 class="popular">  Popular Stuf: </h3>
-                  <?php
-                  $itemNames = array();
-                  $maximum = 0;
-                    while ($row = mysqli_fetch_array($popular)) {
-                      $itemName = $row['itemName'];
-                      $count = $row['count'];
 
-                  // update $maximum if this term is more popular than the previous terms
-                      if ($count > $maximum) $maximum = $count;
-                   
-                      $itemNames[] = array('itemName' => $itemName, 'count' => $count);
-                      }
-                  // shuffle terms unless you want to retain the order of highest to lowest
-                  shuffle($itemNames);
-                  ?>
                   <div id="tagcloud">
                         <% @items.each do |item| %>
                         
                         
                         <% end %>
-                        <?php 
-                        // start looping through the tags
-                        foreach ($itemNames as $itemName):
-                         // determine the popularity of this term as a percentage
-                         $percent = floor(($itemName['count'] / $maximum) * 100);
-                         // echo $percent.'%';
-                         // determine the class for this term based on the percentage
-                         if ($percent < 20): 
-                           $class = 'smallest'; 
-                         elseif ($percent >= 20 and $percent < 40):
-                           $class = 'small'; 
-                         elseif ($percent >= 40 and $percent < 60):
-                           $class = 'medium';
-                         elseif ($percent >= 60 and $percent < 90):
-                           $class = 'large';
-                         else:
-                         $class = 'largest';
-                         endif;
-                        ?>
+<!--                         "<php"  -->
+<!--                         // start looping through the tags
+                        // foreach ($itemNames as $itemName):
+                        //  // determine the popularity of this term as a percentage
+                        //  $percent = floor(($itemName['count'] / $maximum) * 100);
+                        //  // echo $percent.'%';
+                        //  // determine the class for this term based on the percentage
+                        //  if ($percent < 20): 
+                        //    $class = 'smallest'; 
+                        //  elseif ($percent >= 20 and $percent < 40):
+                        //    $class = 'small'; 
+                        //  elseif ($percent >= 40 and $percent < 60):
+                        //    $class = 'medium';
+                        //  elseif ($percent >= 60 and $percent < 90):
+                        //    $class = 'large';
+                        //  else:
+                        //  $class = 'largest';
+                        //  endif; -->
+<!--                         ?> -->
                         <span class="<?php echo $class; ?>">
                           <a href="?s=<?php echo urlencode($itemName['itemName']); ?>"><?php echo $itemName['itemName']; ?></a>
                         </span>
@@ -365,7 +262,7 @@
 <br>
 <br>
 <br>
-<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Large Rectangle -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:336px;height:280px"
@@ -377,7 +274,7 @@
 <br>
 <br>
 <br>
-<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Responsive1 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -392,7 +289,7 @@
 <br>
 <br>
 <br>
-<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Large Rectangle -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:336px;height:280px"
@@ -406,7 +303,7 @@
 <br>
 <!-- adsense -->
 
-<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Responsive1 -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -421,7 +318,7 @@
 <br>
 <br>
 <br>
-<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Large Rectangle -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:336px;height:280px"

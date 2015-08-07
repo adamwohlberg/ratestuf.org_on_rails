@@ -3,14 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="http://ratestuf.org/images/logo.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RateStuf | Top 10 Brand Map, Reviews - User-Generated Ratings</title>
-    <meta name="description" content="A dynamic user-generated brand map to help you discover the best brands in every category. Real-time user-generated ratings of the top 10 brands in any class: the best hosting services, best airlines, best rental cars, best online ride sharing services...you name it. Add your ratings of price and service quality to help others find the best-value brands or, add a new brand to our database to help others discover new, innovative products and services in any category.">
-    <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico">
-    <link href='http://fonts.googleapis.com/css?family=Lilita+One|Passion+One:700,400,900|Chivo:400,900,900italic' rel='stylesheet' type='text/css'>
 
-<!--     <ORIGINAL PHP FACEBOOK SHARING SECTION OMITTED> -->
+      <%=  render 'header' %>
 
     <title><% content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
@@ -24,26 +18,7 @@
 
     <%= yield %>
 
-      <footer class="row">
-          <div class="columns large-12">
-               <p id="footer">
-                  Ratestuf.org &copy; <%= Date.today.year %><br />
-                  An Adam Zuckerberg Production </br>
-                  <a href="#"></a>  112358 Alan Watts Way, Santa Cruz CA #42 <br/>
-               </p>
-               <p>
-                <div id="footerLinks" class="hidden-sm hidden-xs"> 
-                    <a href="http://areas.kenan-flagler.unc.edu/Marketing/FacultyStaff/zeithaml/Selected%20Publications/Consumer%20Perceptions%20of%20Price,%20Quality,%20and%20Value-%20A%20Means-End%20Model%20and%20Snthesis%20of%20Evidence.pdf">Scholary Stuf on Perceived Value and Price</a>  | 
-                    <a href="http://www.comm.ucsb.edu/faculty/flanagin/CV/FlanaginandMetzger2013(CiHB).pdf">Scholary Stuf on User-Generated Ratings</a> | 
-                    <a href="http://www.demandforce.com/_assets/downloads/pdf/resources/heres-looking-out-for-you-kid-the-unselfish-reasons-why-people-write-online-reviews.pdf">The Unselfish Reasons Why People Write Online Reviews</a> |
-                    <a href="http://www.ratestuf.org/privacy.php">Privacy Policy</a>
-                  <br/>
-                <div>
-              </p>
-          </div>
-      </footer>
-<!-- close container -->
-    </div>
+      <%=  render 'footer' %>
     
   </body>
 </html>
