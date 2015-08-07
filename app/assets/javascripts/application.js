@@ -41,17 +41,19 @@ $(document).mouseover(function() {
   // setTimeout("",20000);
 });
 
-
-$("#logo3-container").hover(function(){
+$(document).ready(function() {
+  setTimeout(function() {
     $("#logo3-falling-f").css("position", "absolute" );
     $("#logo3-falling-f").css("z-index", "-9999" );
     $("#logo3-falling-f").css("font-size", "1em" );
-    $("#logo3-falling-f").css("margin", "10px 0px 0px 4px" );
+    $("#logo3-falling-f").css("margin", "17px 0px 0px 4px" );
     $("#logo3-falling-f").css("-webkit-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-moz-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-ms-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-o-transform", "rotate(55deg)" );
+    }, 300);
 });
+
 // trying flexbox instead of this
 // function verticallyAlignDollarIcons() {
 // var dollarSpacing = ($('.dollarRating').height());
@@ -373,7 +375,9 @@ $( ".draggable" ).parent().css( "background-color", "20px red" );
 
              // draggable within a box and others
             $(function() {
-              if (userloggedin) {
+              // was 
+              // if (userloggedin) {
+              if (true) {
               $(".draggable").draggable({ containment: "#containmentWrapper" });
             } 
               });
