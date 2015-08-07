@@ -113,7 +113,8 @@ hr {
 }
 
 #responsiveAd1 {
-	margin: -200px 0px 0px 20px;
+	margin: -180px 0px 0px 0px;
+	text-align: center;
 }
 
 #adBoxBelowRatenowButton {
