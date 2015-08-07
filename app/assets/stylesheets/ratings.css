@@ -6,3 +6,9 @@
 	border: 2px solid red;
 	min-height: 20px;
 }
+.row {
+  max-width: 1400px;
+}
+.header_spacer {
+	min-height: 20px;
+}
