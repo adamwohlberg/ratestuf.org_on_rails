@@ -14,64 +14,64 @@
 ActiveRecord::Schema.define(version: 20150805163441) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "category_name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "category_name", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "categories_subcategories", id: false, force: :cascade do |t|
-    t.integer  "category_id"
-    t.integer  "subcategory_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "category_id",    limit: 4
+    t.integer  "subcategory_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  add_index "categories_subcategories", ["category_id", "subcategory_id"], name: "subcategory_category_index", unique: true
+  add_index "categories_subcategories", ["category_id", "subcategory_id"], name: "subcategory_category_index", unique: true, using: :btree
 
   create_table "items", force: :cascade do |t|
-    t.string   "item_name"
-    t.string   "item_url"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "item_name",  limit: 255
+    t.string   "item_url",   limit: 255
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "items_subcategories", id: false, force: :cascade do |t|
-    t.integer  "item_id"
-    t.integer  "subcategory_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "item_id",        limit: 4
+    t.integer  "subcategory_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  add_index "items_subcategories", ["item_id", "subcategory_id"], name: "index_items_subcategories_on_item_id_and_subcategory_id"
+  add_index "items_subcategories", ["item_id", "subcategory_id"], name: "index_items_subcategories_on_item_id_and_subcategory_id", using: :btree
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "rating_id"
-    t.integer  "user_id"
-    t.integer  "item_id"
-    t.decimal  "x_rating",    precision: 10, scale: 3
-    t.decimal  "y_rating",    precision: 10, scale: 3
-    t.text     "text_rating"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.integer  "rating_id",   limit: 4
+    t.integer  "user_id",     limit: 4
+    t.integer  "item_id",     limit: 4
+    t.decimal  "x_rating",                  precision: 10, scale: 3
+    t.decimal  "y_rating",                  precision: 10, scale: 3
+    t.text     "text_rating", limit: 65535
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "subcategories", force: :cascade do |t|
-    t.string   "subcategory_name"
-    t.string   "subcategory_factor"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "subcategory_name",   limit: 255
+    t.string   "subcategory_factor", limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "fb_id"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "email"
-    t.string   "image"
-    t.string   "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "fb_id",      limit: 4
+    t.string   "firstname",  limit: 255
+    t.string   "lastname",   limit: 255
+    t.string   "email",      limit: 255
+    t.string   "image",      limit: 255
+    t.string   "gender",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
