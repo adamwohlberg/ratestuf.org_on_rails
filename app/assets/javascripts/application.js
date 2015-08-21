@@ -46,7 +46,7 @@ $(document).ready(function() {
     $("#logo3-falling-f").css("position", "absolute" );
     $("#logo3-falling-f").css("z-index", "-9999" );
     $("#logo3-falling-f").css("font-size", "1em" );
-    $("#logo3-falling-f").css("margin", "17px 0px 0px 4px" );
+    $("#logo3-falling-f").css("margin", "37px 0px 0px 4px" );
     $("#logo3-falling-f").css("-webkit-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-moz-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-ms-transform", "rotate(55deg)" );

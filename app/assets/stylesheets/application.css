@@ -66,7 +66,7 @@
 	margin-top: 0.95em;
 	max-height: 2.0em;
 	z-index:100;
-	margin-left: -1.7em;
+	margin-left: -2.8em;
 }
 #logo3-falling-f {
 	display: inline-block;
@@ -164,16 +164,17 @@ blockquote {
     -webkit-transform: scale(2.6) rotate(1turn) translate(2px,48%);
 }*/
 #loginFacebook {
-	opacity:0.85;
-	filter:alpha(opacity=85); /* For IE8 and earlier */
-	margin: 5px auto;
-	padding: 0px 0px 0px 0px;
-	width: 100%;
-/*	border: 2px solid green;*/
+	font-family: 'Chivo', sans-serif;
+	display: inline-block;
+	font-size: 2.3em;
+	font-weight: 900;
+	margin-top: -20px;
+	margin-right: 200px;
+	text-align: right;
+	border: 2px solid red;
 }
 #loginFacebook:hover {
 	opacity:1.0;
-	filter:alpha(opacity=100); /* For IE8 and earlier */
 }
 #fbLogOut {
 display: block;
@@ -1263,13 +1264,19 @@ hr.line
 	filter:alpha(opacity=100); /* For IE8 and earlier */
 }
 #loginFacebook {
-	opacity:0.85;
-	filter:alpha(opacity=85); /* For IE8 and earlier */
-	margin: 40px 0px 0px 30px;
+	font-family: 'Chivo', sans-serif;
+	display: inline-block;
+	font-size: 1.7em;
+	font-weight: 900;
+	margin-top: -20px;
+	margin-right: 200px;
+	text-align: right;
+	border: 2px solid red;
+	margin: 20px 0px 0px 30px;
 	width: 100%;
-	max-width: 400px;
-	min-width: 400px;	
-/*	border: 10px solid green;*/
+	max-width: 200px;
+	text-align: left;
+	/*	border: 10px solid green;*/
 }
 #footerLinks {
 	margin: 180px 0px 0px 0px;
