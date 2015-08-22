@@ -1160,7 +1160,7 @@ margin-right: -2%;
 	position: relative;
 	font-size: 2.0em;
 	font-weight: 900;
-	margin: -4.0em 0px 0px 11.1em;
+	margin: -4.0em 0px 0px 9.6em;
 /*	border: 2px solid red;*/
 }
 #logo3tagline {
@@ -1220,7 +1220,7 @@ margin-right: -2%;
 input[id="searchTags"] {
 	font-size: 1.8em;
 	width: 95%;
-	margin: 15px 0px 15px 5%;
+	margin: 3px 0px 15px 5%;
 }
 #heightRestriction {
 	max-height: 100px;

@@ -27,7 +27,7 @@ INSERT INTO `categories` (`id`, `category_name`) VALUES
 -- Dumping data for table `fblogin`
 --
 
-INSERT INTO `users` (`id`, `fb_id`, `firstname`, `lastname`, `email`, `image`, `gender`, `created_at`) VALUES
+INSERT INTO `users` (`id`, `fb_id`, `first_name`, `last_name`, `email`, `image`, `gender`, `created_at`) VALUES
 (1, 503854370, 'Adam', 'Wohlberg', 'adam.wohlberg@gmail.com', 'https://graph.facebook.com/503854370/picture?type=large', 'male', '0000-00-00 00:00:00'),
 (2, 11816135, 'Chris', 'Saunders', 'topher6345@gmail.com', 'https://graph.facebook.com/11816135/picture?type=large', 'male', '0000-00-00 00:00:00'),
 (3, 1041590895, 'Jgfiokdsfdksfj', 'Dsfkjds', 'skated40@yahoo.com', 'https://graph.facebook.com/1041590895/picture?type=large', 'female', '0000-00-00 00:00:00'),
@@ -35,16 +35,16 @@ INSERT INTO `users` (`id`, `fb_id`, `firstname`, `lastname`, `email`, `image`, `
 (5, 608873296, 'Einar', 'Sigvaldason', 'einarsig@mba.berkeley.edu', 'https://graph.facebook.com/608873296/picture?type=large', 'male', '0000-00-00 00:00:00'),
 (6, 6717858, 'Kirill', 'Zaitsev', 'kszaitsev@gmail.com', 'https://graph.facebook.com/6717858/picture?type=large', 'male', '0000-00-00 00:00:00'),
 (7, 714090325, 'Baeth', 'Davis', 'baeth@yourpurpose.com', 'https://graph.facebook.com/714090325/picture?type=large', 'female', '0000-00-00 00:00:00'),
-(8, 880938841, 'John', 'Samson', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/boy1.png', 'male', '0000-00-00 00:00:00'),
-(9, 784126535, 'Alex', 'Farley ', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/boy2.png', 'male', '0000-00-00 00:00:00'),
-(10, 402041270, 'Will', 'Ginsberg', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/boy3.png', 'male', '0000-00-00 00:00:00'),
-(11, 239291571, 'Jane', 'Goldberg', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl1.png', 'female', '0000-00-00 00:00:00'),
-(12, 564738951, 'Sarah', 'Finkley', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl2.png', 'female', '0000-00-00 00:00:00'),
-(13, 830956064, 'Susan', 'Smith', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl3.png', 'female', '0000-00-00 00:00:00'),
-(14, 866425607, 'Truth', 'Lazarius', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl4.png', 'female', '0000-00-00 00:00:00'),
-(15, 967944728, 'Erin', 'Johnson', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl5.png', 'female', '0000-00-00 00:00:00'),
-(16, 279313732, 'Elisa', 'Silverman', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl6.png', 'female', '0000-00-00 00:00:00'),
-(17, 919199581, 'Alyssa', 'Goldman', 'adam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl7.png', 'female', '0000-00-00 00:00:00');
+(8, 880938841, 'John', 'Samson', 'aadam.wohlberg@gmail.com', 'http://ratestuf.org/images/boy1.png', 'male', '0000-00-00 00:00:00'),
+(9, 784126535, 'Alex', 'Farley ', 'badam.wohlberg@gmail.com', 'http://ratestuf.org/images/boy2.png', 'male', '0000-00-00 00:00:00'),
+(10, 402041270, 'Will', 'Ginsberg', 'cadam.wohlberg@gmail.com', 'http://ratestuf.org/images/boy3.png', 'male', '0000-00-00 00:00:00'),
+(11, 239291571, 'Jane', 'Goldberg', 'dadam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl1.png', 'female', '0000-00-00 00:00:00'),
+(12, 564738951, 'Sarah', 'Finkley', 'gadam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl2.png', 'female', '0000-00-00 00:00:00'),
+(13, 830956064, 'Susan', 'Smith', 'eadam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl3.png', 'female', '0000-00-00 00:00:00'),
+(14, 866425607, 'Truth', 'Lazarius', 'fadam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl4.png', 'female', '0000-00-00 00:00:00'),
+(15, 967944728, 'Erin', 'Johnson', 'iadam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl5.png', 'female', '0000-00-00 00:00:00'),
+(16, 279313732, 'Elisa', 'Silverman', 'kadam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl6.png', 'female', '0000-00-00 00:00:00'),
+(17, 919199581, 'Alyssa', 'Goldman', 'ladam.wohlberg@gmail.com', 'http://ratestuf.org/images/girl7.png', 'female', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1210,8 +1210,6 @@ INSERT INTO `ratings` (`id`, `user_id`, `item_id`, `x_rating`, `y_rating`, `crea
 (7058, 503854370, 2004, '0.000', '1.000', '2014-09-08 01:19:39', ''),
 (7059, 503854370, 69, '0.990', '0.420', '2014-09-08 01:21:36', ''),
 (7060, 503854370, 69, '0.980', '0.410', '2014-09-08 01:21:54', 'NextSpace is spec-tac-u-lar!');
-
--------------------
 
 
 INSERT INTO `subcategories` (`id`, `subcategory_name`, `subcategory_factor`) VALUES

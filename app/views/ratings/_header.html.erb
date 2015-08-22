@@ -4,3 +4,25 @@
     <meta name="description" content="A dynamic user-generated brand map to help you discover the best brands in every category. Real-time user-generated ratings of the top 10 brands in any class: the best hosting services, best airlines, best rental cars, best online ride sharing services...you name it. Add your ratings of price and service quality to help others find the best-value brands or, add a new brand to our database to help others discover new, innovative products and services in any category.">
     <link rel="shortcut icon" href="http://www.ratestuf.org/favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Lilita+One|Passion+One:700,400,900|Chivo:400,900,900italic' rel='stylesheet' type='text/css'>
+<div class="container-fluid">
+  <div class="row row_border">
+    <div class="large-12 medium-12 small-12 columns section_border header_spacer"></div>
+  </div>
+  <div class="row">
+    <div class="large-5 medium-5 small-12 columns section_border">
+      <div id="logo3-container" class="logo" alt="RateStuf logo">
+        <p id="logo3">Ratestuf<span id="dotOrg">.org</span></p>
+        <p id="logo3trademark" >&trade;</p>
+        <p id="logo3tagline">rate BRANDS and find the best stuf<span style="margin-left:1px;margin-top:0px" id="logo3-falling-f">f.</span></p>
+      </div>
+    </div>
+    <div class="large-3 medium-3 show-for-medium-up columns section_border"></div>
+    <div class="large-4 medium-4 small-12 columns show-for-medium-up section_border">
+        <% if !user_signed_in? %>
+          <%= link_to("Login", new_user_registration_path, id: "loginFacebook", alt: "Log in with Facebook", title: "Log in to add your ratings") %>
+          <p id="fbTagline">Log in to add <em>your</em> ratings...</p>
+        <% else %>
+          <%= link_to("Logout", destroy_user_session_path, method: :delete, id: "loginFacebook") %>
+        <% end %>
+      </div>
+  </div>
