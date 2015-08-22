@@ -1,0 +1,30 @@
+<h3 class="popular">  Popular Stuff: </h3>
+
+<div id="tagcloud">
+<% @items.each do |item| %>
+               
+<% end %>
+<!--                         "<php"  -->
+<!--                         // start looping through the tags
+// foreach ($itemNames as $itemName):
+//  // determine the popularity of this term as a percentage
+//  $percent = floor(($itemName['count'] / $maximum) * 100);
+//  // echo $percent.'%';
+//  // determine the class for this term based on the percentage
+//  if ($percent < 20): 
+//    $class = 'smallest'; 
+//  elseif ($percent >= 20 and $percent < 40):
+//    $class = 'small'; 
+//  elseif ($percent >= 40 and $percent < 60):
+//    $class = 'medium';
+//  elseif ($percent >= 60 and $percent < 90):
+//    $class = 'large';
+//  else:
+//  $class = 'largest';
+//  endif; -->
+<!--                         ?> -->
+<span class="<?php echo $class; ?>">
+<a href="?s=<?php echo urlencode($itemName['itemName']); ?>"><?php echo $itemName['itemName']; ?></a>
+</span>
+<?php endforeach; ?>
+</div>

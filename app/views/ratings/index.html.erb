@@ -1,64 +1,46 @@
-    <div class="container-fluid">
-          <header class="row row_border">
-            <div class="large-12 medium-12 small-12 columns section_border header_spacer"></div>
-            <div class="large-5 medium-5 small-12 columns section_border">
-               <div id="logo3-container" class="logo" alt="RateStuf logo">
-                <p id="logo3">Ratestuf<span id="dotOrg">.org</span></p>
-                <p id="logo3trademark" >&trade;</p>
-                <p id="logo3tagline">rate BRANDS and find the best stuf<span style="margin-left:1px;margin-top:0px" id="logo3-falling-f">f.</span></p>
-              </div>
-            </div>
-            <div class="large-3 medium-3 show-for-medium-up columns section_border"></div>
-            <div class="large-4 medium-4 small-12 columns show-for-medium-up section_border">
-              <% if true %>
-                <%= link_to("Login", "#", id: "loginFacebook", alt: "Log in with Facebook", title: "Log in with facebook to validate your identity") %>
-                <p id="fbTagline">Log in to add YOUR ratings...</p>
-              <% elsif false %>
-                <%= link_to(image_tag('https://graph.facebook.com/'+@user.id+'/picture?type=large'), id: "userImage") %>
-                <img id="userImage" src='https://graph.facebook.com/<?php echo $user; ?>/picture?type=large'>
-                <span id="welcomeUserImage">Welcome <%= puts @user.firstname %>!</span>
-                <a href="<?php echo $facebook->getLogoutUrl(array('next'=>'http://ratestuf.org?fblogout')); ?>" id="fbLogOut">Logout</a>
-              <% end %>
-            </div>
-          </div>
-          </header>
-          <div class="row row_border">
-            <div class="large-2 medium-2 show-for-medium-up columns section_border"></div>
-            <div class="large-8 medium-8 small-12 columns section_border">
-<div id="wantToRateAnything">
-<!--   <p>Want to <a href="http://www.ratestuf.com">rate ANYTHING</a>? Go to Ratestuf.com instead.</p> -->
-</div>
-                <form id="mainForm" method="get" action="./" >
-                  <div class="right-inner-addon">
-                    <input type="text" id="searchTags" class="items form-control" placeholder="e.g. southwest vs. delta" name="s" value="">
-                        <i class="glyphicon glyphicon-search"></i>
-                </div>
-                </form>
-                  <script type="text/javascript">
-                      $(document).ready(function() {
-                      $("#searchTags").autocomplete({source:'getautocomplete.php', minLength:1});
-                  });
-                  </script>
-            </div>
+<div class="container-fluid">
+  <div class="row row_border">
+    <div class="large-12 medium-12 small-12 columns section_border header_spacer"></div>
+  </div>
+  <div class="row">
+    <div class="large-5 medium-5 small-12 columns section_border">
+      <div id="logo3-container" class="logo" alt="RateStuf logo">
+        <p id="logo3">Ratestuf<span id="dotOrg">.org</span></p>
+        <p id="logo3trademark" >&trade;</p>
+        <p id="logo3tagline">rate BRANDS and find the best stuf<span style="margin-left:1px;margin-top:0px" id="logo3-falling-f">f.</span></p>
+      </div>
+    </div>
+    <div class="large-3 medium-3 show-for-medium-up columns section_border"></div>
+    <div class="large-4 medium-4 small-12 columns show-for-medium-up section_border">
+        <% if true %>
+          <%= link_to("Login", "#", id: "loginFacebook", alt: "Log in with Facebook", title: "Log in to add your ratings") %>
+          <p id="fbTagline">Log in to add YOUR ratings...</p>
+        <% elsif false %>
+          <%= link_to(image_tag('https://graph.facebook.com/'+@user.id+'/picture?type=large'), id: "userImage") %>
+          <img id="userImage" src='https://graph.facebook.com/<?php echo $user; ?>/picture?type=large'>
+          <span id="welcomeUserImage">Welcome <%= puts @user.firstname %>!</span>
+          <a href="<?php echo $facebook->getLogoutUrl(array('next'=>'http://ratestuf.org?fblogout')); ?>" id="fbLogOut">Logout</a>
+        <% end %>
+      </div>
+  </div>
+  <div class="row row_border">
+    <div class="large-2 medium-2 show-for-medium-up columns section_border"></div>
+    <div class="large-8 medium-8 small-12 columns section_border">
+      <%= render 'search_bar' %>
+    </div>
             <div class="large-2 medium-2 show-for-medium-up columns section_border"></div>
           </div>
 
       <div class="row row_border">
-          <div class="large-2 medium-2 show-for-medium-up columns trendingBox section_border">
+          <div class="large-1 medium-2 show-for-medium-up columns trendingBox section_border">
             <button type="submit" id="show"> Show Filters </button><button type="submit" id="hide"> Hide Filters </button>
             <div id="filters"><!-- filter partial --></div>
                   
           </div>
-            <div class="large-8 medium-8 small-12 columns section_border">
+            <div class="large-10 medium-8 small-12 columns section_border">
                 
               <div id="rateTableFrame">
-              <div class="dollarRating">
-                  <div id="fourDollars"><span>$$$$</span></div>
-                  <div id="threeDollars"><span>$$$</span></div>
-                  <div id="twoDollars"><span>$$</span></div>
-                  <div id="oneDollar"><span>$</span></div>
-              </div>
-
+              <%= render 'dollars_on_the_y_axis' %>  
 <div id="dialog-message" title="" data-itemId="" data-itemName="" data-xRating="" data-yRating="">
     <span class="dialogBall" style="float:left; margin:0 7px 50px 0;"></span> 
     <span id="dialogItemName"></span>
@@ -67,235 +49,44 @@
 </div>
 
 <div id="rateTableScreenCapture">
-                <div id="containmentWrapper"></div>
-
-                <%= image_tag("rateTable.png", id: "rateTable") %>
-                <span id="starCounter">0.0</span>
-                <div class="starRating"> 
-                    <span id="star1" class="star fa fa fa-star"></span>
-                    <span id="star2" class="star fa fa fa-star"></span>
-                    <span id="star3" class="star fa fa fa-star"></span>
-                    <span id="star4" class="star fa fa fa-star"></span>
-                    <span id="star5" class="star fa fa fa-star"></span>
-               </div>
-                    <?php
-                    // $search_term="";
-                    // if (isset($_GET["s"])) {
-                    //   $search_term = trim($_GET["s"]);
-                    //   if ($search_term != "") {
-                    //   $position_of_vs_term = position_of_vs_term_in_the_search($search_term);
-                    //     if ($position_of_vs_term !== 0) {
-                    //         $firstSearchTerm = trim(substr($search_term, 0, ($position_of_vs_term) ));
-                    //         $length_of_vs_term = length_of_vs_term_in_the_search($search_term);
-                    //         $secondSearchTerm = trim(substr($search_term, ($position_of_vs_term + $length_of_vs_term),100));
-                    //         $length_of_vs_term = length_of_vs_term_in_the_search($search_term);
-                    //         get_draggable_balls($firstSearchTerm); 
-                    //         get_draggable_balls($secondSearchTerm);   
-
-                    //         // print_textratings_to_screen($firstSearchTerm);
-                    //         // print_textratings_to_screen($secondSearchTerm);
-
-                    //     } else {
-                    //         get_draggable_balls($search_term);
-
-                    //         // print_textratings_to_screen($search_term);
-
-
-                    //         } 
-                    //       } 
-                    //     }
-                    ?>
-                    <?php
-                    // is this running????
-                    // $item = 'citibank'; 
-                    //   $query = "SELECT COUNT(items_table.itemId) AS votes, items_table.itemId, items_table.itemName "; 
-                    //   $query .= "FROM ratings_table "; 
-                    //   $query .= "JOIN items_table ON ratings_table.itemId=items_table.itemId ";
-                    //   $query .= "WHERE items_table.itemName = '{$item}'";
-                    //   $ratingBubble = mysqli_query($connection, $query);
-                    //   if (!$ratingBubble) {
-                    //     die("Database query rating bubble failed");
-                    //     echo "not able to get rating bubble";
-                    //   }
-                    ?>
-<!-- important divs that keep the draggable, stars, dollars in the same parent element for accurate ratings -->
-              </div>
-<!-- end screen capture -->
+  <div id="containmentWrapper"></div>
+    <%= render 'ratings_table' %>        
 </div>
-                  <button id="rateNowButton" class="<?php if (!$user) {echo 'disabled '; } ?>" title="Sign up or log in to add your ratings. You will rate all visible balls, so remove any balls you don't want to rate prior to clicking this button.  To delete a ball, click to select the ball (it will be highlighted in yellow) and press the DELETE key to remove the ball.">Rate Now!</button>
-              <div id="WhiteSpaceFill"></div>
-              </div>
-            <div class="large-2 medium-2 small-12 columns section_border">
+    <button id="rateNowButton" class="<?php if (!$user) {echo 'disabled '; } ?>" title="Sign up or log in to add your ratings. You will rate all visible balls, so remove any balls you don't want to rate prior to clicking this button.  To delete a ball, click to select the ball (it will be highlighted in yellow) and press the DELETE key to remove the ball.">Rate Now!</button>
+  <div id="WhiteSpaceFill"></div>
+   </div>
+ <div class="large-1 medium-2 small-12 columns section_border">
 <div id="adBoxBelowRatenowButton">
 </div>
             </div>
-         </div>           
-     </div>
+  </div>           
+  </div>
 <div class="row row_border">
-            <div class="large-12 medium-12 show-for-medium-up columns section_border">
-<hr class="line">
-            </div>
+  <div class="large-7 medium-7 small-12 columns section_border">    
+    <div id="DynamicRatingsSection"></div>
+    <%= render 'content' %>
+  </div>
+  <div class="large-5 medium-5 show-for-medium-up columns section_border">
+    <%= render 'trending_stuff' %>
+    <%= render 'popular_stuff' %>
+    <br/>
+    <br/>
+    <br/>
+    <%= render 'adsense2' %>
+    <br/>
+    <br/>
+    <br/>
+    <%= render 'adsense3' %>
+    <br/>
+    <br/>
+    <br/>
+    <%= render 'adsense4' %>
+    <br/>
+    <br/>
+    <br/>
+    <%= render 'adsense5' %>                
+  </div>
 </div>
-        <div class="row row_border">
-            <div class="large-1 medium-1 show-for-medium-up columns section_border"></div>  
-            <div class="large-9 medium-10 small-12 columns section_border"></div>
-            <div class="large-2 medium-1 show-for-medium-up columns section_border"></div>  
-        </div>
-      <div class="row row_border">
-        <div id="blankRow2"></div>
-      </div>
-      <div class="row row_border">
-        <div class="large-7 medium-7 small-12 columns section_border">    
-
-<!--   <p id="DynamicRatingsSectionHeadline"></p> -->
-<div id="DynamicRatingsSection"></div>
-<h3 class='paragraphs'> Online Reviews </h3>
-<p class='paragraphs'> RateStuf&trade; is an <strong>online review website</strong>.  Our users work together to create a dynamic, real-time brand map to help other consumers discover the best-value brands and make better purchase decisions. </p>
-<h3 class='paragraphs'> What is a Brand Map? </h3>
-<p class='paragraphs'> A brand map displays the competing brands in a given class that are all competing for your business.  </p>
-<p class='paragraphs'> Our brand map represents the collective, user-generated <strong>reviews</strong> of any brand which our users care to add to our website.  We collect <strong>user reviews</strong> of our users’ perceived quality and perceived price of each brand.  Based on our proprietary algorithm,  we aggregate the data to display the collective opinion of our users. These ratings reflect customers' overall consumer experience with these businesses, not their response to any particular product.</p>  
-<p class='paragraphs'> Our brand map is dynamic so it changes over time as users rate the changing quality and price of any brand relative to its current competitors.  Since markets are constantly shifting, brands on our map will shift to reflect the changing perceptions of our users. </p>
-<h3 class='paragraphs'> Why Can’t I Move the Balls Representing the Brands? </h3>
-<p class='paragraphs'> If you can’t move the balls, you’re probably not logged in.  Our site operates like a wiki – once you log in, you can add new items and add your <strong> ratings</strong> to any item in our database by moving the ball representing each brand. Use your mouse or your finger to move the brands on your desktop, your iPhone or Android device – our site is responsive! </p>
-<h3 class='paragraphs'> How Do I Add a New Item to a Category? </h3>
-<p class='paragraphs'> Once you login to RateStuf&trade;, you can add new items.  Our team researches all these new items and will add them to appropriate categories, if applicable and when we see that there is sufficient interest in the item (i.e. many people have added a rating to the same item). </p>
-<h3 class='paragraphs'> How Does RateStuf&trade;  Help Drive Traffic to Innovative, New Companies? </h3>
-<p class='paragraphs'> Let’s say there is a video rental company that charges high late fees and you have to remember to return the video to the store – let’s call it Blickluster&trade; . </p> 
-<p class='paragraphs'> If they’re the only business in the market, the <strong>user reviews</strong> would represent it as a fair value on our map until a competitor emerges. </p>
-<p class='paragraphs'> Let’s say a new company emerges that streams videos for a monthly fee, let’s call it NetFlux&trade;.   This new company would appear instantly on the RateStuf&trade;  website and Blucklister&trade;  would quickly start to move towards a worse value position of high price/low quality in this new market while NetFlux&trade;  would appear as the better value, displaying as a green ball in the right-hand corner of the map as a high-value, low-price brand relative to its competitors. </p>
-<p class='paragraphs'> Every brand on RateStuf&trade;  is rated relative to others in its class, so as new, innovative companies emerge, our users add new brands to the site and our team researches the companies and add them to relevant categories. </p>
-<h3 class='paragraphs'> A Burrito Story by Adam Zuckerberg</h3>
-<p class='paragraphs'> I grew up in the Hollywood Hills and there was a new burrito place, let’s call it Poquito Menos .  The burritos were great and so was the price! </p>  
-<p class='paragraphs'> But every year, I would visit Poquito Menos and the prices would go up while the burritos got smaller and smaller.  In other words, it was just OK and was becoming a worse and worse value over time.  I think they call this ‘value engineering’. I figured that as the company grew, they hired some MBA who advised them to squeeze every dollar out of the company and increase the owner’s profits by making tiny little cuts to the quality and amount of ingredients.  None of these incremental changes were noticeable by themselves, but in aggregate, over time, the burritos started to just be OK, where once they were awesome – ‘death by a thousand cuts.’  </p>
- <p class='paragraphs'> I hate this phenomenon of companies decreasing value of a product over time while riding their brand and I wanted to make a tool for consumers to rate the price and quality of products to help people discover new, innovative brands that are offering a better quality service at the same price and by keeping the legacy companies offering a great value by providing a user-generated feedback loop for companies to easily measure <strong> brand perception in the market.</strong> </p>
-<p class='paragraphs'> The founder of TripAdvisor&trade;  noticed a similar phenomenon in the travel world and it’s why he started his travel review website: </p>
-<blockquote>But the hotel owner that wants to run this crappy place, preying off the brand that they’re under, and maybe their location as being near to something, that person has to kind of shape up, maybe take something out of their profits and put it back into providing a good service for customers, because word is spreading...(Kaufer, source: Founders at Work: Stories of Startups’ Early Days)</blockquote>
-<p class='paragraphs'> With Ratestuf&trade;  around, I would hope Poquito Menos would see that users rated its quality lower while its price got higher each year on our brand map, thus moving it to the red ‘worse value’ zone from its original position as a best-in-class brand while other restaurants emerged that were offering a better value. </p>
-<p class='paragraphs'> RateStuf&trade;  is around to help consumers discover the best brands in each class and save us the money and trouble of dealing with any brands except those that are offering a truly great value.  I personally hate spending any money on a business in order to discover that it is offering a poor value. Why? In the information age, let’s just let each other know about the best products and services and choose more wisely.  The best companies will listen to our opinions and offer great values – they call this being market-centric – and the others should fade away to be replaced by great new innovative businesses that truly offer great value to us all. </p>
-<p class='paragraphs'>  - Adam Zuckerberg, 2014</p>
-
-
-
-
-        </div>
-
-
-        <div class="large-5 medium-5 show-for-medium-up columns section_border">
-
-          <h3 class="trending" id="trendingVsHeadline"> Trending <em>a vs. b</em> Searches </h3>
-              <div id="trendingBox">                
-                <ul>
-                    <li class="trendingVS"><a href="http://ratestuf.org/?s=uber+vs.+lyft">uber vs. lyft<a></li></br>
-                    <li class="trendingVS"><a href="http://ratestuf.org/?s=geico+vs.+progressive">geico vs. progressive<a></li></br>
-                    <li class="trendingVS"><a href="http://ratestuf.org/?s=discover+home+loans+vs.+quicken+loans">discover home loans vs. quicken loans<a></li></br>
-                    <li class="trendingVS"><a href="http://ratestuf.org/?s=geico+vs.+state+farm">geico vs. state farm<a></li></br>
-                    <li class="trendingVS"><a href="http://ratestuf.org/?s=southwest+vs.+delta">southwest vs. delta<a></li></br>
-                    <li class="trendingVS"><a href="http://ratestuf.org/?s=betty+ford+vs+hazelden">betty ford vs. hazelden</a></li>      
-                </ul>
-              </div>
-
-                  <h3 class="popular">  Popular Stuff: </h3>
-
-                  <div id="tagcloud">
-                        <% @items.each do |item| %>
-                                             
-                        <% end %>
-<!--                         "<php"  -->
-<!--                         // start looping through the tags
-                        // foreach ($itemNames as $itemName):
-                        //  // determine the popularity of this term as a percentage
-                        //  $percent = floor(($itemName['count'] / $maximum) * 100);
-                        //  // echo $percent.'%';
-                        //  // determine the class for this term based on the percentage
-                        //  if ($percent < 20): 
-                        //    $class = 'smallest'; 
-                        //  elseif ($percent >= 20 and $percent < 40):
-                        //    $class = 'small'; 
-                        //  elseif ($percent >= 40 and $percent < 60):
-                        //    $class = 'medium';
-                        //  elseif ($percent >= 60 and $percent < 90):
-                        //    $class = 'large';
-                        //  else:
-                        //  $class = 'largest';
-                        //  endif; -->
-<!--                         ?> -->
-                        <span class="<?php echo $class; ?>">
-                          <a href="?s=<?php echo urlencode($itemName['itemName']); ?>"><?php echo $itemName['itemName']; ?></a>
-                        </span>
-                        <?php endforeach; ?>
-                  </div>
-
-<!-- adsense -->
-<br>
-<br>
-<br>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Large Rectangle -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:336px;height:280px"
-     data-ad-client="ca-pub-1429880673944819"
-     data-ad-slot="3848115687"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br>
-<br>
-<br>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Responsive1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1429880673944819"
-     data-ad-slot="6801582082"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<!-- adsense -->
-<br>
-<br>
-<br>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Large Rectangle -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:336px;height:280px"
-     data-ad-client="ca-pub-1429880673944819"
-     data-ad-slot="3848115687"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<br>
-<br>
-<br>
-<!-- adsense -->
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Responsive1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1429880673944819"
-     data-ad-slot="6801582082"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<!-- adsense -->                  
-<br>
-<br>
-<br>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Large Rectangle -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:336px;height:280px"
-     data-ad-client="ca-pub-1429880673944819"
-     data-ad-slot="3848115687"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-          </div>
-      </div>
 
 
 
