@@ -36,9 +36,9 @@ $(document).ready(function() {
 // });
 
 $(document).mouseover(function() {
-  // verticallyAlignDollarIcons();
-  // horizontallyAlignStars();
-  // setTimeout("",20000);
+  verticallyAlignDollarIcons();
+  horizontallyAlignStars();
+  setTimeout("",20000);
 });
 
 $(document).ready(function() {
@@ -51,7 +51,7 @@ $(document).ready(function() {
     $("#logo3-falling-f").css("-moz-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-ms-transform", "rotate(55deg)" );
     $("#logo3-falling-f").css("-o-transform", "rotate(55deg)" );
-    }, 300);
+    }, 2000);
 });
 
 // trying flexbox instead of this
