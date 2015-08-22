@@ -35,12 +35,8 @@ $(document).ready(function() {
 // // $('.draggable').parent().css('border', '5px solid red');
 // });
 
-$(document).mouseover(function() {
-  verticallyAlignDollarIcons();
-  horizontallyAlignStars();
-  setTimeout("",20000);
-});
 
+// animation to drop the last letter in the tagline after 2 seconds
 $(document).ready(function() {
   setTimeout(function() {
     $("#logo3-falling-f").css("position", "absolute" );
@@ -54,173 +50,113 @@ $(document).ready(function() {
     }, 2000);
 });
 
-// trying flexbox instead of this
-// function verticallyAlignDollarIcons() {
-// var dollarSpacing = ($('.dollarRating').height());
-// var dollarHeight = ($('#fourDollars').height() * 4.5);
-// var dollarPadding = ((dollarSpacing - dollarHeight)/8);
-
-// $('.dollarRating').children().css('padding-top',dollarPadding);
-// $('.dollarRating').children().css('padding-bottom',dollarPadding);
-// }
-
-// triggers on load or resize for DOLLARS.
-// $(window).resize(function() {
-
-// var dollarSpacing = ($('.dollarRating').height());
-// var dollarHeight = ($('#fourDollars').height() * 4);
-// var dollarPadding = ((dollarSpacing - dollarHeight)/8);
-
-// $('.dollarRating').children().css('padding-top',dollarPadding);
-// $('.dollarRating').children().css('padding-bottom',dollarPadding);
-
-// }).trigger('resize');
 
 function capitaliseFirstLetter(text)
 {
     return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-$(".draggable").dblclick(function(){
+// $(".draggable").dblclick(function(){
 
-if (!userloggedin) {
-  return;
-}
-  containerHeight = ($(this).parent().height() * 0.78 );
-  containerWidth = ($(this).parent().width() * 0.895962732919255);
-  positionFromLeft = ($(this).position().left);
-  positionFromTop = ($(this).position().top);
+// if (!userloggedin) {
+//   return;
+// }
+//   containerHeight = ($(this).parent().height() * 0.78 );
+//   containerWidth = ($(this).parent().width() * 0.895962732919255);
+//   positionFromLeft = ($(this).position().left);
+//   positionFromTop = ($(this).position().top);
 
-  $('#dialog-message').data('itemId',$(this).attr('id'));
-  $('#dialog-message').data('itemName',$(this).attr('name'));
-  $('#dialog-message').data('xRating',((Math.round((positionFromLeft / containerWidth) * 100 )/ 100)));
-  $('#dialog-message').data('yRating',((Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100)));
-  $("#dialog-message").find(".dialogTextArea").val("");
+//   $('#dialog-message').data('itemId',$(this).attr('id'));
+//   $('#dialog-message').data('itemName',$(this).attr('name'));
+//   $('#dialog-message').data('xRating',((Math.round((positionFromLeft / containerWidth) * 100 )/ 100)));
+//   $('#dialog-message').data('yRating',((Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100)));
+//   $("#dialog-message").find(".dialogTextArea").val("");
 
- if($(this).hasClass("bestValue")) {
-    $('#dialog-message > .dialogBall').removeClass("fairValue");
-    $('#dialog-message > .dialogBall').removeClass("worseValue");
-    $('#dialog-message > .dialogBall').addClass("bestValue");
+//  if($(this).hasClass("bestValue")) {
+//     $('#dialog-message > .dialogBall').removeClass("fairValue");
+//     $('#dialog-message > .dialogBall').removeClass("worseValue");
+//     $('#dialog-message > .dialogBall').addClass("bestValue");
 
-  } else if($(this).hasClass("fairValue")) {
-    $('#dialog-message > .dialogBall').removeClass("worseValue");
-    $('#dialog-message > .dialogBall').removeClass("bestValue");
-    $('#dialog-message > .dialogBall').addClass("fairValue");
+//   } else if($(this).hasClass("fairValue")) {
+//     $('#dialog-message > .dialogBall').removeClass("worseValue");
+//     $('#dialog-message > .dialogBall').removeClass("bestValue");
+//     $('#dialog-message > .dialogBall').addClass("fairValue");
 
-  } else if($(this).hasClass("worseValue")) {
-    $('#dialog-message > .dialogBall').removeClass("bestValue");
-    $('#dialog-message > .dialogBall').removeClass("fairValue");
-    $('#dialog-message > .dialogBall').addClass("worseValue");
-  }
+//   } else if($(this).hasClass("worseValue")) {
+//     $('#dialog-message > .dialogBall').removeClass("bestValue");
+//     $('#dialog-message > .dialogBall').removeClass("fairValue");
+//     $('#dialog-message > .dialogBall').addClass("worseValue");
+//   }
 
-    $( "#dialog-message" ).dialog({
-      modal: true,
-      width: 600,
-      height: 500,
-      title: "Tell us more about " + capitaliseFirstLetter($(this).find('.itemName').html()),
-      buttons: {
-        'Save': function() {
+//     $( "#dialog-message" ).dialog({
+//       modal: true,
+//       width: 600,
+//       height: 500,
+//       title: "Tell us more about " + capitaliseFirstLetter($(this).find('.itemName').html()),
+//       buttons: {
+//         'Save': function() {
 
-              var data = {};
-              data.items = [];
+//               var data = {};
+//               data.items = [];
 
-              itemName = $('#dialog-message').data('itemName');
-              itemId = $('#dialog-message').data('itemId');
-              xRating = $('#dialog-message').data('xRating');
-              yRating = $('#dialog-message').data('yRating');
-              textRating = $("#dialog-message").find(".dialogTextArea").val();
-              data.items.push({"name":itemName, "itemId":itemId, "xRating":xRating, "yRating":yRating, "textRating":textRating});
+//               itemName = $('#dialog-message').data('itemName');
+//               itemId = $('#dialog-message').data('itemId');
+//               xRating = $('#dialog-message').data('xRating');
+//               yRating = $('#dialog-message').data('yRating');
+//               textRating = $("#dialog-message").find(".dialogTextArea").val();
+//               data.items.push({"name":itemName, "itemId":itemId, "xRating":xRating, "yRating":yRating, "textRating":textRating});
              
-              saveratings(data);
+//               saveratings(data);
 
-          $( this ).dialog( "close" );
-        },
-            'Save & Share to FB (recommended)': function() {
+//           $( this ).dialog( "close" );
+//         },
+//             'Save & Share to FB (recommended)': function() {
 
-              var data = {};
-              data.items = [];
+//               var data = {};
+//               data.items = [];
 
-              // itemName = $(this).find('.itemName').html();
-              itemName = $('#dialog-message').data('itemName');
-              itemId = $('#dialog-message').data('itemId');
-              xRating = $('#dialog-message').data('xRating');
-              yRating = $('#dialog-message').data('yRating');
-              textRating = $("#dialog-message").find(".dialogTextArea").val();
-              data.items.push({"name":itemName, "itemId":itemId, "xRating":xRating, "yRating":yRating, "textRating":textRating});
+//               // itemName = $(this).find('.itemName').html();
+//               itemName = $('#dialog-message').data('itemName');
+//               itemId = $('#dialog-message').data('itemId');
+//               xRating = $('#dialog-message').data('xRating');
+//               yRating = $('#dialog-message').data('yRating');
+//               textRating = $("#dialog-message").find(".dialogTextArea").val();
+//               data.items.push({"name":itemName, "itemId":itemId, "xRating":xRating, "yRating":yRating, "textRating":textRating});
              
-              saveratings(data);
+//               saveratings(data);
 
-              window.open("https://www.facebook.com/dialog/feed?app_id=228744763916305&display=popup&caption="+encodeURI(textRating)+"&link="+encodeURIComponent("https://www.ratestuf.org/?s="+itemName+"&x="+xRating+"&y="+yRating)+"&redirect_uri=https://www.facebook.com",
-                '_blank');
+//               window.open("https://www.facebook.com/dialog/feed?app_id=228744763916305&display=popup&caption="+encodeURI(textRating)+"&link="+encodeURIComponent("https://www.ratestuf.org/?s="+itemName+"&x="+xRating+"&y="+yRating)+"&redirect_uri=https://www.facebook.com",
+//                 '_blank');
 
-          $( this ).dialog( "close" );
-          return;
-    }
-      }
-    });
-$('#dialog-message').dialog('setTitle', $(this).find(".itemName").html());
-  });
+//           $( this ).dialog( "close" );
+//           return;
+//     }
+//       }
+//     });
+// $('#dialog-message').dialog('setTitle', $(this).find(".itemName").html());
+//   });
 
 function saveratings(data) {
-          $.ajax({ 
-              type: "POST",
-              url: "ajax/saveratings.php",
-              data: JSON.stringify(data),
-              contentType: "application/json",
-
-              success: function(res) {
-                console.log(res);
-                if (res.hasOwnProperty('alreadyRated')) {
-                  alert("You've already rated this stuf.");
-                } else {
-                alert("Got it! Thanks for adding your ratings to our database. You are awesome!");
-                location.reload();
-                }
-                // Location.reload(true);
-              },
-              error: function(res) {
-                console.log(res);
-              }
-              ,dataType:'json'});
+  $.ajax({ 
+      type: "POST",
+      url: "ajax/saveratings.php",
+      data: JSON.stringify(data),
+      contentType: "application/json",
+      success: function(res) {
+        console.log(res);
+        if (res.hasOwnProperty('alreadyRated')) {
+          alert("You've already rated this stuf.");
+        } else {
+        alert("Got it! Thanks for adding your ratings to our database. You are awesome!");
+        location.reload();
+        }
+        // Location.reload(true);
+      },
+      error: function(res) {
+        console.log(res);
+      }
+      ,dataType:'json'});
 }
-
-
-// triggers on load or resize for STARS
-
-// function horizontallyAlignStars() {
-
-// var starSpacing = ($('.starRating').width());
-// var starWidth = ($('#star1').width() * 5);
-// var starPadding = ((starSpacing - starWidth)/11.2);
-
-// $('.starRating').children().css('padding-right',starPadding);
-// $('.starRating').children().css('padding-left',starPadding);
-
-// }
-
-// $(window).resize(function() {
-
-// var starSpacing = ($('.starRating').width());
-// var starWidth = ($('#star1').width() * 5);
-// var starPadding = ((starSpacing - starWidth)/11.2);
-
-// $('.starRating').children().css('padding-right',starPadding);
-// $('.starRating').children().css('padding-left',starPadding);
-
-// }).trigger('resize');
-
-
-// $(".draggable").mouseover(function(){
-//     $("#responsiveAd1").show();
-// });
-
-// $(".draggable").mouseover(function(){
-//     $(this).addClass("draggableHover");
-// });
-// $(".draggable").mouseout(function(){
-//     $(this).removeClass("draggableHover");
-// });
-
 
 //user is able to select a draggable ball and delete it from the screen using BACKSPSACE or DELETE
 $(".draggable").click(function(){
@@ -252,9 +188,6 @@ $("#searchTags").focus(function(){
         $("#loginFacebook").css('margin-top','22px');
   }
 });
-
-
-
 
 $(".draggable").mousemove(function(){
   var counter = ((((($(this).position().left)/($('#containmentWrapper').width()-($(this).width()/2))*100)/20)+0.4).toFixed(1));
@@ -308,8 +241,6 @@ $(".draggable").mousemove(function(){
 
 });
 
-
-
 $(document.body).keyup(function(event){
     if (event.keyCode == 46 || event.keyCode == 8) {
         event.preventDefault();
@@ -341,60 +272,14 @@ $( ".draggable" ).parent().css( "background-color", "20px red" );
             //     return;
             // });
 
-
-
-
-                       //make green arrow appear
-  //                 $(function() {
-
-  //                     if (!$("#rateNowButton").hasClass('disabled')) {
-  //   return;
-  // }  
-  //                     $(".draggable").click(function() {
-  //                         $("#arrowUp").fadeIn(2000);
-  //                     });
-  //                     $(".draggable").hover(function() {
-  //                         $("#arrowUp").fadeIn(2000);
-  //                     });
-
-
-
-  //                     $("#rateNowButton").click(function() {
-  //                         $("#arrowUp").fadeIn(2000);
-  //                     });
-  //                     $("#rateNowButton").click(function() {
-  //                         $("#arrowUp").fadeOut(600);
-  //                     });
-  //                     $("loginFacebook").click(function() {
-  //                         $("#arrowUp").fadeOut(100);
-  //                     });
-  //                     $("#rateNowButton").hover(function() {
-  //                         $("#arrowUp").fadeOut(200);
-  //                     });
-  //                   });
-
-             // draggable within a box and others
-            $(function() {
-              // was 
-              // if (userloggedin) {
-              if (true) {
-              $(".draggable").draggable({ containment: "#containmentWrapper" });
-            } 
-              });
-
-
- $("#hide").click(function(){
-  $("#filters").hide();
-  $("#show").show();  
-  $("#hide").hide(); 
-});
-
-$("#show").click(function(){
-  $("#filters").show();
-  $("#hide").show();  
-  $("#show").hide(); 
-});
-
+ // draggable within a box and others
+$(function() {
+  // was 
+  // if (userloggedin) {
+  if (true) {
+  $(".draggable").draggable({ containment: "#containmentWrapper" });
+} 
+  });
 
 // *****************************************
 // INSERT RATINGS INTO DATABASE ONCLICK
