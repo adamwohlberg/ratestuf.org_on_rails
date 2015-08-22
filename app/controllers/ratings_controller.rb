@@ -3,7 +3,14 @@ class RatingsController < ApplicationController
 	layout 'application'
 
   def index
-  	@users = User.all
-  	@items = Item.all
+  	search
+
   end
+
+  def search
+		@items = params[:search].present? ? Rating.search(params[:search]) : []
+		# byebug
+
+  end
+
 end

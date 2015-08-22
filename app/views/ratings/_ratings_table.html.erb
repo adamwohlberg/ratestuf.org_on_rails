@@ -7,6 +7,20 @@
                     <span id="star4" class="star fa fa fa-star"></span>
                     <span id="star5" class="star fa fa fa-star"></span>
                </div>
+
+             <% @items.each do |item| %>
+               <div id="<%= item.id %>" class="draggable1 draggable greyedOut fairValue" name="<%= item.item_name %>" title="Log in. Then move this ball to rate an item...doubleclick to add a text rating." style="position: absolute; left:<%= item.xRating * 0.895962732919255 %>%; bottom: <%= item.yRating * 0.78%>%"><a href="http://www.delta.com/" target="_blank"><p class="itemName" style="display: block;"><%= item.item_name %>™</p></a>
+                    <%= image_tag('speechbubble.png', :class => "speechBubble") %><p class="ratings"><%= item.votes %><br>rating</p>
+               </div>
+              <% end %> 
+
+               
+
+
+
+
+
+
                     <?php
                     // $search_term="";
                     // if (isset($_GET["s"])) {

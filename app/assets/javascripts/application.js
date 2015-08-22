@@ -12,29 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require foundation
 //= require turbolinks
 //= require_tree .
 
 $(document).foundation();
-
-$(document).ready(function() {
-  // verticallyAlignDollarIcons();
-  // horizontallyAlignStars();
-  $("#starCounter").show();
-});
-
-
-// $(document).ready(function() {
-// $("#rateTableFrame").css('border', '2px solid blue');
-// // $('.draggable').parent().css('border', '5px solid red');
-// });
-
-// $(document).ready(function() {
-// $("#containmentWrapper").css('border', '2px solid red');
-// // $('.draggable').parent().css('border', '5px solid red');
-// });
-
+// $(function(){ $(document).foundation(); });
 
 // animation to drop the last letter in the tagline after 2 seconds
 $(document).ready(function() {
@@ -49,92 +33,6 @@ $(document).ready(function() {
     $("#logo3-falling-f").css("-o-transform", "rotate(55deg)" );
     }, 2000);
 });
-
-
-function capitaliseFirstLetter(text)
-{
-    return text.charAt(0).toUpperCase() + text.slice(1);
-}
-
-// $(".draggable").dblclick(function(){
-
-// if (!userloggedin) {
-//   return;
-// }
-//   containerHeight = ($(this).parent().height() * 0.78 );
-//   containerWidth = ($(this).parent().width() * 0.895962732919255);
-//   positionFromLeft = ($(this).position().left);
-//   positionFromTop = ($(this).position().top);
-
-//   $('#dialog-message').data('itemId',$(this).attr('id'));
-//   $('#dialog-message').data('itemName',$(this).attr('name'));
-//   $('#dialog-message').data('xRating',((Math.round((positionFromLeft / containerWidth) * 100 )/ 100)));
-//   $('#dialog-message').data('yRating',((Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100)));
-//   $("#dialog-message").find(".dialogTextArea").val("");
-
-//  if($(this).hasClass("bestValue")) {
-//     $('#dialog-message > .dialogBall').removeClass("fairValue");
-//     $('#dialog-message > .dialogBall').removeClass("worseValue");
-//     $('#dialog-message > .dialogBall').addClass("bestValue");
-
-//   } else if($(this).hasClass("fairValue")) {
-//     $('#dialog-message > .dialogBall').removeClass("worseValue");
-//     $('#dialog-message > .dialogBall').removeClass("bestValue");
-//     $('#dialog-message > .dialogBall').addClass("fairValue");
-
-//   } else if($(this).hasClass("worseValue")) {
-//     $('#dialog-message > .dialogBall').removeClass("bestValue");
-//     $('#dialog-message > .dialogBall').removeClass("fairValue");
-//     $('#dialog-message > .dialogBall').addClass("worseValue");
-//   }
-
-//     $( "#dialog-message" ).dialog({
-//       modal: true,
-//       width: 600,
-//       height: 500,
-//       title: "Tell us more about " + capitaliseFirstLetter($(this).find('.itemName').html()),
-//       buttons: {
-//         'Save': function() {
-
-//               var data = {};
-//               data.items = [];
-
-//               itemName = $('#dialog-message').data('itemName');
-//               itemId = $('#dialog-message').data('itemId');
-//               xRating = $('#dialog-message').data('xRating');
-//               yRating = $('#dialog-message').data('yRating');
-//               textRating = $("#dialog-message").find(".dialogTextArea").val();
-//               data.items.push({"name":itemName, "itemId":itemId, "xRating":xRating, "yRating":yRating, "textRating":textRating});
-             
-//               saveratings(data);
-
-//           $( this ).dialog( "close" );
-//         },
-//             'Save & Share to FB (recommended)': function() {
-
-//               var data = {};
-//               data.items = [];
-
-//               // itemName = $(this).find('.itemName').html();
-//               itemName = $('#dialog-message').data('itemName');
-//               itemId = $('#dialog-message').data('itemId');
-//               xRating = $('#dialog-message').data('xRating');
-//               yRating = $('#dialog-message').data('yRating');
-//               textRating = $("#dialog-message").find(".dialogTextArea").val();
-//               data.items.push({"name":itemName, "itemId":itemId, "xRating":xRating, "yRating":yRating, "textRating":textRating});
-             
-//               saveratings(data);
-
-//               window.open("https://www.facebook.com/dialog/feed?app_id=228744763916305&display=popup&caption="+encodeURI(textRating)+"&link="+encodeURIComponent("https://www.ratestuf.org/?s="+itemName+"&x="+xRating+"&y="+yRating)+"&redirect_uri=https://www.facebook.com",
-//                 '_blank');
-
-//           $( this ).dialog( "close" );
-//           return;
-//     }
-//       }
-//     });
-// $('#dialog-message').dialog('setTitle', $(this).find(".itemName").html());
-//   });
 
 function saveratings(data) {
   $.ajax({ 
@@ -280,6 +178,8 @@ $(function() {
   $(".draggable").draggable({ containment: "#containmentWrapper" });
 } 
   });
+
+$(".draggable").draggable({ containment: "#containmentWrapper" });
 
 // *****************************************
 // INSERT RATINGS INTO DATABASE ONCLICK
@@ -473,6 +373,15 @@ $(".draggable").mouseup(function(){
         $(this).addClass('bestValue'); 
   }
 }); 
-  
 
-$(function(){ $(document).foundation(); });
+// $(document).ready(function() {
+// $("#rateTableFrame").css('border', '2px solid blue');
+// // $('.draggable').parent().css('border', '5px solid red');
+// });
+
+// $(document).ready(function() {
+// $("#containmentWrapper").css('border', '2px solid red');
+// // $('.draggable').parent().css('border', '5px solid red');
+// });
+
+
