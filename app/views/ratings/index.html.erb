@@ -15,11 +15,6 @@
         <% if true %>
           <%= link_to("Login", "#", id: "loginFacebook", alt: "Log in with Facebook", title: "Log in to add your ratings") %>
           <p id="fbTagline">Log in to add YOUR ratings...</p>
-        <% elsif false %>
-          <%= link_to(image_tag('https://graph.facebook.com/'+@user.id+'/picture?type=large'), id: "userImage") %>
-          <img id="userImage" src='https://graph.facebook.com/<?php echo $user; ?>/picture?type=large'>
-          <span id="welcomeUserImage">Welcome <%= puts @user.firstname %>!</span>
-          <a href="<?php echo $facebook->getLogoutUrl(array('next'=>'http://ratestuf.org?fblogout')); ?>" id="fbLogOut">Logout</a>
         <% end %>
       </div>
   </div>
@@ -28,37 +23,29 @@
     <div class="large-8 medium-8 small-12 columns section_border">
       <%= render 'search_bar' %>
     </div>
-            <div class="large-2 medium-2 show-for-medium-up columns section_border"></div>
-          </div>
-
-      <div class="row row_border">
-          <div class="large-1 medium-2 show-for-medium-up columns trendingBox section_border">
-            <button type="submit" id="show"> Show Filters </button><button type="submit" id="hide"> Hide Filters </button>
-            <div id="filters"><!-- filter partial --></div>
-                  
-          </div>
-            <div class="large-10 medium-8 small-12 columns section_border">
-                
-              <div id="rateTableFrame">
-              <%= render 'dollars_on_the_y_axis' %>  
-<div id="dialog-message" title="" data-itemId="" data-itemName="" data-xRating="" data-yRating="">
-    <span class="dialogBall" style="float:left; margin:0 7px 50px 0;"></span> 
-    <span id="dialogItemName"></span>
-
-                <textarea class="dialogTextArea"></textarea> 
-</div>
-
-<div id="rateTableScreenCapture">
-  <div id="containmentWrapper"></div>
-    <%= render 'ratings_table' %>        
-</div>
-    <button id="rateNowButton" class="<?php if (!$user) {echo 'disabled '; } ?>" title="Sign up or log in to add your ratings. You will rate all visible balls, so remove any balls you don't want to rate prior to clicking this button.  To delete a ball, click to select the ball (it will be highlighted in yellow) and press the DELETE key to remove the ball.">Rate Now!</button>
-  <div id="WhiteSpaceFill"></div>
-   </div>
- <div class="large-1 medium-2 small-12 columns section_border">
-<div id="adBoxBelowRatenowButton">
-</div>
-            </div>
+    <div class="large-2 medium-2 show-for-medium-up columns section_border"></div>
+  </div>
+  <div class="row row_border">
+    <div class="large-2 medium-2 show-for-medium-up columns trendingBox section_border">
+      <button type="submit" id="show"> Show Filters </button><button type="submit" id="hide"> Hide Filters </button>
+    </div>
+    <div class="large-8 medium-8 small-12 columns section_border">
+      <div id="rateTableFrame">
+        <%= render 'dollars_on_the_y_axis' %>  
+        <div id="dialog-message" title="" data-itemId="" data-itemName="" data-xRating="" data-yRating="">
+          <span class="dialogBall" style="float:left; margin:0 7px 50px 0;"></span> 
+          <span id="dialogItemName"></span>
+          <textarea class="dialogTextArea"></textarea> 
+        </div>
+        <div id="rateTableScreenCapture">
+        <div id="containmentWrapper"></div>
+        <%= render 'ratings_table' %>        
+        </div>
+        <button id="rateNowButton" class="<?php if (!$user) {echo 'disabled '; } ?>" title="Sign up or log in to add your ratings. You will rate all visible balls, so remove any balls you don't want to rate prior to clicking this button.  To delete a ball, click to select the ball (it will be highlighted in yellow) and press the DELETE key to remove the ball.">Rate Now!</button>
+        <div id="WhiteSpaceFill"></div>
+    </div>
+  <div class="large-1 medium-2 small-12 columns section_border">
+  </div>
   </div>           
   </div>
 <div class="row row_border">
