@@ -11,20 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822054735) do
+ActiveRecord::Schema.define(version: 20150822161529) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name", limit: 255
   end
-
-  create_table "categories_subcategories", id: false, force: :cascade do |t|
-    t.integer  "category_id",    limit: 4
-    t.integer  "subcategory_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "categories_subcategories", ["category_id", "subcategory_id"], name: "subcategory_category_index", unique: true, using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "item_name",  limit: 255
@@ -35,13 +26,12 @@ ActiveRecord::Schema.define(version: 20150822054735) do
   end
 
   create_table "items_subcategories", id: false, force: :cascade do |t|
-    t.integer  "item_id",        limit: 4
-    t.integer  "subcategory_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "item_id",        limit: 4
+    t.integer "subcategory_id", limit: 4
   end
 
-  add_index "items_subcategories", ["item_id", "subcategory_id"], name: "index_items_subcategories_on_item_id_and_subcategory_id", using: :btree
+  add_index "items_subcategories", ["item_id"], name: "index_items_subcategories_on_item_id", using: :btree
+  add_index "items_subcategories", ["subcategory_id"], name: "index_items_subcategories_on_subcategory_id", using: :btree
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "rating_id",   limit: 4
@@ -59,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150822054735) do
     t.string   "subcategory_factor", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id",        limit: 4
   end
 
   create_table "users", force: :cascade do |t|

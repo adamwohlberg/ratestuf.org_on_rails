@@ -1,11 +1,13 @@
-<form id="mainForm" method="get" action="./" >
+<%= form_tag("/search", method: "get", id: "mainForm") do %>
   <div class="right-inner-addon">
-    <input type="text" id="searchTags" class="items form-control" placeholder="e.g. southwest vs. delta" name="s" value="" autofocus="autofocus">
-        <i class="glyphicon glyphicon-search"></i>
-</div>
-</form>
+  	<%= text_field_tag :s, nil, id: "searchTags", placeholder: "e.g. southwest vs. delta", :class => "items form-control", :autofocus => "autofocus" %>
+  </div>
+<% end %>
+
+
 <script type="text/javascript">
-  $(document).ready(function() {
-  $("#searchTags").autocomplete({source:'getautocomplete.php', minLength:1});
-});
+//   $(document).ready(function() {
+//   $("#searchTags").autocomplete({source:'getautocomplete.php', minLength:1});
+// });
 </script>
+
