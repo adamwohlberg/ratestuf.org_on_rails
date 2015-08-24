@@ -630,7 +630,7 @@ background: repeating-linear-gradient(
 	position: absolute;
 	z-index: 100;
 	margin: -25px 0px 0px 5px;
-	display: none;
+/*	display: none;*/
 }
 .starRating {
 	display: -webkit-flex;
@@ -1055,6 +1055,7 @@ a:active {
 	font-size: 2.0em;
 	font-weight: 900;
 	margin: -4.0em 0px 0px 9.9em;
+	opacity: 0;
 /*	border: 2px solid green;*/
 }
 #logo3tagline {
@@ -1063,6 +1064,7 @@ a:active {
 /*	border: 2px solid blue;*/
 	position: relative;
 	margin-top: 1.4em;
+	margin-left: -5px;
 }
 .glyphicon-search {
 	display: inline-block;
