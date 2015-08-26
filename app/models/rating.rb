@@ -11,13 +11,18 @@ class Rating < ActiveRecord::Base
 	# search: "deltaversussouthwest"
 	# search: "deltavs.southwest"
 
-	def self.filter_search_query(search_term, a=[])
-		terms_that_mean_versus = [' versus ',' vs ','versus',' vs.','vs.',' vs']
-		terms_that_mean_versus.each do |vs|
-			a << search_term.split(vs) if search_term.include? vs
+	def self.filter_search_query(search_term, result=[])
+		search_term = search_term.strip
+		terms_that_mean_versus = [' versus ', ' versus', ' versus', ' vs ','versus',' vs.','vs.',' vs']
+		terms_that_mean_versus.each do |versus|
+			if search_term.include?(versus)
+				words = search_term.split(versus)
+				words.each do |word|
+					result << (word.strip!)
+				end
+			end
 		end
-
-		return a.present? ? a.flatten.uniq : [search_term]
+		return result.present? ? result.flatten.uniq : [search_term]
 	end
 
 	def self.search(search_term, records=[])
