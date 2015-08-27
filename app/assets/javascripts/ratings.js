@@ -140,53 +140,55 @@ $(".draggable").mousemove(function(){
   // });
 
  // draggable within a box and others
-$(function() {
-  $(".draggable").draggable({ containment: "#containmentWrapper" });
-  });
-
+$(document).ready(function() {
+	$(function() {
+	  $(".draggable").draggable({ containment: "#containmentWrapper" });
+	  });
+});
 // *****************************************
 // INSERT RATINGS INTO DATABASE ONCLICK
 // *****************************************
-//   var data ={};
-//   data.items = [];
+  var data ={};
+  data.items = [];
 
-// $("#rateNowButton").click(function(){
-//   console.log('test');
-//   if ($(this).hasClass('disabled')) {
-//     return;
-//   } 
-  
-//   if ($('.draggable').length == 0) { 
-//    alert("Please search for an item first.");
-//     return;
-//   }
+$(document).ready(function() {
+$("#rateNowButton").click(function(){
+  console.log('test');
+  if ($(this).hasClass('disabled')) {
+    return;
+  } 
+  if ($('.draggable').length == 0) { 
+   alert("Please search for an item first.");
+    return;
+  }
+// disable the button to prevent multiple clicks
+ $("#rateNowButton").addClass('disabled');
 
-// // disable the button to prevent multiple clicks
-//  $("#rateNowButton").addClass('disabled');
+  $('.draggable').each(function() {
 
-//   $('.draggable').each(function() {
+  itemName = $(this).attr('name');
+  itemId = $(this).attr('id');
+  containerHeight = ($(this).parent().height() * 0.78 );
+  containerWidth = ($(this).parent().width() * 0.895962732919255);
+  positionFromLeft = ($(this).position().left);
+  positionFromTop = ($(this).position().top);
+  xRating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
+  yRating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
+  textRating = $('.dialogTextArea').html();
 
-//   itemName = $(this).attr('name');
-//   itemId = $(this).attr('id');
-//   containerHeight = ($(this).parent().height() * 0.78 );
-//   containerWidth = ($(this).parent().width() * 0.895962732919255);
-//   positionFromLeft = ($(this).position().left);
-//   positionFromTop = ($(this).position().top);
-//   xRating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
-//   yRating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
-//   textRating = $('.dialogTextArea').html();
+  // testing code
+  // alert('container height: '+ ($(this).parent().height() * 0.78 ));
+  // alert('position from top: '+ positionFromTop);
+  // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
+  // alert('position from left: '+ positionFromLeft);
+  // alert('xRating'+ xRating);
+  // alert('yRating' + yRating);
 
-//   // testing code
-//   // alert('container height: '+ ($(this).parent().height() * 0.78 ));
-//   // alert('position from top: '+ positionFromTop);
-//   // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
-//   // alert('position from left: '+ positionFromLeft);
-//   // alert('xRating'+ xRating);
-//   // alert('yRating' + yRating);
+  data.items.push({"name": item_name, "itemId": id, "xRating":x_rating, "yRating":y_rating, "textRating":text_rating});
 
-//   data.items.push({"name": item_name, "itemId": id, "xRating":x_rating, "yRating":y_rating, "textRating":text_rating});
-
-// });
+		});
+	});
+});
 
 // disable the button to prevent multiple clicks
  // $("#rateNowButton").removeClass('disabled');
