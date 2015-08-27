@@ -23,7 +23,7 @@ INSERT INTO `categories` (`id`, `category_name`) VALUES
 (189, 'money');
 
 -- --------------------------------------------------------
-
+ 
 -- Dumping data for table `fblogin`
 --
 

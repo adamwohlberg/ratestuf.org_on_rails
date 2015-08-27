@@ -33,5 +33,9 @@ class Rating < ActiveRecord::Base
 	  return result.flatten
 	end
 
+	def rate_it 
+		
+	end
+
 
 end
