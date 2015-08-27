@@ -136,12 +136,14 @@ $(".draggable").mousemove(function(){
 // });
 
 
-//display number of ratings
-  // $(".draggable").hover(function() {
-  //     $(this).find(".speechBubble").fadeIn(1000).delay(50).fadeOut(2500);
-  //     $(this).find(".ratings").fadeIn(1000).delay(50).fadeOut(2500);
-  //     return;
-  // });
+// display number of ratings
+$(document).ready(function() {
+  $(".draggable").hover(function() {
+      $(this).find(".speechBubble").fadeIn(1000).delay(50).fadeOut(2500);
+      $(this).find(".ratings").fadeIn(1000).delay(50).fadeOut(2500);
+      return;
+  });
+});
 
  // draggable within a box and others
 $(document).ready(function() {
@@ -157,7 +159,6 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$("#rateNowButton").click(function(){
-	  console.log('test');
 	  if ($(this).hasClass('disabled')) {
 	    return;
 	  } 
