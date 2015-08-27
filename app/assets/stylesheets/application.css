@@ -633,7 +633,7 @@ background: repeating-linear-gradient(
 	position: absolute;
 	z-index: 100;
 	margin: -25px 0px 0px 5px;
-/*	display: none;*/
+	display: none;
 }
 .starRating {
 	display: -webkit-flex;
