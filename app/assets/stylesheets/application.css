@@ -20,6 +20,9 @@
 a #logo3 {
 	color:#00b300;
 }
+a #logo3:hover {
+	color:#00cc00;
+}
  #headerCenterColumnWithAd {
 	padding: 40px 0px 0px 0px;
 }
