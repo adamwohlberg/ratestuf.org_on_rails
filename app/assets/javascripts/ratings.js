@@ -6,6 +6,10 @@
 $(document).foundation();
 // $(function(){ $(document).foundation(); });
 
+$("#rateNowButton").click(function(){
+  console.log('test');
+  alert('wtf');
+});
 
 // animation to drop the last letter in the tagline after 2 seconds
 $(document).ready(function() {
@@ -147,7 +151,7 @@ $(function() {
   data.items = [];
 
 $("#rateNowButton").click(function(){
-
+  console.log('test');
   if ($(this).hasClass('disabled')) {
     return;
   } 
@@ -180,7 +184,7 @@ $("#rateNowButton").click(function(){
   // alert('xRating'+ xRating);
   // alert('yRating' + yRating);
 
-  data.items.push({"name": itemName, "itemId": itemId, "xRating":xRating, "yRating":yRating, "textRating":textRating});
+  data.items.push({"name": item_name, "itemId": id, "xRating":x_rating, "yRating":y_rating, "textRating":text_rating});
 
 });
 
