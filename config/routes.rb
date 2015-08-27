@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   get '/search' => 'ratings#search'
 
-  root 'ratings#index', search_term: 'uber vs. lyft'
+  root 'ratings#index', search: 'uber vs. lyft'
 
 
 
