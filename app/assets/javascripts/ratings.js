@@ -159,36 +159,38 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$("#rateNowButton").click(function(){
-	  if ($(this).hasClass('disabled')) {
-	    return;
-	  } 
-	  if ($('.draggable').length == 0) { 
-	   alert("Please search for an item first.");
-	    return;
-	  }
+		alert('rate it!');
+	  // if ($(this).hasClass('disabled')) {
+	  //   return;
+	  // } 
+	  // if ($('.draggable').length == 0) { 
+	  //  alert("Please search for an item first.");
+	  //   return;
+	  // }
 	// disable the button to prevent multiple clicks
-	 $("#rateNowButton").addClass('disabled');
+	 // $("#rateNowButton").addClass('disabled');
 
 	  $('.draggable').each(function() {
 
-		  itemName = $(this).attr('name');
-		  itemId = $(this).attr('id');
+		  item_name = $(this).attr('name');
+		  item_id = $(this).attr('id');
 		  containerHeight = ($(this).parent().height() * 0.78 );
 		  containerWidth = ($(this).parent().width() * 0.895962732919255);
 		  positionFromLeft = ($(this).position().left);
 		  positionFromTop = ($(this).position().top);
-		  xRating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
-		  yRating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
-		  textRating = $('.dialogTextArea').html();
+		  x_rating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
+		  y_rating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
 		  // testing code
-		  // alert('container height: '+ ($(this).parent().height() * 0.78 ));
-		  // alert('position from top: '+ positionFromTop);
-		  // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
-		  // alert('position from left: '+ positionFromLeft);
-		  // alert('xRating'+ xRating);
-		  // alert('yRating' + yRating);
+		  alert('item name: '+ item_name);
+		  alert('item id: '+ item_id);
+		  alert('container height: '+ ($(this).parent().height() * 0.78 ));
+		  alert('position from top: '+ positionFromTop);
+		  alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
+		  alert('position from left: '+ positionFromLeft);
+		  alert('x_rating: '+ x_rating);
+		  alert('y_rating: ' + y_rating);
 
-	  data.items.push({"name": item_name, "itemId": id, "xRating":x_rating, "yRating":y_rating, "textRating":text_rating});
+	  data.items.push({"item_name": item_name, "item_id": item_id, "x_rating":x_rating, "y_rating":y_rating});
 
 		});
 	});
@@ -219,67 +221,68 @@ $(document).ready(function() {
 //   dataType:'json'});
 
 // });
+$(document).ready(function() {
+	$(".draggable").each(function(){
 
-// $(".draggable").each(function(){
+	  xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
+	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
+	  UpperLineSlope = 0.8965;
+	  yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
+	  LowerLineSlope = 0.8977;
+	  yPositionOnLowerLine = ((LowerLineSlope * xPosition) + 5);
+	  // alert('xposition: ' + xPosition + ', yposition: ' + yPosition + ' yposition of lowerline: ' + yPositionOnLowerLine + ' yposition of upperline: ' + yPositionOnUpperLine);
 
-//   xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
-//   yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
-//   UpperLineSlope = 0.8965;
-//   yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
-//   LowerLineSlope = 0.8977;
-//   yPositionOnLowerLine = ((LowerLineSlope * xPosition) + 5);
-//   // alert('xposition: ' + xPosition + ', yposition: ' + yPosition + ' yposition of lowerline: ' + yPositionOnLowerLine + ' yposition of upperline: ' + yPositionOnUpperLine);
+	  if (yPosition > yPositionOnUpperLine) {
+	        $(this).removeClass('bestValue');
+	        $(this).removeClass('fairValue');  
+	        $(this).addClass('worseValue');
+	  }
+	  
+	  if (yPosition <= yPositionOnUpperLine && yPosition >= yPositionOnLowerLine) {
+	        $(this).removeClass('worseValue');
+	        $(this).removeClass('bestValue');        
+	        $(this).addClass('fairValue'); 
+	  } 
+	  
+	  if (yPosition < yPositionOnLowerLine) {
+	        $(this).removeClass('worseValue');
+	        $(this).removeClass('fairValue');  
+	        $(this).addClass('bestValue'); 
+	  }
+	}); 
+}); 
 
-//   if (yPosition > yPositionOnUpperLine) {
-//         $(this).removeClass('bestValue');
-//         $(this).removeClass('fairValue');  
-//         $(this).addClass('worseValue');
-//   }
-  
-//   if (yPosition <= yPositionOnUpperLine && yPosition >= yPositionOnLowerLine) {
-//         $(this).removeClass('worseValue');
-//         $(this).removeClass('bestValue');        
-//         $(this).addClass('fairValue'); 
-//   } 
-  
-//   if (yPosition < yPositionOnLowerLine) {
-//         $(this).removeClass('worseValue');
-//         $(this).removeClass('fairValue');  
-//         $(this).addClass('bestValue'); 
-//   }
-// }); 
+$(document).ready(function() {
+	$(".draggable").mouseover(function(){
 
+	  xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
+	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
+	  UpperLineSlope = 0.8965;
+	  yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
+	  LowerLineSlope = 0.8977;
+	  yPositionOnLowerLine = ((LowerLineSlope * xPosition) + 5);
+	  // alert('xposition: ' + xPosition + ', yposition: ' + yPosition + ' yposition of lowerline: ' + yPositionOnLowerLine + ' yposition of upperline: ' + yPositionOnUpperLine);
 
-// $(".draggable").mouseover(function(){
-
-//   xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
-//   yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
-//   UpperLineSlope = 0.8965;
-//   yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
-//   LowerLineSlope = 0.8977;
-//   yPositionOnLowerLine = ((LowerLineSlope * xPosition) + 5);
-//   // alert('xposition: ' + xPosition + ', yposition: ' + yPosition + ' yposition of lowerline: ' + yPositionOnLowerLine + ' yposition of upperline: ' + yPositionOnUpperLine);
-
-//   // if (userloggedin && yPosition > yPositionOnUpperLine) {
-//   if (yPosition > yPositionOnUpperLine) {
-//         $(this).removeClass('bestValue');
-//         $(this).removeClass('fairValue');  
-//         $(this).addClass('worseValue');
-//   }
-  
-//   if (yPosition <= yPositionOnUpperLine && yPosition >= yPositionOnLowerLine) {
-//         $(this).removeClass('worseValue');
-//         $(this).removeClass('bestValue');        
-//         $(this).addClass('fairValue'); 
-//   } 
-  
-//   if (yPosition < yPositionOnLowerLine) {
-//         $(this).removeClass('worseValue');
-//         $(this).removeClass('fairValue');  
-//         $(this).addClass('bestValue'); 
-//   }
-// }); 
-
+	  // if (userloggedin && yPosition > yPositionOnUpperLine) {
+	  if (yPosition > yPositionOnUpperLine) {
+	        $(this).removeClass('bestValue');
+	        $(this).removeClass('fairValue');  
+	        $(this).addClass('worseValue');
+	  }
+	  
+	  if (yPosition <= yPositionOnUpperLine && yPosition >= yPositionOnLowerLine) {
+	        $(this).removeClass('worseValue');
+	        $(this).removeClass('bestValue');        
+	        $(this).addClass('fairValue'); 
+	  } 
+	  
+	  if (yPosition < yPositionOnLowerLine) {
+	        $(this).removeClass('worseValue');
+	        $(this).removeClass('fairValue');  
+	        $(this).addClass('bestValue'); 
+	  }
+	}); 
+}); 
 // duplicate to try to get highlighting on mouseover to function more smoothly so when user releases mouse, the javascript tries again to color correctly. remove this and you need to click to get a recoloring.
 // $(".draggable").mouseup(function(){
 
