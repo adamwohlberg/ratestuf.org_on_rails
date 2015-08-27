@@ -6,24 +6,20 @@
 $(document).foundation();
 // $(function(){ $(document).foundation(); });
 
-$("#rateNowButton").click(function(){
-  console.log('test');
-  alert('wtf');
-});
 
 // animation to drop the last letter in the tagline after 2 seconds
-// $(document).ready(function() {
-//   setTimeout(function() {
-//     $("#logo3-falling-f").css("position", "absolute" );
-//     $("#logo3-falling-f").css("z-index", "-9999" );
-//     $("#logo3-falling-f").css("font-size", "1em" );
-//     $("#logo3-falling-f").css("margin", "60px 0px 0px 4px" );
-//     $("#logo3-falling-f").css("-webkit-transform", "rotate(85deg)" );
-//     $("#logo3-falling-f").css("-moz-transform", "rotate(85deg)" );
-//     $("#logo3-falling-f").css("-ms-transform", "rotate(85deg)" );
-//     $("#logo3-falling-f").css("-o-transform", "rotate(85deg)" );
-//     }, 2000);
-// });
+$(document).ready(function() {
+  setTimeout(function() {
+    $("#logo3-falling-f").css("position", "absolute" );
+    $("#logo3-falling-f").css("z-index", "-9999" );
+    $("#logo3-falling-f").css("font-size", "1em" );
+    $("#logo3-falling-f").css("margin", "60px 0px 0px 4px" );
+    $("#logo3-falling-f").css("-webkit-transform", "rotate(85deg)" );
+    $("#logo3-falling-f").css("-moz-transform", "rotate(85deg)" );
+    $("#logo3-falling-f").css("-ms-transform", "rotate(85deg)" );
+    $("#logo3-falling-f").css("-o-transform", "rotate(85deg)" );
+    }, 2000);
+});
 
 // function saveratings(data) {
 //   $.ajax({ 
@@ -50,64 +46,67 @@ $("#rateNowButton").click(function(){
 
 
 //user is able to select a draggable ball and delete it from the screen using BACKSPSACE or DELETE
-$(".draggable").click(function(){
-  // if (userloggedin) {
-    $(".draggable").not(this).removeClass("active");
-    $(this).toggleClass("active");
-  // }
+$(document).ready(function() {
+	$(".draggable").click(function(){
+	  // if (userloggedin) {
+	    $(".draggable").not(this).removeClass("active");
+	    $(this).toggleClass("active");
+	  // }
+		});
 });
 
 
-// $(".draggable").mousemove(function(){
-//   var counter = ((((($(this).position().left)/($('#containmentWrapper').width()-($(this).width()/2))*100)/20)+0.4).toFixed(1));
-//     if (counter == 0.4) {
-//       counter = (0.0).toFixed(1); 
-//     } else if (counter > 5) {
-//        counter = (5.0).toFixed(1);     
-//     }
-//     $("#starCounter").html(counter);
-// });
+$(document).ready(function() {
+	$(".draggable").mousemove(function(){
+	  var counter = ((((($(this).position().left)/($('#containmentWrapper').width()-($(this).width()/2))*100)/20)+0.4).toFixed(1));
+	    if (counter == 0.4) {
+	      counter = (0.0).toFixed(1); 
+	    } else if (counter > 5) {
+	       counter = (5.0).toFixed(1);     
+	    }
+	    $("#starCounter").html(counter);
+	});
+});
 
+$(document).ready(function() {
+$(".draggable").mousemove(function(){
+	  $(".star").removeClass('starhover');
 
-// $(".draggable").mousemove(function(){
-// //STARS
-//     $(".star").removeClass('starhover');
+	  if ($(this).position().left > (($("#star1").position().left)+50)) {
+	    $("#star1").addClass('starhover');
+	  } 
+	  if ($(this).position().left > (($("#star2").position().left)+50)) {
+	    $("#star2").addClass('starhover');
+	  }
+	  if ($(this).position().left > (($("#star3").position().left)+50)) {
+	    $("#star3").addClass('starhover');
+	  }
+	      if ($(this).position().left > (($("#star4").position().left)+50)) {
+	    $("#star4").addClass('starhover');
+	  }
+	      if ($(this).position().left > (($("#star5").position().left)+50)) {
+	    $("#star5").addClass('starhover');
+	  }
+	  $("#fourDollars").removeClass('dollarhover');
+	  $("#threeDollars").removeClass('dollarhover');   
+	  $("#twoDollars").removeClass('dollarhover');
+	  $("#oneDollar").removeClass('dollarhover');
 
-//     if ($(this).position().left > (($("#star1").position().left)+50)) {
-//       $("#star1").addClass('starhover');
-//     } 
-//     if ($(this).position().left > (($("#star2").position().left)+50)) {
-//       $("#star2").addClass('starhover');
-//     }
-//     if ($(this).position().left > (($("#star3").position().left)+50)) {
-//       $("#star3").addClass('starhover');
-//     }
-//         if ($(this).position().left > (($("#star4").position().left)+50)) {
-//       $("#star4").addClass('starhover');
-//     }
-//         if ($(this).position().left > (($("#star5").position().left)+50)) {
-//       $("#star5").addClass('starhover');
-//     }
-// //DOLLARS
-//     $("#fourDollars").removeClass('dollarhover');
-//     $("#threeDollars").removeClass('dollarhover');   
-//     $("#twoDollars").removeClass('dollarhover');
-//     $("#oneDollar").removeClass('dollarhover');
+	  if ($(this).offset().top < (($("#fourDollars").offset().top)+40)) {
+	    $("#fourDollars").addClass('dollarhover');
+	  } 
+	  if ($(this).offset().top < (($("#threeDollars").offset().top)+40)) {
+	    $("#threeDollars").addClass('dollarhover');
+	  }
+	  if ($(this).offset().top < (($("#twoDollars").offset().top)+40)) {
+	    $("#twoDollars").addClass('dollarhover');
+	  }
+	      if ($(this).offset().top < (($("#oneDollar").offset().top)+20)) {
+	    $("#oneDollar").addClass('dollarhover');
+	  }
+	});
+});
 
-//     if ($(this).offset().top < (($("#fourDollars").offset().top)+40)) {
-//       $("#fourDollars").addClass('dollarhover');
-//     } 
-//     if ($(this).offset().top < (($("#threeDollars").offset().top)+40)) {
-//       $("#threeDollars").addClass('dollarhover');
-//     }
-//     if ($(this).offset().top < (($("#twoDollars").offset().top)+40)) {
-//       $("#twoDollars").addClass('dollarhover');
-//     }
-//         if ($(this).offset().top < (($("#oneDollar").offset().top)+20)) {
-//       $("#oneDollar").addClass('dollarhover');
-//     }
-
-// });
 
 // $(document.body).keyup(function(event){
 //     if (event.keyCode == 46 || event.keyCode == 8) {
