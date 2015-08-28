@@ -1,6 +1,7 @@
 class Rating < ActiveRecord::Base
 
-	belongs_to :item
+	belongs_to :item, dependent: :destroy,
+    counter_cache: true
 	belongs_to :user
 
 	# EXAMPLES:

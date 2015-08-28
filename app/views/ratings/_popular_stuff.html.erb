@@ -1,14 +1,10 @@
 <h3 class="popular">  Popular Stuff: </h3>
 
 <div id="tagcloud">
-
-
-<% @items.each do |item| %>
-
-        
+<% @popular_items.first(10).each do |item| %>
+	<span class="<%= 'item.popularity' %>">
+		<%= link_to item[0], :search => item[0] %>
+	</span>
 <% end %>
-<span class="<?php echo $class; ?>">
-<a href="?s=<?php echo urlencode($itemName['itemName']); ?>"><?php echo $itemName['itemName']; ?></a>
-</span>
-<?php endforeach; ?>
 </div>
+
