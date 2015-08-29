@@ -11,44 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822164513) do
+ActiveRecord::Schema.define(version: 20150829214450) do
 
   create_table "categories", force: :cascade do |t|
-    t.string "category_name", limit: 255
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "item_name",  limit: 255
-    t.string   "item_url",   limit: 255
+    t.string   "name",       limit: 255
+    t.string   "url",        limit: 255
     t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "items_subcategories", id: false, force: :cascade do |t|
-    t.integer "item_id",        limit: 4
-    t.integer "subcategory_id", limit: 4
+  create_table "items_categories", force: :cascade do |t|
+    t.integer "item_id",     limit: 4
+    t.integer "category_id", limit: 4
   end
 
-  add_index "items_subcategories", ["item_id"], name: "index_items_subcategories_on_item_id", using: :btree
-  add_index "items_subcategories", ["subcategory_id"], name: "index_items_subcategories_on_subcategory_id", using: :btree
+  add_index "items_categories", ["item_id", "category_id"], name: "item_subcategory_index", unique: true, using: :btree
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
     t.integer  "item_id",     limit: 4
-    t.decimal  "x_rating",                  precision: 10, scale: 3
-    t.decimal  "y_rating",                  precision: 10, scale: 3
+    t.decimal  "x_rating",                  precision: 10, scale: 3, default: 0.5
+    t.decimal  "y_rating",                  precision: 10, scale: 3, default: 0.5
     t.text     "text_rating", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "subcategories", force: :cascade do |t|
-    t.string   "subcategory_name",   limit: 255
-    t.string   "subcategory_factor", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "category_id",        limit: 4
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,9 +3,8 @@ class RatingsController < ApplicationController
 	layout 'application'
 
   def index
-    @items = Item.all
   	search
-    @popular_items = Item.joins(:ratings).group(:item_name).count("ratings.id") 
+    @popular_items = Item.joins(:ratings).group(:name).count("ratings.id") 
   end
 
   def search
