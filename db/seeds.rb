@@ -393,7 +393,6 @@ Item.create!([
   {name: "uber", url: "http://www.uber.com", user_id: 503854370},
   {name: "iphone", url: "http://www.apple.com/", user_id: 503854370},
   {name: "samsung galaxy 5", url: "http://www.samsung.com/us/", user_id: 503854370},
-  {name: "american airlines", url: "http://www.aa.com/", user_id: 503854370},
   {name: "facebook", url: "https://www.facebook.com/", user_id: 1},
   {name: "Apple MacBook Pro 15-inch (2013)", url: "", user_id: 1},
   {name: "Apple MacBook Pro 13-inch (2013)", url: "", user_id: 1},
@@ -464,6 +463,20 @@ Item.create!([
 (Item.all).each do |item|
   ItemsCategory.create!([{ item_id: item.id, category_id: 1 }])
 end
+
+  ItemsCategory.create!([{ item_id: Item.find_by_name('southwest').id, category_id: Category.find_by_name('airlines').id }])
+  ItemsCategory.create!([{ item_id: Item.find_by_name('delta').id, category_id: Category.find_by_name('airlines').id }])
+  ItemsCategory.create!([{ item_id: Item.find_by_name('virgin').id, category_id: Category.find_by_name('airlines').id }])
+  ItemsCategory.create!([{ item_id: Item.find_by_name('american').id, category_id: Category.find_by_name('airlines').id }])
+
+  ItemsCategory.create!([{ item_id: Item.find_by_name('geico').id, category_id: Category.find_by_name('car insurance').id }])
+  ItemsCategory.create!([{ item_id: Item.find_by_name('progressive').id, category_id: Category.find_by_name('car insurance').id }])
+
+  ItemsCategory.create!([{ item_id: Item.find_by_name('hazelden').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
+  ItemsCategory.create!([{ item_id: Item.find_by_name('promises').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
+  ItemsCategory.create!([{ item_id: Item.find_by_name('sierra tucson').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
+  ItemsCategory.create!([{ item_id: Item.find_by_name('betty ford').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
+
 
 (Item.all).each do |item| 
   Rating.create!([{ user_id: 1, item_id: item.id }])
