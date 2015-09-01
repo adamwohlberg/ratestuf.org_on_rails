@@ -16,12 +16,12 @@ $(document).ready(function() {
   setTimeout(function() {
     $("#logo3-falling-f").css("position", "absolute" );
     $("#logo3-falling-f").css("z-index", "-9999" );
-    $("#logo3-falling-f").css("font-size", "1.5em" );
-    $("#logo3-falling-f").css("margin", "36px 0px 0px 4px" );
-    $("#logo3-falling-f").css("-webkit-transform", "rotate(85deg)" );
-    $("#logo3-falling-f").css("-moz-transform", "rotate(85deg)" );
-    $("#logo3-falling-f").css("-ms-transform", "rotate(85deg)" );
-    $("#logo3-falling-f").css("-o-transform", "rotate(85deg)" );
+    $("#logo3-falling-f").css("font-size", "2.1em" );
+    $("#logo3-falling-f").css("margin", "23px 0px 0px 4px" );
+    $("#logo3-falling-f").css("-webkit-transform", "rotate(88deg)" );
+    $("#logo3-falling-f").css("-moz-transform", "rotate(88deg)" );
+    $("#logo3-falling-f").css("-ms-transform", "rotate(88deg)" );
+    $("#logo3-falling-f").css("-o-transform", "rotate(88deg)" );
 	});
 });
 
@@ -111,7 +111,6 @@ $(".draggable").mousemove(function(){
 	});
 });
 
-
 $(document.body).keyup(function(event){
     if (event.keyCode == 46 || event.keyCode == 8) {
         event.preventDefault();
@@ -119,7 +118,9 @@ $(document.body).keyup(function(event){
     }
 });
 
-
+// $(document).ready(function() {
+//     $(".itemName").css('display','none');
+// });
 
 $(".draggable").click(function() {
     $(this).find(".itemName").fadeIn(1000);
@@ -158,14 +159,9 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$("#rateNowButton").click(function(){
-		alert('rate it!');
 	  if ($(this).hasClass('disabled')) {
 	    return;
 	  } 
-	  if ($('.draggable').length == 0) { 
-	   alert("Please search for an item first.");
-	    return;
-	  }
 
 	// disable the button to prevent multiple clicks
 	 $("#rateNowButton").addClass('disabled');
@@ -180,15 +176,16 @@ $(document).ready(function() {
 		  positionFromTop = ($(this).position().top);
 		  x_rating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
 		  y_rating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
-		  // testing code
-		  alert('item name: '+ item_name);
-		  // alert('item id: '+ item_id);
-		  // alert('container height: '+ ($(this).parent().height() * 0.78 ));
-		  // alert('position from top: '+ positionFromTop);
-		  // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
-		  // alert('position from left: '+ positionFromLeft);
-		  alert('x_rating: '+ x_rating);
-		  alert('y_rating: ' + y_rating);
+
+		  // testing
+		  // alert('item name: '+ item_name);
+		  // // alert('item id: '+ item_id);
+		  // // alert('container height: '+ ($(this).parent().height() * 0.78 ));
+		  // // alert('position from top: '+ positionFromTop);
+		  // // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
+		  // // alert('position from left: '+ positionFromLeft);
+		  // alert('x_rating: '+ x_rating);
+		  // alert('y_rating: ' + y_rating);
 
 	  data.items.push({"item_name": item_name, "item_id": item_id, "x_rating":x_rating, "y_rating":y_rating});
 
