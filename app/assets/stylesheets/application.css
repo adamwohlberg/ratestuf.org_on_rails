@@ -738,11 +738,12 @@ background: repeating-linear-gradient(
 	height: 2.0em;
 	width: 95%;
 	margin: 13px 0px 0px 0px;
-	padding: 2px 2px 2px 2px;
+	padding: 6px 2px 2px 2px;
 	box-shadow: 4px 4px 0px 0px;
 	position: absolute;
 	z-index: 3;
 	border: 2px solid #1cff2c;
+	text-align: center;
 }
 #rateNowButton:not(.disabled):hover  {
 /*	background: #1cff2c;

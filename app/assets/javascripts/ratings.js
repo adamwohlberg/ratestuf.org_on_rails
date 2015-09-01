@@ -2,7 +2,6 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
 $(document).foundation();
 // $(function(){ $(document).foundation(); });
 
@@ -25,6 +24,7 @@ $(document).ready(function() {
     $("#logo3-falling-f").css("-o-transform", "rotate(85deg)" );
 	});
 });
+
 // function saveratings(data) {
 //   $.ajax({ 
 //       type: "POST",
@@ -36,7 +36,7 @@ $(document).ready(function() {
 //         if (res.hasOwnProperty('alreadyRated')) {
 //           alert("You've already rated this stuf.");
 //         } else {
-//         alert("Got it! Thanks for adding your ratings to our database. You are awesome!");
+//         alert("Got it! Thanks for adding your ratings to our database. You are awesome!"
 //         location.reload();
 //         }
 //         // Location.reload(true);
@@ -112,28 +112,27 @@ $(".draggable").mousemove(function(){
 });
 
 
-// $(document.body).keyup(function(event){
-//     if (event.keyCode == 46 || event.keyCode == 8) {
-//         event.preventDefault();
-//         $(".active").remove();
-//     }
-// });
-
-// $( ".draggable" ).parent().css( "background-color", "20px red" );
+$(document.body).keyup(function(event){
+    if (event.keyCode == 46 || event.keyCode == 8) {
+        event.preventDefault();
+        $(".active").remove();
+    }
+});
 
 
-// $(".draggable").click(function() {
-//     $(this).find(".itemName").fadeIn(1000);
-//     return;
-// });
-// $(".draggable").mouseover(function() {
-//     $(this).find(".itemName").fadeIn(1000);
-//     return;
-// });
-// $(".draggable").mouseout(function() {
-//     $(this).find(".itemName").fadeOut(4000);
-//     return;
-// });
+
+$(".draggable").click(function() {
+    $(this).find(".itemName").fadeIn(1000);
+    return;
+});
+$(".draggable").mouseover(function() {
+    $(this).find(".itemName").fadeIn(1000);
+    return;
+});
+$(".draggable").mouseout(function() {
+    $(this).find(".itemName").fadeOut(4000);
+    return;
+});
 
 
 // display number of ratings
@@ -160,15 +159,16 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$("#rateNowButton").click(function(){
 		alert('rate it!');
-	  // if ($(this).hasClass('disabled')) {
-	  //   return;
-	  // } 
-	  // if ($('.draggable').length == 0) { 
-	  //  alert("Please search for an item first.");
-	  //   return;
-	  // }
+	  if ($(this).hasClass('disabled')) {
+	    return;
+	  } 
+	  if ($('.draggable').length == 0) { 
+	   alert("Please search for an item first.");
+	    return;
+	  }
+
 	// disable the button to prevent multiple clicks
-	 // $("#rateNowButton").addClass('disabled');
+	 $("#rateNowButton").addClass('disabled');
 
 	  $('.draggable').each(function() {
 
@@ -182,11 +182,11 @@ $(document).ready(function() {
 		  y_rating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
 		  // testing code
 		  alert('item name: '+ item_name);
-		  alert('item id: '+ item_id);
-		  alert('container height: '+ ($(this).parent().height() * 0.78 ));
-		  alert('position from top: '+ positionFromTop);
-		  alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
-		  alert('position from left: '+ positionFromLeft);
+		  // alert('item id: '+ item_id);
+		  // alert('container height: '+ ($(this).parent().height() * 0.78 ));
+		  // alert('position from top: '+ positionFromTop);
+		  // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
+		  // alert('position from left: '+ positionFromLeft);
 		  alert('x_rating: '+ x_rating);
 		  alert('y_rating: ' + y_rating);
 
@@ -197,7 +197,7 @@ $(document).ready(function() {
 });
 
 // disable the button to prevent multiple clicks
- // $("#rateNowButton").removeClass('disabled');
+ $("#rateNowButton").removeClass('disabled');
  
 //  $.ajax({ 
 
@@ -221,6 +221,7 @@ $(document).ready(function() {
 //   dataType:'json'});
 
 // });
+
 $(document).ready(function() {
 	$(".draggable").each(function(){
 
@@ -313,14 +314,16 @@ $(document).ready(function() {
 //   }
 // }); 
 
+
+// ***********************************
+// testing code to show the parent element for rating calculations based on position of the dragggable element relative to parent
 // $(document).ready(function() {
 // $("#rateTableFrame").css('border', '2px solid blue');
-// // $('.draggable').parent().css('border', '5px solid red');
+// $('.draggable').parent().css('border', '5px solid red');
 // });
-
 // $(document).ready(function() {
 // $("#containmentWrapper").css('border', '2px solid red');
 // // $('.draggable').parent().css('border', '5px solid red');
 // });
-
+// ***********************************
 

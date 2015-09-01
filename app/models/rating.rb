@@ -30,6 +30,9 @@ class Rating < ActiveRecord::Base
 		params.each do |query|
 		result << Item.find_by_sql(["SELECT (AVG(x_rating)*100) AS xRating, (AVG(y_rating)*100) AS yRating, COUNT(x_rating) AS votes, items.name, items.id, items.url FROM `items` JOIN items_categories ON items.id = items_categories.item_id JOIN `categories` ON categories.id = items_categories.category_id JOIN `ratings` ON ratings.item_id = items.id WHERE items.name LIKE concat('%', ?, '%') OR categories.name like concat('%', ?, '%') GROUP BY items.name LIMIT 10", query, query])
 	  end
+	  # unless result.flatten.size == params.size
+   #      flash[:notice] = "One or more of your search terms in not currently in our database. Please log in to add this/these new item(s) to our database."
+	  # end
 	  return result.flatten
 	end
 
