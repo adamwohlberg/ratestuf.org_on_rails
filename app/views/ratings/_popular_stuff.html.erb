@@ -1,8 +1,8 @@
 <h3 class="popular">  Popular Stuff: </h3>
 
 <div id="tagcloud">
-<% @popular_items.first(10).each do |item| %>
-	<span class="<%= 'item.popularity' %>">
+<% @tag_cloud_items.first(10).each do |item| %>
+	<span class="<%= item.tag_cloud_class %>">
 		<%= link_to item[0], :search => item[0] %>
 	</span>
 <% end %>

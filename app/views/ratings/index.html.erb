@@ -30,7 +30,7 @@
   </div>
   <div class="large-5 medium-5 show-for-medium-up columns section_border">
     <%= render 'trending_stuff' %>
-    <%= render 'popular_stuff' %>
+    <%# render 'popular_stuff' %>
     <br/>
     <br/>
     <br/>
@@ -50,10 +50,7 @@
   </div>
 </div>
 
-<!-- hack to add user_logged_in? to javascript
- -->
- <script type="javascript">
-  userloggedin = <% user_signed_in? ? 'true' : 'false' %>
-</script>
-
+<%= javascript_tag do %>
+  userloggedin = "<%=j user_signed_in? ? true : false %>"; 
+<% end %>
 
