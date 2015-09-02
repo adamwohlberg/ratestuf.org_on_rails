@@ -3,21 +3,22 @@ class RatingsController < ApplicationController
 	layout 'application'
 
   def index
-  	search
-    @popular_items = Item.joins(:ratings).group(:name).count("ratings.id") 
+    @items = params[:search].present? ? Rating.search(params[:search]) : []
+    # @popular_items = Item.joins(:ratings).group(:name).count("ratings.id") 
   end
 
   def search
     if !params[:search].present? 
       flash[:alert] = "Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines')."
-    else 
-      flash[:alert] = ""      
+    else
+      flash[:alert] = ""
+      add_new_items    
+		  @items = params[:search].present? ? Rating.search(params[:search]) : []
     end
-		@items = params[:search].present? ? Rating.search(params[:search]) : []
   end
 
   def create
-    @items = params[:search].present? ? Rating.search(params[:search]) : []
+    @items = params[:search].present? ? Rating.search(params[:search]) : []  
     if @items.empty?
       redirect_to :root
       flash[:alert] = "You must search for an item(s) before you can rate it."
@@ -47,5 +48,22 @@ class RatingsController < ApplicationController
 
   def destroy
   end
+
+  private 
+
+  def add_new_items
+    @items = Item.search(params[:search])
+    @items.each do |item|
+      next if Item.find_by_name(item.strip).exists?
+      if !user_signed_in? 
+         redirect_to :root
+         flash[:alert] = "One or more of your item(s) is not currently in our database. Please sign in to continue."
+      else
+        Item.create!(name: item.name)
+      end
+    end
+  end
+
+
 
 end
