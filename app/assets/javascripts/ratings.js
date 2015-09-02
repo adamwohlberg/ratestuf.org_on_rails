@@ -10,7 +10,7 @@ $(document).ready(function() {
 	$("#starCounter").css("display", "block");
 	}, 100);	
 });
-
+   
 // animation to drop the last letter in the tagline after 2 seconds
 $(document).ready(function() {
 	 setTimeout(function() {

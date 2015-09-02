@@ -8,34 +8,38 @@ class RatingsController < ApplicationController
   end
 
   def search
+    if !params[:search].present? 
+      flash[:alert] = "Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines')."
+    else 
+      flash[:alert] = ""      
+    end
 		@items = params[:search].present? ? Rating.search(params[:search]) : []
-    # if Rating.search(params[:search]).count != params[:search].size
-    #   redirect_to :root
-    #   flash[:notice] = "One or more of your search terms in not currently in our database. Please log in to add these new item(s)."
-    # end
   end
 
   def create
-    search
-    if user_signed_in?
-      if params[:search].present? 
-          redirect_to :root
-          flash[:alert] = "You must search for an item(s) before you can rate it."
-      end
-      @items.each do |item|
-        @rating = Rating.create!(:item_id => item.id, :x_rating => item.x_rating, :y_rating => item.y_rating)
-        if @rating.save
-          redirect_to :root
-          flash[:notice] = "Congratulations. Your rating was successfully saved."
-        else
-          redirect_to :root
-          flash[:alert] = "Something went wrong. Please try again later." 
-        end
-      end     
+    @items = params[:search].present? ? Rating.search(params[:search]) : []
+    if @items.empty?
+      redirect_to :root
+      flash[:alert] = "You must search for an item(s) before you can rate it."
+    elsif !user_signed_in? 
+      redirect_to :root
+      flash[:alert] = "You must log in before you can rate an item(s)."
     else
-      render 'index'
-      flash[:notice] = "Please log in to add your ratings."
+    # @items.each do |item|
+      @rating = Rating.create!(:item_id => item.id, :x_rating => item.x_rating, :y_rating => item.y_rating)
+      if @rating.save
+        redirect_to :root
+        flash[:notice] = "Congratulations. Your rating was successfully saved."
+      else
+        redirect_to :root
+        flash[:alert] = "Something went wrong. Please try again later." 
+      end
     end
+      # end     
+    # else
+    #   render 'index'
+    #   flash[:notice] = "Please log in to add your ratings."
+    # end
   end
 
   def update

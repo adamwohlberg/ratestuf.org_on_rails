@@ -16,7 +16,9 @@
  *= require items
  *= require ratings
  */
-
+.alert:empty, .notice:empty  {
+  display: none;
+}
  
 .notice, .alert {
   padding: 8px 35px 8px 14px;
