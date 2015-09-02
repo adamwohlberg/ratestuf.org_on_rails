@@ -16,28 +16,23 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @items = params[:search].present? ? Rating.search(params[:search]) : []
+    search
     if user_signed_in?
       if params[:search].present? 
           redirect_to :root
           flash[:alert] = "You must search for an item(s) before you can rate it."
       end
       @items.each do |item|
-        # instantiate a new object
         @rating = Rating.create!(:item_id => item.id, :x_rating => item.x_rating, :y_rating => item.y_rating)
-    # save the object
         if @rating.save
-          # if save succeeds, redirect to the index action with a success method
           redirect_to :root
           flash[:notice] = "Congratulations. Your rating was successfully saved."
         else
-          # if save fails, redisplay 
           redirect_to :root
-          flash[:notice] = "Something went wrong. Please try again later." 
+          flash[:alert] = "Something went wrong. Please try again later." 
         end
       end     
     else
-      # if user is not signed in
       render 'index'
       flash[:notice] = "Please log in to add your ratings."
     end

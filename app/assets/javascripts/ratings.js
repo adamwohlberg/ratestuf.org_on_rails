@@ -13,16 +13,19 @@ $(document).ready(function() {
 
 // animation to drop the last letter in the tagline after 2 seconds
 $(document).ready(function() {
-  setTimeout(function() {
+	 setTimeout(function() {
     $("#logo3-falling-f").css("position", "absolute" );
     $("#logo3-falling-f").css("z-index", "-9999" );
-    $("#logo3-falling-f").css("font-size", "2.1em" );
-    $("#logo3-falling-f").css("margin", "23px 0px 0px 4px" );
+    $("#logo3-falling-f").css("font-size", "4.1em" );
+    $("#logo3-falling-f").css("margin", "900px 0px 0px 4px" );
     $("#logo3-falling-f").css("-webkit-transform", "rotate(88deg)" );
     $("#logo3-falling-f").css("-moz-transform", "rotate(88deg)" );
     $("#logo3-falling-f").css("-ms-transform", "rotate(88deg)" );
     $("#logo3-falling-f").css("-o-transform", "rotate(88deg)" );
-	});
+ 	 },1000);
+	 setTimeout(function() {
+    $("#logo3-falling-f").hide();
+	 },1900);
 });
 
 // function saveratings(data) {
