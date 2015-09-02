@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <%=  render 'ratings/header' %>
+      <%=  render 'items/header' %>
 
     <title><% content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
@@ -23,7 +23,7 @@
     <% end %>
     <%= yield %>
 
-      <%=  render 'ratings/footer' %>
+      <%=  render 'items/footer' %>
     
   </body>
 </html>
