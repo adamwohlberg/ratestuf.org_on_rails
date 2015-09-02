@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  include ItemsSearchable
 	layout 'application'
 
   def index
@@ -13,8 +13,6 @@ class ItemsController < ApplicationController
         # add the item to the db
       elsif !user_signed_in?
        flash.now[:alert] = "One or more of your item(s) is not currently in our database. Please sign in to continue."
-      else 
-        flash.now[:alert] = "Something is very wrong. There is a hole in the space time continuum.  Please try another search."
       end
     #search for a category with multiple items already in the db
     elsif Category.where("name LIKE ?", "%#{params[:search]}%").exists?
@@ -26,11 +24,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @items = Item.search(params[:search])
-    @items.each do |item|
-      next if Item.find_by_name(item.strip).exists?
-      Item.create!(name: item.name)
-    end
+    # @items = Item.search(params[:search])
+    # @items.each do |item|
+    #   next if Item.find_by_name(item.strip).exists?
+    #   Item.create!(name: item.name)
+    # end
   end
 
   def update
