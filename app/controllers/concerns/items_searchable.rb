@@ -12,8 +12,7 @@ extend ActiveSupport::Concern
 		set_items
 		case 
 		when @search_string.blank? then PLEASE_SEARCH 
-		when should_add_item?
-	    # add the item to the db		
+		when should_add_item? then create_item
 		when should_sign_in? then SIGN_IN
 		when category_exists?
 		when new_item? then NEW_ITEM
@@ -43,5 +42,10 @@ extend ActiveSupport::Concern
 	def should_sign_in?
 		@items.count.zero? && !user_signed_in?
 	end
+
+	def create_item
+	  ItemFactory.create!(@search_string)
+	end
+
 
 end
