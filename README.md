@@ -1,4 +1,6 @@
-RateStuf™ is an online review website. Our users work together to create a dynamic, real-time brand map to help other consumers discover the best-value brands and make better purchase decisions.
+RateStuf™ is an online review website. 
+
+Our users work together to create a dynamic, real-time brand map to help other consumers discover the best-value brands and make better purchase decisions.
 
 A brand map displays the competing brands in a given class that are all competing for your business.
 
