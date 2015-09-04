@@ -23,8 +23,11 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-	gem 'capybara', '~> 2.5.0'
 	gem 'simplecov'
   gem 'rspec-rails', '~> 3.3.3'
+end
+
+group :test do
+	gem 'capybara', '~> 2.5.0'
 end
 
