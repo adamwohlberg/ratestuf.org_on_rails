@@ -10,7 +10,10 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test 'user is not logged in and searches for an item which does exist in the db' do
-    get(:index, search: items(:uber).name )
+    item = Item.create!(name: 'uber')
+    default_category = CategoriesItem.create!(category_id: 1, item_id: item.id)
+    rating = Rating.create!(item_id: item.id, x_rating: 0.5, y_rating: 0.5)
+    get(:index, search: 'uber')
     assert_response :ok
     assert_equal '', flash[:alert]
     assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
