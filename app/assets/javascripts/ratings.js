@@ -62,6 +62,16 @@ $(document).ready(function() {
 		});
 });
 
+$(document.body).keyup(function(event){
+    if (event.keyCode == 46 || event.keyCode == 8) {
+        event.preventDefault();
+        $(this).closest('.active').remove();
+    }
+    event.preventDefault();
+});
+
+
+
 
 $(document).ready(function() {
 	$(".draggable").mousemove(function(){
@@ -112,13 +122,6 @@ $(".draggable").mousemove(function(){
 	    $("#oneDollar").addClass('dollarhover');
 	  }
 	});
-});
-
-$(document.body).keyup(function(event){
-    if (event.keyCode == 46 || event.keyCode == 8) {
-        event.preventDefault();
-        $(".active").remove();
-    }
 });
 
 // $(document).ready(function() {

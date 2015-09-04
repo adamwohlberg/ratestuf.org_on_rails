@@ -18,11 +18,12 @@ gem 'mysql2'
 gem 'devise', '~> 3.5.2'
 gem 'activeadmin', '~> 1.0.0.pre1'
 
-gem 'simplecov', :require => false, :group => :test
-
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+	gem 'capybara', '~> 2.5.0'
+	gem 'factory_girl_rails'
+	gem 'simplecov'
 end
 

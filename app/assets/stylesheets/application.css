@@ -965,8 +965,7 @@ margin-bottom: 7%;
 /*	z-index: 3;*/
 	margin: 15% auto;	
 }
-.active
-{
+.active {
 	border: 5px solid #fcff28;
 	width: 33px;
 	height: 33px;
