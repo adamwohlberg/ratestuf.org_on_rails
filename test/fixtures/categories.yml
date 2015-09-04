@@ -4,10 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: 
+new: 
   id: 1
-  name: new_item_no_category
+  name: new item
+  items: uber, lyft
 
-two:
+airline:
   id: 2
   name: airlines
+  items: delta, virgin, southwest, american

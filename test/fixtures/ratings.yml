@@ -5,36 +5,32 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  item_id: 1
+  item: uber
   x_rating: 0.5
   y_rating: 0.5
 
 two:
-  item_id: 2
+  item: lyft
   x_rating: 0.5
   y_rating: 0.5
 
 three:
-  item_id: 3
+  item: delta
   x_rating: 0.5
   y_rating: 0.5
 
 four:
-  item_id: 4
+  item: virgin
   x_rating: 0.5
   y_rating: 0.5
 
 five:
-  item_id: 5
+  item: southwest
   x_rating: 0.5
   y_rating: 0.5
 
 six:
-  item_id: 6
+  item: american
   x_rating: 0.5
   y_rating: 0.5
 
-seven:
-  item_id: 7
-  x_rating: 0.5
-  y_rating: 0.5

@@ -3,14 +3,14 @@ require 'test_helper'
 class ItemsControllerTest < ActionController::TestCase
   # case user NOT logged in
   test 'user is not logged in and attempts to search with empty search params' do
-    get(:index, { user_id: nil }, search: '')
+    get(:index, search: '')
     assert_response :ok
     assert_equal "Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.", flash[:alert]
     assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
   end
 
   test 'user is not logged in and searches for an item which does exist in the db' do
-    get(:index, { user_id: nil }, search: items(:one).name )
+    get(:index, search: items(:uber).name )
     assert_response :ok
     assert_equal nil, flash[:alert]
     assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
