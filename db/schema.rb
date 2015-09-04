@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901171249) do
+ActiveRecord::Schema.define(version: 20150904024304) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150901171249) do
     t.integer "category_id", limit: 4
   end
 
-  add_index "items_categories", ["item_id", "category_id"], name: "item_subcategory_index", unique: true, using: :btree
+  add_index "items_categories", ["item_id", "category_id"], name: "item_category_index", unique: true, using: :btree
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
