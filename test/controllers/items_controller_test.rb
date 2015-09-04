@@ -12,7 +12,7 @@ class ItemsControllerTest < ActionController::TestCase
   test 'user is not logged in and searches for an item which does exist in the db' do
     get(:index, search: items(:uber).name )
     assert_response :ok
-    assert_equal nil, flash[:alert]
+    assert_equal '', flash[:alert]
     assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
   end
 
