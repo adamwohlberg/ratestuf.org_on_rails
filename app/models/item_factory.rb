@@ -16,7 +16,7 @@ class ItemFactory
         Item.create!(name: token) 
         item_id = Item.where(name: token).first.id
         Rating.create!(item_id: item_id, x_rating: 0.5, y_rating: 0.5)
-        ItemsCategory.create!(item_id: item_id, category_id: 1)        
+        CategoriesItem.create!(item_id: item_id, category_id: 1)        
     end
     self
   end
