@@ -11,8 +11,8 @@ $(document).ready(function() {
 	}, 100);	
 });
    
-// animation to drop the last letter in the tagline after 2 seconds
-$(document).ready(function() {
+// // animation to drop the last letter in the tagline after 2 seconds
+	function tagLineLetterFallsOnLoad() {
 	 setTimeout(function() {
     $("#logo3-falling-f").css("position", "absolute" );
     $("#logo3-falling-f").css("z-index", "-9999" );
@@ -26,7 +26,7 @@ $(document).ready(function() {
 	 setTimeout(function() {
     $("#logo3-falling-f").hide();
 	 },1900);
-});
+	}
 
 // function saveratings(data) {
 //   $.ajax({ 

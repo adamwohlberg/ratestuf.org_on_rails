@@ -26,4 +26,9 @@
       <%=  render 'items/footer' %>
     
   </body>
+
+  <% unless user_signed_in? %>
+    <%= javascript_tag "tagLineLetterFallsOnLoad()" %>
+  <% end %>
+
 </html>
