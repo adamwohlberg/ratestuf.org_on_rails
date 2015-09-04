@@ -25,5 +25,6 @@ group :development, :test do
   gem 'spring'
 	gem 'capybara', '~> 2.5.0'
 	gem 'simplecov'
+  gem 'rspec-rails', '~> 3.3.3'
 end
 
