@@ -1,4 +1,4 @@
-ActiveAdmin.register Category, { :sort_order => :name_asc }    do
+ActiveAdmin.register Category, sort_order: :name_asc do
   filter :items
 
   index do

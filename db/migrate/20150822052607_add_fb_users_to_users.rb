@@ -1,5 +1,5 @@
 class AddFbUsersToUsers < ActiveRecord::Migration
   def change
-  	add_column :users, :fb_id, :integer
+    add_column :users, :fb_id, :integer
   end
 end

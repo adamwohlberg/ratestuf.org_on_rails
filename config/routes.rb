@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :items, only: [:index, :create, :edit, :update, :destroy]
 
   get '/search' => 'items#search'
@@ -8,6 +7,5 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users do
-
-  end 
+  end
 end

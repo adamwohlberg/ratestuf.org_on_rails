@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   include ItemsSearchable
-	layout 'application'
+  layout 'application'
 
   def index
     flash.now[:alert] = search(params[:search])
@@ -11,6 +11,4 @@ class ItemsController < ApplicationController
 
   def destroy
   end
-
-
 end
