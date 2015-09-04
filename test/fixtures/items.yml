@@ -4,47 +4,32 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-# one: {}
-# # column: value
-# #
-# two: {}
-# #  column: value
+delta:
+	name: delta
+	url: http://www.delta.com
+  category: airlines
 
-	# delta:
-	# 	name: delta
+virgin:
+	name: virgin
+	url: http://www.virgin.com
+  category: airlines
 
-	# virgin:
-	# 	name: virgin
+southwest:
+	name: southwest   
+	url: http://www.southwest.com
+  category: airlines
 
-	# southwest:
-	# 	name: southwest   
+american:
+	name: american
+	url: http://www.aa.com
+  category: airlines
 
-	# american:
-	# 	name: american
+uber:
+	name: uber
+	url: http://www.uber.com
+  category: new
 
-	# uber:
-	# 	name: uber
-
-	# lyft:
-	# 	name: lyft
-		
-# In fixtures/categories.yml
-# about:
-#   name: About
- 
-# # In fixtures/articles.yml
-# one:
-#   title: Welcome to Rails!
-#   body: Hello world!
-#   category: about
-
-# lo & behold! I am a YAML comment!
-# david:
-#   name: David Heinemeier Hansson
-#   birthday: 1979-10-15
-#   profession: Systems development
- 
-# steve:
-#   name: Steve Ross Kellock
-#   birthday: 1974-09-27
-#   profession: guy with keyboard
+lyft:
+	name: lyft
+	url: http://www.lyft.com
+  category: new

@@ -4,8 +4,37 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-# one: {}
-# # column: value
-# #
-# two: {}
-# #  column: value
+one:
+  item: delta
+  x_rating: 0.5
+  y_rating: 0.5
+
+two:
+  item: virgin
+  x_rating: 0.5
+  y_rating: 0.5
+
+three:
+  item: southwest
+  x_rating: 0.5
+  y_rating: 0.5
+
+four:
+  item: american
+  x_rating: 0.5
+  y_rating: 0.5
+
+five:
+  item: uber
+  x_rating: 0.5
+  y_rating: 0.5
+
+six:
+  item: lyft
+  x_rating: 0.5
+  y_rating: 0.5
+
+seven:
+  item: delta
+  x_rating: 0.5
+  y_rating: 0.5
