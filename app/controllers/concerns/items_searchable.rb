@@ -6,14 +6,18 @@ extend ActiveSupport::Concern
 		"You must log in to complete this search."
 	SIGN_IN = "One or more of your item(s) is not currently in our database. "\
 		"Please sign in to continue."
+	ITEM_ADDED = "Your new item was added to our database"
 
 	def search(search_string)
 		@search_string = search_string
 		set_items
 		case 
 		when @search_string.blank? then PLEASE_SEARCH 
-		when should_add_item? then create_item
 		when should_sign_in? then SIGN_IN
+		when should_add_item?
+			create_item_and_associated_objects
+			redirect_to :root
+			ITEM_ADDED
 		when category_exists?
 		when new_item? then NEW_ITEM
 		end	
@@ -43,9 +47,8 @@ extend ActiveSupport::Concern
 		@items.count.zero? && !user_signed_in?
 	end
 
-	def create_item
+	def create_item_and_associated_objects
 	  ItemFactory.create!(@search_string)
 	end
-
 
 end
