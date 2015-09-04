@@ -25,6 +25,7 @@ group :development, :test do
   gem 'spring'
 	gem 'simplecov'
   gem 'rspec-rails', '~> 3.3.3'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :test do
