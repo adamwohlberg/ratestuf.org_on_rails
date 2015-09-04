@@ -4,32 +4,33 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-delta:
-	name: delta
-	url: http://www.delta.com
-  category: airlines
+one:
+  id: 1
+  name: uber
+  url: http://www.uber.com
 
-virgin:
-	name: virgin
-	url: http://www.virgin.com
-  category: airlines
+two:
+  id: 2
+  name: lyft
+  url: http://www.lyft.com
 
-southwest:
-	name: southwest   
-	url: http://www.southwest.com
-  category: airlines
+three:
+  id: 3
+  name: delta
+  url: http://www.delta.com
 
-american:
-	name: american
-	url: http://www.aa.com
-  category: airlines
+four:
+  id: 4
+  name: virgin
+  url: http://www.virgin.com
 
-uber:
-	name: uber
-	url: http://www.uber.com
-  category: new
+five:
+  id: 5
+  name: southwest   
+  url: http://www.southwest.com
 
-lyft:
-	name: lyft
-	url: http://www.lyft.com
-  category: new
+six:
+  id: 6
+  name: american
+  url: http://www.aa.com
+

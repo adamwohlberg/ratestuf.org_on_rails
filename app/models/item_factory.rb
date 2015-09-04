@@ -11,12 +11,12 @@ class ItemFactory
 
   def create_items
     tokenize.each do |token|
-      unless Item.exists?(name: token)
+      next if Item.exists?(name: token)
+      next if Category.exists?(name: token)
         Item.create!(name: token) 
         item_id = Item.where(name: token).first.id
         Rating.create!(item_id: item_id, x_rating: 0.5, y_rating: 0.5)
         ItemsCategory.create!(item_id: item_id, category_id: 1)        
-      end
     end
     self
   end

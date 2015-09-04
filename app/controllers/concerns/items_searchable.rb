@@ -13,8 +13,8 @@ extend ActiveSupport::Concern
 			when user_has_created_too_many_items? then TOO_MANY_ITEMS
 			when should_add_item?
 				create_item_and_associated_objects
-				ITEM_ADDED
-				redirect_to :root
+    		redirect_to root_path
+    		ITEM_ADDED
 			when category_exists?
 			when new_item_but_not_signed_in? then NEW_ITEM_PLEASE_SIGN_IN
 			end	

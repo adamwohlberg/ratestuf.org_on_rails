@@ -10,23 +10,20 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test 'user is not logged in and searches for an item which does exist in the db' do
-    item = Item.create!(name: 'delta')
-    rating = Rating.create!(item_id: item.id, x_rating: 0.5, y_rating: 0.5)
-    category = ItemsCategory.create!(item_id: item.id, category_id: 1)
-    get(:index, { user_id: nil }, search: 'delta')
+    get(:index, { user_id: nil }, search: items(:one).name )
     assert_response :ok
     assert_equal nil, flash[:alert]
     assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
   end
 
-  test 'user is not logged in and searches for two items which do exist in the db' do
-    Item.create!(name: 'uber')
-    Item.create!(name: 'lyft')
-    get :index, search: 'uber vs. lyft'
-    assert_response :ok
-    assert_equal nil, flash[:alert]
-    assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
-  end
+  # test 'user is not logged in and searches for two items which do exist in the db' do
+  #   Item.create!(name: 'uber')
+  #   Item.create!(name: 'lyft')
+  #   get :index, search: 'uber vs. lyft'
+  #   assert_response :ok
+  #   assert_equal nil, flash[:alert]
+  #   assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
+  # end
 
   # test "user is not logged in and searches for two items one of which is new to the db" do
   #   Item.create!(name: 'lyft')
@@ -60,10 +57,10 @@ class ItemsControllerTest < ActionController::TestCase
 
   # # case user logged in
 
-  test 'user is logged in and attempts to search with empty search params' do
-    get :index, user_id: 1
-    assert_response :ok
-    assert_equal "Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.", flash[:alert]
-    assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
-  end
+  # test 'user is logged in and attempts to search with empty search params' do
+  #   get :index, user_id: 1
+  #   assert_response :ok
+  #   assert_equal "Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.", flash[:alert]
+  #   assert_not_equal 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', flash[:alert]
+  # end
 end

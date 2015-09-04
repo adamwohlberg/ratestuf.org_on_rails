@@ -1,4 +1,4 @@
-User.create!([ { email: 'adam.wohlberg@gmail.com', password: 'asdfjkl;'} ])
+User.create!([ { email: 'test@gmail.com', password: 'asdfjkl;'} ])
 
 Category.create!([
   { name: 'new item - category pending' },
@@ -482,7 +482,7 @@ ItemsCategory.create!([{ item_id: Item.find_by_name('betty ford').id, category_i
 
 # default rating
 (Item.all).each do |item|
-  Rating.create!([{ user_id: 1, item_id: item.id }])
+  Rating.create!([{ item_id: item.id }])
 end
 
 2250.times do
