@@ -460,6 +460,7 @@ Item.create!([
   {name: "cruzio", url: "http://cruzio.com/", user_id: 19}
 ])
 
+# items need a category to be displayed as a result of the sql
 (Item.all).each do |item|
   ItemsCategory.create!([{ item_id: item.id, category_id: 1 }])
 end
@@ -478,6 +479,12 @@ end
   ItemsCategory.create!([{ item_id: Item.find_by_name('betty ford').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
 
 
+# default rating
 (Item.all).each do |item| 
   Rating.create!([{ user_id: 1, item_id: item.id }])
+end
+
+2250.times do
+  max = Item.all.count
+  Rating.create!([{ item_id: rand(1..max), x_rating: rand(0.0..1.0), y_rating: rand(0.0..1.0)}])
 end
