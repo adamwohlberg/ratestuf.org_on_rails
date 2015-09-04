@@ -1,4 +1,4 @@
-User.create!([ { email: 'test@gmail.com', password: 'asdfjkl;'} ])
+User.create!([ { email: 'test@example.com', password: 'asdfjkl;'} ])
 
 Category.create!([
   { name: 'new item - category pending' },

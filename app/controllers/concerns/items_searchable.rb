@@ -10,12 +10,11 @@ extend ActiveSupport::Concern
 			set_items
 			case 
 			when @search_string.blank? then PLEASE_SEARCH_FOR_SOMETHING 
+			when category_exists?
 			when user_has_created_too_many_items? then TOO_MANY_ITEMS
 			when should_add_item?
 				create_item_and_associated_objects
-    		redirect_to root_path
-    		ITEM_ADDED
-			when category_exists?
+    		redirect_to root_path(search: search_string), notice: ITEM_ADDED
 			when new_item_but_not_signed_in? then NEW_ITEM_PLEASE_SIGN_IN
 			end	
 	end
@@ -36,7 +35,8 @@ extend ActiveSupport::Concern
 	end
 
 	def should_add_item?
-			(@items.count.zero? && user_signed_in?) || (user_signed_in? && (Item.filter_search_query(@search_string).count != Item.search(@search_string).count))
+			(user_signed_in? && @items.count.zero?) || 
+			(user_signed_in? && (Item.filter_search_query(@search_string).count != Item.search(@search_string).count))
 	end
 
 	def create_item_and_associated_objects
