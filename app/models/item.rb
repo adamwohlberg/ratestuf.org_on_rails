@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
-  has_many :items_categories
-  has_many :categories, through: :items_categories
+  has_many :categories_items
+  has_many :categories, through: :categories_items
   has_many :ratings
 
   def self.filter_search_query(search_term, result = [])
