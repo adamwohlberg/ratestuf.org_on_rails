@@ -40,7 +40,16 @@ describe "user interacts with the landing page" do
   rating = FactoryGirl.create(:rating)
   item = rating.item
   user = rating.user
-  # USER SUBMITS A SEARCH FOR THE ITEM WITH item.name
+  form = page.find("form")
+  fill_in "form", with: item.name
+    class << form
+      def submit!
+        Capybara::RackTest::Form.new(driver, native).submit({})
+      end
+    end
+    form.submit!
+  byebug
+
   expect(page).to have_content(item.name)
   expect(page).to have_no_content("ipsum bacon factsum")
   end
@@ -88,5 +97,8 @@ describe "user interacts with the landing page" do
     form.submit!
   expect(page).to have_content("Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.")
   end
+
+  # NOTE:
+  # A logged in search for a "airlines vs. adsjkfjkjads or ajadl;adklfa vs. airlines" aka a category with a non-existent item creates a redirect loop error
 
 end

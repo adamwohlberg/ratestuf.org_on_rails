@@ -27,5 +27,7 @@ group :development, :test do
 	gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.3.3'
 	gem 'capybara', '~> 2.5.0'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver', '~> 2.45.0'
 end
 
