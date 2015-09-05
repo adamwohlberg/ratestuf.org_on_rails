@@ -16,6 +16,7 @@
  *= require items
  *= require ratings
  */
+
 .alert:empty, .notice:empty  {
   display: none;
 }
@@ -454,7 +455,7 @@ input[type=checkbox]
   -o-transform: scale(3); /* Opera */
   padding: 0px;
   margin: 12px 20px 20px 20px;
-  font-size: 1.3em;
+  font-size: 5px;
 }
 input[type=radio]
 {
