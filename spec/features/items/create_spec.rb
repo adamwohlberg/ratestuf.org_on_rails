@@ -1,4 +1,3 @@
-require 'spec_helper'
 require 'rails_helper'
 
 describe "user interacts with the landing page" do
