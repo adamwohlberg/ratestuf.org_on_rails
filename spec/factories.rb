@@ -8,8 +8,14 @@ end
 FactoryGirl.define do
   factory :category do
     name "new item category undefined"
+    item
   end
 end
+
+# FactoryGirl.define :categories_item, :class => categories_item do |f|
+#    f.association :category
+#    f.association :item
+# end
 
 FactoryGirl.define do
   factory :item do
