@@ -2,11 +2,24 @@ require 'rails_helper'
 
 describe "user interacts with the landing page" do
 
-	it "displays the landing page correctly" do
-	visit root_path
-	expect(page).to have_content("rate brands and find the best stuf")
-	expect(page).to have_no_content("Lorem ipsum dolor sit amet.")
-	end
+ #  Before do 
+ #    Item.destroy_all
+ #    Rating.destroy_all
+ #    Category.destroy_all
+ #    User.destroy_all
+ #    #  building the parent factories first, and saving them
+ #    #  through the join table so that the
+ #    #  the join table record is fully created in db.
+ #    item = FactoryGirl.build(:item)
+ #    category = FactoryGirl.build(:category)
+ #    categories_item = FactoryGirl.create(:categories_item)
+ #  end
+
+	# it "displays the landing page correctly" do
+	# visit root_path
+	# expect(page).to have_content("rate brands and find the best stuf")
+	# expect(page).to have_no_content("Lorem ipsum dolor sit amet.")
+	# end
 
 	# case when !user_signed_in?
 
@@ -24,15 +37,20 @@ describe "user interacts with the landing page" do
 
   it "displays the correct flash message when user is not logged in and searches for a single item that exists in the db" do
   visit root_path
-  item = FactoryGirl.create(:item)
   rating = FactoryGirl.create(:rating)
-
-  user = FactoryGirl.create(:user)
-  expect(flash[:notice]).to be_present
+  item = rating.item
+  user = rating.user
+  # USER SUBMITS A SEARCH FOR THE ITEM WITH item.name
   expect(page).to have_content(item.name)
+  expect(page).to have_no_content("ipsum bacon factsum")
   end
 
   # it "displays the correct flash message when user is not logged in and searches for a single item that does not exist in the db" do
+  # visit root_path
+  # rating = FactoryGirl.create(:rating)
+  # item = rating.item
+  # user = rating.user
+  # expect(page).to have_no_content("ipsum bacon factsum")
   # end
 
   # it "displays the correct flash message when user is not logged in and searches for two items in a versus search one of which exists and one of which does not exist in the db" do
