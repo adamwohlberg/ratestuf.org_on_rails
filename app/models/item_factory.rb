@@ -12,11 +12,11 @@ class ItemFactory
   def create_items
     tokenize.each do |token|
       next if Item.exists?(name: token)
-      next if Category.where("name LIKE concat('%', '#{token}', '%')").exists?
+      break if Category.where("name LIKE concat('%', '#{token}', '%')").exists?
         Item.create!(name: token) 
         item_id = Item.where(name: token).first.id
         Rating.create!(item_id: item_id, x_rating: 0.5, y_rating: 0.5)
-        CategoriesItem.create!(item_id: item_id, category_id: 1)        
+        CategoriesItem.create!(item_id: item_id, category_id: 1)    
     end
     self
   end
