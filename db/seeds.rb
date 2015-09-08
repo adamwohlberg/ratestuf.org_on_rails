@@ -464,21 +464,21 @@ Item.create!([
 
 # items need a category to be displayed as a result of the sql
 (Item.all).each do |item|
-  ItemsCategory.create!([{ item_id: item.id, category_id: 1 }])
+  CategoriesItem.create!([{ item_id: item.id, category_id: 1 }])
 end
 
-ItemsCategory.create!([{ item_id: Item.find_by_name('southwest').id, category_id: Category.find_by_name('airlines').id }])
-ItemsCategory.create!([{ item_id: Item.find_by_name('delta').id, category_id: Category.find_by_name('airlines').id }])
-ItemsCategory.create!([{ item_id: Item.find_by_name('virgin').id, category_id: Category.find_by_name('airlines').id }])
-ItemsCategory.create!([{ item_id: Item.find_by_name('american').id, category_id: Category.find_by_name('airlines').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('southwest').id, category_id: Category.find_by_name('airlines').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('delta').id, category_id: Category.find_by_name('airlines').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('virgin').id, category_id: Category.find_by_name('airlines').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('american').id, category_id: Category.find_by_name('airlines').id }])
 
-ItemsCategory.create!([{ item_id: Item.find_by_name('geico').id, category_id: Category.find_by_name('car insurance').id }])
-ItemsCategory.create!([{ item_id: Item.find_by_name('progressive').id, category_id: Category.find_by_name('car insurance').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('geico').id, category_id: Category.find_by_name('car insurance').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('progressive').id, category_id: Category.find_by_name('car insurance').id }])
 
-ItemsCategory.create!([{ item_id: Item.find_by_name('hazelden').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
-ItemsCategory.create!([{ item_id: Item.find_by_name('promises').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
-ItemsCategory.create!([{ item_id: Item.find_by_name('sierra tucson').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
-ItemsCategory.create!([{ item_id: Item.find_by_name('betty ford').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('hazelden').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('promises').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('sierra tucson').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
+CategoriesItem.create!([{ item_id: Item.find_by_name('betty ford').id, category_id: Category.find_by_name('drug and alcohol rehabs').id }])
 
 # default rating
 (Item.all).each do |item|
