@@ -464,7 +464,7 @@ Item.create!([
 
 # items need a category to be displayed as a result of the sql
 (Item.all).each do |item|
-  CategoriesItem.create!([{ item_id: item.id, category_id: Category.find_by_name("new item - category pending") }])
+  CategoriesItem.create!([{ item_id: item.id, category_id: Category.find_by_name("new item - category pending").id }])
 end
 
 CategoriesItem.create!([{ item_id: Item.find_by_name('southwest').id, category_id: Category.find_by_name('airlines').id }])
