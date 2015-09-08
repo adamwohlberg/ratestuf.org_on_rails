@@ -21,7 +21,6 @@ class Item < ActiveRecord::Base
 
   def self.search(search_term, result = [])
     params = filter_search_query(search_term)
-    byebug
     params.each do |query|
       result << Item.find_by_sql([
         "SELECT (AVG(x_rating)*100) AS xRating, (AVG(y_rating)*100) AS yRating, 
