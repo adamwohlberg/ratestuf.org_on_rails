@@ -9,7 +9,6 @@ extend ActiveSupport::Concern
 			@search_string = search_string
 			set_items
 			case 
-			byebug
 			when @search_string.blank? then PLEASE_SEARCH_FOR_SOMETHING
 			when single_search_term_which_is_a_category?
 			when user_has_created_too_many_items? then TOO_MANY_ITEMS
