@@ -1,0 +1,8 @@
+    <% @items.each do |item| %>
+        <div style="border: 2px solid black">
+        <%= link_to do %>
+          <object data=<%= item.url %> width='600' height='600'> <embed src="<%= item.url %>" width='600' height='600'> </embed></object>
+        <% end %>
+        </div>
+    <% end %>
+  <hr>

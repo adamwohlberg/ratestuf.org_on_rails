@@ -1,0 +1,4 @@
+describe RatingsController do
+
+
+end
