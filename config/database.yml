@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: ratestuf_dot_org_production
+  database: ENV['CLEARDB_DATABASE_URL']
