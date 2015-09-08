@@ -16,7 +16,7 @@ class ItemFactory
         Item.create!(name: token, url: "http://wwww.#{token}.com") 
         item_id = Item.where(name: token).first.id
         Rating.create!(item_id: item_id, x_rating: 0.5, y_rating: 0.5)
-        CategoriesItem.create!(item_id: item_id, category_id: 1)    
+        CategoriesItem.create!(item_id: item_id, category_id: Category.find_by_name("new item - category pending").id)    
     end
     self
   end
