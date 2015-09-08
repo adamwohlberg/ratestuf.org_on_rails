@@ -21,8 +21,18 @@ class Item < ActiveRecord::Base
 
   def self.search(search_term, result = [])
     params = filter_search_query(search_term)
+    byebug
     params.each do |query|
-      result << Item.find_by_sql(["SELECT (AVG(x_rating)*100) AS xRating, (AVG(y_rating)*100) AS yRating, COUNT(x_rating) AS votes, items.name, items.id, items.url FROM `items` JOIN categories_items ON items.id = categories_items.item_id JOIN `categories` ON categories.id = categories_items.category_id JOIN `ratings` ON ratings.item_id = items.id WHERE items.name LIKE concat('%', ?, '%') OR categories.name like concat('%', ?, '%') GROUP BY items.name LIMIT 10", query, query])
+      result << Item.find_by_sql([
+        "SELECT (AVG(x_rating)*100) AS xRating, (AVG(y_rating)*100) AS yRating, 
+        COUNT(x_rating) AS votes, items.name, items.id, items.url FROM items 
+        JOIN categories_items ON items.id = categories_items.item_id 
+        JOIN categories ON categories.id = categories_items.category_id 
+        JOIN ratings ON ratings.item_id = items.id 
+        WHERE items.name LIKE concat('%', ?, '%') OR categories.name LIKE concat('%', ?, '%') 
+        GROUP BY items.name 
+        LIMIT 10", query, query
+        ])
     end
     terms = result.flatten
     terms
