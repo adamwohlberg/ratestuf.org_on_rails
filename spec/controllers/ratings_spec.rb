@@ -1,4 +1,4 @@
-describe RatingsController do
+# describe RatingsController do
 
 
-end
+# end

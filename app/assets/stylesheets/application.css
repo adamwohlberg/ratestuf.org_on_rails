@@ -1147,7 +1147,7 @@ a:active {
 	margin-top: -4%;
 /*	border: 3px solid green;*/
 }
-
+}
 /* Medium devices (desktops, 992px and up) */
 @media(min-width:992px){
 body {
@@ -1262,7 +1262,7 @@ input[id="searchTags"] {
 #heightRestriction {
 	max-height: 100px;
 }
-hr.line 
+hr.line {
     border: 0;
     height: 1px;
     background: #333;
@@ -1415,8 +1415,11 @@ z-index: 3;
 	height: 60px;
 }
 
+}
 @media(min-width:1450px){
+
 }
 
 @media(min-width:1750px){
+
 }		

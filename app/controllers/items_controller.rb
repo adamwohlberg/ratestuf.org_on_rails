@@ -6,9 +6,4 @@ class ItemsController < ApplicationController
     flash.now[:alert] = search(params[:search])
   end
 
-  def update
-  end
-
-  def destroy
-  end
 end
