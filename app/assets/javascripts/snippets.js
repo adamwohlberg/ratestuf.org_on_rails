@@ -42,3 +42,37 @@
 // ***********************************
 
 // $(function(){ $(document).foundation(); });
+
+	  // testing
+	  // alert('item name: '+ item_name);
+	  // // alert('item id: '+ item_id);
+	  // // alert('container height: '+ ($(this).parent().height() * 0.78 ));
+	  // // alert('position from top: '+ positionFromTop);
+	  // // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
+	  // // alert('position from left: '+ positionFromLeft);
+	  // alert('x_rating: '+ x_rating);
+	  // alert('y_rating: ' + y_rating);
+
+
+
+	  // function saveratings(data) {
+//   $.ajax({ 
+//       type: "POST",
+//       url: "ajax/saveratings.php",
+//       data: JSON.stringify(data),
+//       contentType: "application/json",
+//       success: function(res) {
+//         console.log(res);
+//         if (res.hasOwnProperty('alreadyRated')) {
+//           alert("You've already rated this stuf.");
+//         } else {
+//         alert("Got it! Thanks for adding your ratings to our database. You are awesome!"
+//         location.reload();
+//         }
+//         // Location.reload(true);
+//       },
+//       error: function(res) {
+//         console.log(res);
+//       }
+//       ,dataType:'json'});
+// }
