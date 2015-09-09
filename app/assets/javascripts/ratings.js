@@ -1,32 +1,27 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).foundation();
-// $(function(){ $(document).foundation(); });
 
 $(document).ready(function() {
   setTimeout(function() {
 	$("#starCounter").css("display", "block");
 	}, 100);	
 });
-   
-// // animation to drop the last letter in the tagline after 2 seconds
-	function tagLineLetterFallsOnLoad() {
-	 setTimeout(function() {
-    $("#logo3-falling-f").css("position", "absolute" );
-    $("#logo3-falling-f").css("z-index", "-9999" );
-    $("#logo3-falling-f").css("font-size", "4.1em" );
-    $("#logo3-falling-f").css("margin", "900px 0px 0px 4px" );
-    $("#logo3-falling-f").css("-webkit-transform", "rotate(88deg)" );
-    $("#logo3-falling-f").css("-moz-transform", "rotate(88deg)" );
-    $("#logo3-falling-f").css("-ms-transform", "rotate(88deg)" );
-    $("#logo3-falling-f").css("-o-transform", "rotate(88deg)" );
- 	 },1000);
-	 setTimeout(function() {
-    $("#logo3-falling-f").hide();
-	 },1900);
-	}
+
+function tagLineLetterFallsOnLoad() {
+ setTimeout(function() {
+  $("#logo3-falling-f").css("position", "absolute" );
+  $("#logo3-falling-f").css("z-index", "-9999" );
+  $("#logo3-falling-f").css("font-size", "4.1em" );
+  $("#logo3-falling-f").css("margin", "900px 0px 0px 4px" );
+  $("#logo3-falling-f").css("-webkit-transform", "rotate(88deg)" );
+  $("#logo3-falling-f").css("-moz-transform", "rotate(88deg)" );
+  $("#logo3-falling-f").css("-ms-transform", "rotate(88deg)" );
+  $("#logo3-falling-f").css("-o-transform", "rotate(88deg)" );
+	 },1000);
+ setTimeout(function() {
+  $("#logo3-falling-f").hide();
+ },1900);
+}
 
 // function saveratings(data) {
 //   $.ajax({ 
@@ -69,9 +64,6 @@ $(document.body).keyup(function(event){
     }
     event.preventDefault();
 });
-
-
-
 
 $(document).ready(function() {
 	$(".draggable").mousemove(function(){
@@ -124,10 +116,6 @@ $(".draggable").mousemove(function(){
 	});
 });
 
-// $(document).ready(function() {
-//     $(".itemName").css('display','none');
-// });
-
 $(".draggable").click(function() {
     $(this).find(".itemName").fadeIn(1000);
     return;
@@ -141,7 +129,6 @@ $(".draggable").mouseout(function() {
     return;
 });
 
-
 // display number of ratings
 $(document).ready(function() {
   $(".draggable").hover(function() {
@@ -151,14 +138,14 @@ $(document).ready(function() {
   });
 });
 
- // draggable within a box and others
 $(document).ready(function() {
 	$(function() {
 	  $(".draggable").draggable({ containment: "#containmentWrapper" });
 	  });
 });
+
 // *****************************************
-// INSERT RATINGS INTO DATABASE ONCLICK
+// CREATE RATINGS
 // *****************************************
   var data ={};
   data.items = [];
@@ -169,61 +156,54 @@ $(document).ready(function() {
 	    return;
 	  } 
 
-	// disable the button to prevent multiple clicks
-	 $("#rateNowButton").addClass('disabled');
+	$("#rateNowButton").addClass('disabled');
 
-	  $('.draggable').each(function() {
-
-		  item_name = $(this).attr('name');
-		  item_id = $(this).attr('id');
-		  containerHeight = ($(this).parent().height() * 0.78 );
-		  containerWidth = ($(this).parent().width() * 0.895962732919255);
-		  positionFromLeft = ($(this).position().left);
-		  positionFromTop = ($(this).position().top);
-		  x_rating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
-		  y_rating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
-
-		  // testing
-		  // alert('item name: '+ item_name);
-		  // // alert('item id: '+ item_id);
-		  // // alert('container height: '+ ($(this).parent().height() * 0.78 ));
-		  // // alert('position from top: '+ positionFromTop);
-		  // // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
-		  // // alert('position from left: '+ positionFromLeft);
-		  // alert('x_rating: '+ x_rating);
-		  // alert('y_rating: ' + y_rating);
-
-	  data.items.push({"item_name": item_name, "item_id": item_id, "x_rating":x_rating, "y_rating":y_rating});
-
+  $('.draggable').each(function() {
+	  item_name = $(this).attr('name');
+	  item_id = $(this).attr('id');
+	  containerHeight = ($(this).parent().height() * 0.78 );
+	  containerWidth = ($(this).parent().width() * 0.895962732919255);
+	  positionFromLeft = ($(this).position().left);
+	  positionFromTop = ($(this).position().top);
+	  x_rating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
+	  y_rating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
+	  // testing
+	  // alert('item name: '+ item_name);
+	  // // alert('item id: '+ item_id);
+	  // // alert('container height: '+ ($(this).parent().height() * 0.78 ));
+	  // // alert('position from top: '+ positionFromTop);
+	  // // alert('container width: '+ ($(this).parent().width() * 0.895962732919255));
+	  // // alert('position from left: '+ positionFromLeft);
+	  // alert('x_rating: '+ x_rating);
+	  // alert('y_rating: ' + y_rating);
+  	data.items.push({"item_name": item_name, "item_id": item_id, "x_rating":x_rating, "y_rating":y_rating});
+				});
+			});
 		});
-	});
-});
 
-// disable the button to prevent multiple clicks
- $("#rateNowButton").removeClass('disabled');
+ 	$("#rateNowButton").removeClass('disabled');
  
-//  $.ajax({ 
+	 // $.ajax({ 
 
-//   data: JSON.stringify(data),
-//   type: "POST",
-//   url: "ajax/saveratings.php",
-//   contentType: "application/json",
-//   success: function(res) {
-//     console.log(res);
-//     if (res.hasOwnProperty('alreadyRated')) {
-//       alert("You've already rated this stuf.");
-//     } else {
-//     alert("Got it! Thanks for adding your ratings to our database. You are awesome!");
-//     location.reload();
-//     }
-//     // Location.reload(true);
-//   },
-//   error: function(res) {
-//     // console.log(res);
-//   },
-//   dataType:'json'});
+	 //  data: JSON.stringify(data),
+	 //  type: "POST",
+	 //  url: "ajax/saveratings.php",
+	 //  contentType: "application/json",
+	 //  success: function(res) {
+	 //    console.log(res);
+	 //    if (res.hasOwnProperty('alreadyRated')) {
+	 //      alert("You've already rated this stuf.");
+	 //    } else {
+	 //    alert("Got it! Thanks for adding your ratings to our database. You are awesome!");
+	 //    location.reload();
+	 //    }
+	 //    // Location.reload(true);
+	 //  },
+	 //  error: function(res) {
+	 //    // console.log(res);
+	 //  },
+	 //  dataType:'json'});
 
-// });
 
 $(document).ready(function() {
 	$(".draggable").each(function(){
@@ -287,46 +267,5 @@ $(document).ready(function() {
 	  }
 	}); 
 }); 
-// duplicate to try to get highlighting on mouseover to function more smoothly so when user releases mouse, the javascript tries again to color correctly. remove this and you need to click to get a recoloring.
-// $(".draggable").mouseup(function(){
 
-//   xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
-//   yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
-//   UpperLineSlope = 0.8965;
-//   yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
-//   LowerLineSlope = 0.8977;
-//   yPositionOnLowerLine = ((LowerLineSlope * xPosition) + 5);
-//   // alert('xposition: ' + xPosition + ', yposition: ' + yPosition + ' yposition of lowerline: ' + yPositionOnLowerLine + ' yposition of upperline: ' + yPositionOnUpperLine);
-
-//   if (yPosition > yPositionOnUpperLine) {
-//         $(this).removeClass('bestValue');
-//         $(this).removeClass('fairValue');  
-//         $(this).addClass('worseValue');
-//   }
-  
-//   if (yPosition <= yPositionOnUpperLine && yPosition >= yPositionOnLowerLine) {
-//         $(this).removeClass('worseValue');
-//         $(this).removeClass('bestValue');        
-//         $(this).addClass('fairValue'); 
-//   } 
-  
-//   if (yPosition < yPositionOnLowerLine) {
-//         $(this).removeClass('worseValue');
-//         $(this).removeClass('fairValue');  
-//         $(this).addClass('bestValue'); 
-//   }
-// }); 
-
-
-// ***********************************
-// testing code to show the parent element for rating calculations based on position of the dragggable element relative to parent
-// $(document).ready(function() {
-// $("#rateTableFrame").css('border', '2px solid blue');
-// $('.draggable').parent().css('border', '5px solid red');
-// });
-// $(document).ready(function() {
-// $("#containmentWrapper").css('border', '2px solid red');
-// // $('.draggable').parent().css('border', '5px solid red');
-// });
-// ***********************************
 

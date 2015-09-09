@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :items, only: [:index, :create, :edit, :update, :destroy]
+  resources :ratings, only: [:create, :update, :destroy, :index]
 
   get '/search' => 'items#search'
   root 'items#index'
