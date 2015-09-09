@@ -1,3 +1,10 @@
-<%= link_to('Rate It!', items_path(), method: :post, :id => 'rateNowButton', :title => "Sign up or log in to add your ratings. You will rate all visible balls, so remove any balls you don't want to rate prior to clicking this button.  To delete a ball, click to select the ball (it will be highlighted in yellow) and press the DELETE key to remove the ball.") %>
+<% if user_signed_in? %>
+	<%= link_to('Rate It!', items_path(), method: :post, :id => 'rateNowButton', :title => "Sign up or log in to add your ratings. You will rate all visible balls, so remove any balls you don't want to rate prior to clicking this button.  To delete a ball, click to select the ball (it will be highlighted in yellow) and press the DELETE key to remove the ball.") %>
+<% else %>
+	<%= link_to('Rate It!', root_path(), :class => 'disabled', :id => 'rateNowButton', :title => "Sign up or log in to add your ratings. You will rate all visible balls, so remove any balls you don't want to rate prior to clicking this button.  To delete a ball, click to select the ball (it will be highlighted in yellow) and press the DELETE key to remove the ball.") %>
+<% end %>
 <div id="WhiteSpaceFill"></div>
+
+
+
 
