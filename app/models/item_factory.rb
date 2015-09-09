@@ -13,7 +13,7 @@ class ItemFactory
     tokenize.each do |token|
       next if Item.exists?(name: token)
       break if Category.where("name LIKE concat('%', '#{token}', '%')").exists?
-        Item.create!(name: token, url: "http://wwww.#{token}.com") 
+        Item.create!(name: token, url: "http://www.#{token}.com") 
         item_id = Item.where(name: token).first.id
         Rating.create!(item_id: item_id, x_rating: 0.5, y_rating: 0.5)
         CategoriesItem.create!(item_id: item_id, category_id: Category.find_by_name("new item - category pending").id)    

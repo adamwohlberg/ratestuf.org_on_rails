@@ -11,13 +11,13 @@ describe 'Searching for and creating items' do
   expect(page).to have_content("Please search for something")
   end
 
-  it "displays the correct flash message and a draggable ball when user is not logged in and searches for a single item that already exists in the db" do
+  it "displays a draggable ball when user is not logged in and searches for a single item that already exists in the db" do
   visit root_path
   fill_in(:search, :with => 'uber')
   page.execute_script("$('form#searchTags').submit()")
   expect(page).to have_link("uber")
   expect(page).to have_no_link("xxxuberxxx")
-  expect(page).to have_no_content("Please search for something")
+  # TODO add test for flash messages
   end
 
   it "displays the correct flash message when user is not logged in and searches for a single item that does not exist in the db" do
