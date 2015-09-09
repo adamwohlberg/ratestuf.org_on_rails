@@ -8,23 +8,22 @@ describe 'Searching for and creating items' do
   visit root_path
   fill_in(:search, :with => '')
   page.execute_script("$('form#searchTags').submit()")
-  sleep(1)
   expect(page).to have_content("Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.")
   end
 
-  it "displays the correct flash message when user is not logged in and searches for a single item that already exists in the db" do
+  it "displays the correct flash message and a draggable ball when user is not logged in and searches for a single item that already exists in the db" do
   visit root_path
   fill_in(:search, :with => 'uber')
   page.execute_script("$('form#searchTags').submit()")
-  sleep(1)
+  expect(page).to have_link("uber")
+  expect(page).to have_no_link("xxxuberxxx")
   expect(page).to have_no_content("Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.")
   end
 
   it "displays the correct flash message when user is not logged in and searches for a single item that does not exist in the db" do
   visit root_path
-  fill_in(:search, :with => 'akdfsfdaffadsljkdakjsdfadladsfasfd')
+  fill_in(:search, :with => 'akdfsfdaxxxxffadsljkda')
   page.execute_script("$('form#searchTags').submit()")
-  sleep(1)
   expect(page).to have_content("One or more of your items is new to our system. You must log in to complete this search.")
   end
   
@@ -80,7 +79,7 @@ describe 'Searching for and creating items' do
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password
   fill_in "Password confirmation", with: user.password
-  click_button "Sign Up"
+  click_button "Sign up"
   visit root_path
   fill_in(:search, :with => '')
   page.execute_script("$('form#searchTags').submit()")
