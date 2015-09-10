@@ -124,8 +124,8 @@ $(document).ready(function() {
 // *****************************************
 // CREATE RATINGS
 // *****************************************
-  var data ={};
-  data.items = [];
+var data ={};
+data.items = [];
 
 $(document).ready(function() {
 	$("#rateNowButton").click(function(){
@@ -136,19 +136,19 @@ $(document).ready(function() {
 	$("#rateNowButton").addClass('disabled');
 
   $('.draggable').each(function() {
-	  item_name = $(this).attr('name');
-	  item_id = $(this).attr('id');
+	  name = $(this).attr('name');
+	  id = $(this).attr('id');
+
 	  containerHeight = ($(this).parent().height() * 0.78 );
 	  containerWidth = ($(this).parent().width() * 0.895962732919255);
 	  positionFromLeft = ($(this).position().left);
 	  positionFromTop = ($(this).position().top);
+
 	  x_rating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
 	  y_rating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
 
-  	data.items.push({"item_name": item_name, "item_id": item_id, "x_rating":x_rating, "y_rating":y_rating});
+  	data.items.push({"name": name, "id": id, "x_rating":x_rating, "y_rating":y_rating});
 		});
-
- 	$("#rateNowButton").removeClass('disabled');
  
 	 $.ajax({ 
 	  data: JSON.stringify(data),
@@ -162,6 +162,9 @@ $(document).ready(function() {
 	  	console.log('error');
 	  },
 	  dataType:'json'});
+
+	  $("#rateNowButton").removeClass('disabled');
+
 	});
 });
 
@@ -198,16 +201,12 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$(".draggable").mouseover(function(){
-
 	  xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
 	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
 	  UpperLineSlope = 0.8965;
 	  yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
 	  LowerLineSlope = 0.8977;
 	  yPositionOnLowerLine = ((LowerLineSlope * xPosition) + 5);
-	  // alert('xposition: ' + xPosition + ', yposition: ' + yPosition + ' yposition of lowerline: ' + yPositionOnLowerLine + ' yposition of upperline: ' + yPositionOnUpperLine);
-
-	  // if (userloggedin && yPosition > yPositionOnUpperLine) {
 	  if (yPosition > yPositionOnUpperLine) {
 	        $(this).removeClass('bestValue');
 	        $(this).removeClass('fairValue');  
