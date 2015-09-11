@@ -18,7 +18,6 @@ gem 'devise', '~> 3.5.2'
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'rubocop', '~> 0.33.0'
 gem 'puma', '~> 2.13.4'
-gem 'rails_12factor'
 
 group :development, :test do
 	gem 'byebug'
@@ -32,3 +31,6 @@ group :development, :test do
 	gem 'selenium-webdriver', '~> 2.47.1'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
