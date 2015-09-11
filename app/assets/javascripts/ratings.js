@@ -130,6 +130,7 @@ data.items = [];
 $(document).ready(function() {
 	$("#rateNowButton").click(function(){
 	  if ($(this).hasClass('disabled')) {
+	  	alert('You must log in to rate stuff.')
 	    return;
 	  } 
 
@@ -153,10 +154,11 @@ $(document).ready(function() {
 	 $.ajax({ 
 	  data: JSON.stringify(data),
 	  type: "POST",
-	  url: "ratings#create",
+	  url: "/ratings",
 	  contentType: "application/json",
 	  success: function(res) {
 	  	console.log('success');
+	  	location.reload(); 
 	  },
 	  error: function(res) {
 	  	console.log('error');

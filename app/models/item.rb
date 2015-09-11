@@ -36,4 +36,15 @@ class Item < ActiveRecord::Base
     terms = result.flatten
     terms
   end
+
+  def already_rated?
+    #TODO true if this user has already rated this item
+  end
+
+
+
+
+
+
+
 end
