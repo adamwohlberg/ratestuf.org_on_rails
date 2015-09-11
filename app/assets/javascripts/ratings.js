@@ -34,6 +34,7 @@ $(document).ready(function() {
 		});
 });
 
+// #TODO prevent refresh after this action
 $(document.body).keyup(function(event){
     if (event.keyCode == 46 || event.keyCode == 8) {
         event.preventDefault();

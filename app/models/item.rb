@@ -37,9 +37,9 @@ class Item < ActiveRecord::Base
     terms
   end
 
-  def already_rated?
-    #TODO true if this user has already rated this item
-  end
+  # def already_rated?
+  #   #TODO true if this user has already rated this item
+  # end
 
 
 

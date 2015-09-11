@@ -8,7 +8,8 @@ class RatingsController < ApplicationController
     else    
       @items.each do |item|
         #TODO add if already rated then update instead of adding a new rating
-        @rating = Rating.create!(item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
+        byebug
+        @rating = Rating.create!(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
       end
     end
     respond_to do |format|
@@ -22,5 +23,13 @@ class RatingsController < ApplicationController
       end
     end
   end
+
+  private 
+
+  # def already_rated?
+  #   user = current_user
+  #   if 
+
+  # end
 
 end
