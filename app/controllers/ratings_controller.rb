@@ -2,10 +2,7 @@ class RatingsController < ApplicationController
 
   def create
     @items = params[:items]
-    if !current_user
-      render "items/index"
-     flash[:alert] = 'You must log in to rate stuff.'     
-    elsif @items.nil?
+    if @items.nil?
      render "items/index"
      flash[:alert] = 'You must search for an item(s) before you can rate it.'
     else    
