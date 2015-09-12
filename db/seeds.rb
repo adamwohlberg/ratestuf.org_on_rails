@@ -486,6 +486,5 @@ CategoriesItem.create!([{ item_id: Item.find_by_name('betty ford').id, category_
 end
 
 2250.times do
-  max = Item.all.count
-  Rating.create!([{ item_id: rand(1..max), x_rating: rand(0.0..1.0), y_rating: rand(0.0..1.0) }])
+  Rating.create!([{ item_id: Item.all.sample.id, x_rating: rand(0.0..1.0), y_rating: rand(0.0..1.0) }])
 end
