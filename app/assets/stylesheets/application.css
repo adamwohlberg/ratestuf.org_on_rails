@@ -66,7 +66,7 @@ a #logo3:hover {
 	font-family: 'Chivo', sans-serif;
 	display: inline-block;
 	font-size: 3.3em;
-	font-weight: 900;
+	font-weight: 900 !important;
 	margin-top: -20px;
 	margin-left: -4px;
 }
