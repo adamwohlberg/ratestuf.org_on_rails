@@ -2,16 +2,17 @@ class RatingsController < ApplicationController
 
   def create
     @items = params[:items]
-    if @items.nil?
-     render "items/index"
-     flash[:alert] = 'You must search for an item(s) before you can rate it.'
-    else    
+    if @items.present?
       @items.each do |item|
-        #TODO add if already rated then update instead of adding a new rating
-        byebug
-        @rating = Rating.create!(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
+        #TODO add item already rated by this user then update instead of adding a new rating
+        if already_rated?(item)
+          @last_rating = Rating.where(user_id: current_user.id, item_id: item['id']).last
+          @rating = @last_rating.update_attributes(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
+        else
+          @rating = Rating.create!(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
+        end
       end
-    end
+    end 
     respond_to do |format|
       if @rating.save
         format.html { redirect_to @items, notice: 'Congratulations. Your rating(s) were successfully saved into the updated ratings appearing below:' }
@@ -26,10 +27,8 @@ class RatingsController < ApplicationController
 
   private 
 
-  # def already_rated?
-  #   user = current_user
-  #   if 
-
-  # end
+  def already_rated?(item)
+    true if Rating.where(user_id: current_user.id, item_id: item['id']).exists?
+  end
 
 end
