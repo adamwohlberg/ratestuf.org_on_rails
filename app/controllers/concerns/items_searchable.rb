@@ -2,7 +2,7 @@ module ItemsSearchable
 extend ActiveSupport::Concern
 	PLEASE_SEARCH_FOR_SOMETHING =  "Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate."
 	ITEM_ADDED = "Your new item(s) are now added to our database. Thanks!"
-	TOO_MANY_ITEMS = "You have created too many items."
+	TOO_MANY_ITEMS = "You have created too many items. Please contact us to join our rating team!"
 	NEW_ITEM_PLEASE_SIGN_IN = "One or more of your items is new to our system. You must log in to complete this search."
 
 	def search(search_string)
@@ -45,7 +45,7 @@ extend ActiveSupport::Concern
 	end
 
 	def user_has_created_too_many_items?
-			current_user && (Item.where(user_id: current_user.id).count > 100)
+			current_user && (Item.where(user_id: current_user.id).count > 10)
 	end
 
 	def contains_a_new_item?

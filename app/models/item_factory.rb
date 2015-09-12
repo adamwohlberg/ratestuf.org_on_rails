@@ -41,4 +41,6 @@ class ItemFactory
   def sanitized_name
     @sanitized_name ||= @input.strip
   end
+
+
 end

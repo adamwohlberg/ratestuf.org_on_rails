@@ -27,7 +27,7 @@ class RatingsController < ApplicationController
 
   private 
 
-  def already_rated?(item)
+  def already_rated?
     true if Rating.where(user_id: current_user.id, item_id: item['id']).exists?
   end
 
