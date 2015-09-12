@@ -39,6 +39,7 @@ $(document.body).keyup(function(event){
     if (event.keyCode == 46 || event.keyCode == 8) {
         event.preventDefault();
         $(this).closest('.active').remove();
+        event.preventDefault();
     }
     event.preventDefault();
 });
