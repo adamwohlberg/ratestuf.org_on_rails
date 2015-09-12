@@ -28,7 +28,8 @@ class Item < ActiveRecord::Base
         JOIN categories_items ON items.id = categories_items.item_id 
         JOIN categories ON categories.id = categories_items.category_id 
         JOIN ratings ON ratings.item_id = items.id 
-        WHERE items.name LIKE concat('%', ?, '%') OR categories.name LIKE concat('%', ?, '%') 
+        WHERE items.name LIKE concat('%', ?, '%') 
+        OR categories.name LIKE concat('%', ?, '%') 
         GROUP BY items.name 
         LIMIT 10", query, query
         ])
@@ -37,9 +38,6 @@ class Item < ActiveRecord::Base
     terms
   end
 
-  # def already_rated?
-  #   #TODO true if this user has already rated this item
-  # end
 
 
 

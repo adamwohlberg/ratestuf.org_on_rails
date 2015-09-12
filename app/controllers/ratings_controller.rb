@@ -5,7 +5,7 @@ class RatingsController < ApplicationController
     if @items.present?
       @items.each do |item|
         #TODO add item already rated by this user then update instead of adding a new rating
-        if already_rated?(item)
+        if already_rated_n_times?(item, 2)
           @last_rating = Rating.where(user_id: current_user.id, item_id: item['id']).last
           @rating = @last_rating.update_attributes(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
         else
@@ -27,8 +27,8 @@ class RatingsController < ApplicationController
 
   private 
 
-  def already_rated?(item)
-    true if Rating.where(user_id: current_user.id, item_id: item['id']).exists?
+  def already_rated_n_times?(item, number)
+    true if Rating.where(user_id: current_user.id, item_id: item['id']).count > number
   end
 
 end

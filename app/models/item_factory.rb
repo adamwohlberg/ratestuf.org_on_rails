@@ -15,7 +15,7 @@ class ItemFactory
       break if Category.where("name LIKE concat('%', '#{token}', '%')").exists?
         Item.create!(name: token, url: "http://www.#{token}.com") 
         item_id = Item.where(name: token).first.id
-        Rating.create!(item_id: item_id, x_rating: 0.5, y_rating: 0.55)
+        Rating.create!(user_id: User.first.id, item_id: item_id, x_rating: 0.5, y_rating: 0.55)
         CategoriesItem.create!(item_id: item_id, category_id: Category.find_by_name("new item - category pending").id)    
     end
     self
