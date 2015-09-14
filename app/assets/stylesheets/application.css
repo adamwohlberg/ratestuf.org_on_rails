@@ -1062,13 +1062,6 @@ a:active {
 
 
 /* Small devices (tablets, 768px and up) */
-@media(max-width:768px){
-body, html {
-  overflow: hidden;
-  position:fixed;
-}
-}
-
 @media(min-width:768px){
 #rateNowButton {
 	margin: 13px 0px 0px 0px;
