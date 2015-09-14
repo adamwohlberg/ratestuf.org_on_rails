@@ -76,3 +76,15 @@
 //       }
 //       ,dataType:'json'});
 // }
+// $(".draggable").click(function() {
+//     $(this).find(".itemName").fadeIn(1000);
+//     return;
+// });
+// $(".draggable").mouseover(function() {
+//     $(this).find(".itemName").fadeIn(1000);
+//     return;
+// });
+// $(".draggable").mouseout(function() {
+//     $(this).find(".itemName").fadeOut(4000);
+//     return;
+// });
