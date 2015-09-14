@@ -278,12 +278,12 @@ input[id="searchTags"] {
 	display: inline-block;
 	border: 2px solid steelblue;
 	display: inline-block;
-	width: 100%;
+	width: 95%;
 	height: 60%;
 	border-radius:9px;
-	font-size: 1.4em;
+	font-size: 1.0em;
 	padding: 1px 0px 1px 10px;
-	margin: 1px 0px 0px 0px;
+	margin: 1px 0px 10px 20px;
 /*	border: 10px solid green;*/
 }
 .glyphicon-search {
@@ -646,9 +646,9 @@ background: repeating-linear-gradient(
 /*	border: 5px solid purple;*/
 }
 .ratings {
-	font-size: 1.3em;
+	font-size: 0.9em;
 	color: red;
-	margin: -195px -10px 0px -110px;
+	margin: -115px -10px 0px -93px;
 	padding: 20px 0px 20px 38px;
 	position: absolute;
 	z-index: 4;
@@ -970,12 +970,21 @@ margin-bottom: 7%;
 	height: 33px;
 }
 .itemName {
-	font-size: 1.6em;
-	margin: 45px 0px 0px -80px;
+	font-size: 1.0em;
+	margin: 15px 0px 0px -50px;
 	font-weight: bold;
 	color: #0000EE;
 	display: none;
 /*	border: 4px solid green;*/
+}
+.speechBubble {
+	min-width: 100px;
+	height: 50px;
+	margin: -140px -10px 0px -72px;
+	position: relative;
+	z-index: 2;
+	display: none;
+/*	border: 5px solid purple;*/
 }
 p.itemName {
 	white-space:nowrap;
@@ -1063,6 +1072,32 @@ a:active {
 
 /* Small devices (tablets, 768px and up) */
 @media(min-width:768px){
+.itemName {
+	font-size: 1.4em;
+	margin: 35px 0px 0px -80px;
+	font-weight: bold;
+	color: #0000EE;
+	display: none;
+/*	border: 4px solid green;*/
+}
+.speechBubble {
+	min-width: 150px;
+	height: 100px;
+	margin: -250px -10px 0px -102px;
+	position: relative;
+	z-index: 2;
+	display: none;
+/*	border: 5px solid purple;*/
+}
+.ratings {
+	font-size: 1.3em;
+	color: red;
+	margin: -180px -10px 0px -110px;
+	padding: 20px 0px 20px 38px;
+	position: absolute;
+	z-index: 4;
+	display: none;
+}
 #rateNowButton {
 	margin: 13px 0px 0px 0px;
 }
@@ -1261,7 +1296,7 @@ margin-right: -2%;
 }
 
 input[id="searchTags"] {
-	font-size: 1.8em;
+	font-size: 1.5em;
 	width: 95%;
 	margin: 3px 0px 15px 5%;
 }
