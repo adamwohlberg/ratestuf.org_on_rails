@@ -738,9 +738,9 @@ background: repeating-linear-gradient(
 	color: #726e6f;
 	font-size: 2.3em;
 	font-weight: bold;
-	height: 2.0em;
+	height: 1.8em;
 	width: 95%;
-	margin: 13px 0px 0px 0px;
+	margin: 26px 0px 0px 0px;	
 	padding: 6px 2px 2px 2px;
 	box-shadow: 4px 4px 0px 0px;
 	position: absolute;
@@ -1053,7 +1053,9 @@ a:active {
 	box-shadow: 3px 3px 1px 0px steelblue;
 }
 */
-
+#starCounter {
+	margin: -15px 0px 0px 10px;
+}
 
 
 /* Extra small devices (phones, less than 768px) */
@@ -1062,6 +1064,9 @@ a:active {
 
 /* Small devices (tablets, 768px and up) */
 @media(min-width:768px){
+#rateNowButton {
+	margin: 13px 0px 0px 0px;
+}
 .notice, .alert {
 	font-size: 18px;
 	line-height: 20px;
