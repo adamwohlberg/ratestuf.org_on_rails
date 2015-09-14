@@ -88,3 +88,22 @@
 //     $(this).find(".itemName").fadeOut(4000);
 //     return;
 // });
+
+
+// $(document).ready(function() {
+// 	$(".draggable").click(function(){
+// 	  // if (userloggedin) {
+// 	    $(".draggable").not(this).removeClass("active");
+// 	    $(this).toggleClass("active");
+// 	  // }
+// 		});
+// });
+
+// #TODO prevent refresh after this action
+// $(document.body).keyup(function(event) {
+//     if (event.keyCode == 46 || event.keyCode == 8) {
+//     	  event.preventDefault();
+//         $('.active').remove();
+//         event.preventDefault();
+//     }
+// });

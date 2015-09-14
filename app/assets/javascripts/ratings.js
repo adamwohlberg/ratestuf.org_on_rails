@@ -23,24 +23,10 @@ function tagLineLetterFallsOnLoad() {
  },1900);
 }
 
-
-//user is able to select a draggable ball and delete it from the screen using BACKSPSACE or DELETE
 $(document).ready(function() {
-	$(".draggable").click(function(){
-	  // if (userloggedin) {
-	    $(".draggable").not(this).removeClass("active");
-	    $(this).toggleClass("active");
-	  // }
+	$(".draggable").dblclick(function(){
+	    $(this).hide();
 		});
-});
-
-// #TODO prevent refresh after this action
-$(document.body).keyup(function(event) {
-    if (event.keyCode == 46 || event.keyCode == 8) {
-    	  event.preventDefault();
-        $('.active').remove();
-        event.preventDefault();
-    }
 });
 
 $(document).ready(function() {
@@ -93,6 +79,8 @@ $(".draggable").mousemove(function(){
 	  }
 	});
 });
+
+
 
 // display number of ratings
 $(document).ready(function() {
