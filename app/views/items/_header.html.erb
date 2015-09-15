@@ -6,7 +6,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lilita+One|Passion+One:700,400,900|Chivo:400,900,900italic' rel='stylesheet' type='text/css'>
 <div class="container-fluid">
   <div class="row">
-    <div class="large-5 medium-5 small-12 columns section_border">
+    <div class="large-5 medium-5 small-8 columns section_border">
       <div id="logo3-container" class="logo" alt="RateStuf logo">
         <a href="<% root_path %>"><p id="logo3">Ratestuf<span id="dotOrg"></span></p></a>
         <p id="logo3trademark" >&trade;</p>
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="large-3 medium-3 show-for-medium-up columns section_border"></div>
-    <div class="large-4 medium-4 small-12 columns show-for-medium-up section_border">
+    <div class="large-4 medium-4 small-4 columns section_border">
         <% if !user_signed_in? %>
           <%= link_to("Login", new_user_registration_path, id: "loginFacebook", alt: "Log in with Facebook", title: "Log in to add your ratings") %>
           <p id="fbTagline">Log in to add your ratings...</p>

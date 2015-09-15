@@ -25,7 +25,7 @@ body, html {
    user-select: none;
 }
 .notice, .alert {
-  padding: 5px 0px;
+  padding: 5px 0px 0px 0px;
   margin-bottom: 2px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   border: 1px solid #fbeed5;
@@ -82,24 +82,19 @@ a #logo3:hover {
 	width: 100%;
 	min-height: 30px;
 	margin-left: 0.1%;
-/*	border: 2px solid red;*/
 	margin-top: 0px;
 	text-align:center;
 	padding: 10px 10px 0px 10px;
 }
 #logo3trademark {
-	position: relative;
-	font-size: 1.6em;
-	font-weight: 900;
-	margin: -3.7em 0px 0px 10em;
-	color: white;
+	display:none;
 }
 #logo3tagline {
-	font-size: 0.9em;
+	font-size: 0.75em;
 	font-weight: 900;
 /*	border: 2px solid blue;*/
 	position: relative;
-	margin-top: 0.95em;
+	margin-top: -40px;
 	max-height: 2.0em;
 	z-index:100;
 }
@@ -167,11 +162,6 @@ hr {
 #arrowUpFB {
 	display: none;
 }
-#fbTagline {
-/*	margin: 0px 0px 0px -50px;*/
-	font-weight: 1em;
-	display: inline-block;
-}
 body {
 	background: #ffffff;
 }
@@ -201,16 +191,19 @@ blockquote {
 #loginFacebook {
 	font-family: 'Chivo', sans-serif;
 	display: inline-block;
-	font-size: 2.3em;
+	font-size: 1.0em;
 	font-weight: 900;
-	margin-top: -20px;
-	margin-right: 200px;
-	margin-left: 200px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-left: 20px;
 	text-align: right;
 /*	border: 2px solid red;*/
 }
 #loginFacebook:hover {
 	opacity:1.0;
+}
+#fbTagline {
+	display: none;
 }
 #fbLogOut {
 display: block;
@@ -285,9 +278,9 @@ input[id="searchTags"] {
 	width: 95%;
 	height: 60%;
 	border-radius:9px;
-	font-size: 1.4em;
+	font-size: 1.2em;
 	padding: 1px 0px 1px 10px;
-	margin: 1px 0px 10px 30px;
+	margin: -10px 0px 10px 30px;
 /*	border: 10px solid green;*/
 }
 .glyphicon-search {
@@ -1082,6 +1075,41 @@ a:active {
 
 /* Small devices (tablets, 768px and up) */
 @media(min-width:768px){
+#logo3trademark {
+	position: relative;
+	font-size: 1.6em;
+	font-weight: 900;
+	margin: -3.7em 0px 0px 10em;
+	color: white;
+	display:;
+}
+#loginFacebook {
+	font-family: 'Chivo', sans-serif;
+	display: inline-block;
+	font-size: 2.3em;
+	font-weight: 900;
+	margin-top: -20px;
+	margin-right: 200px;
+	margin-left: 200px;
+	text-align: right;
+/*	border: 2px solid red;*/
+}
+#loginFacebook:hover {
+	opacity:1.0;
+}
+#fbLogOut {
+display: block;
+height: 1em;
+width: 4em;
+font-size: .8em;
+margin: -10px 0px 0px 80%;
+float: left;
+}
+p#fbTagline {
+/*	margin: 0px 0px 0px -50px;*/
+	font-weight: 1em;
+	display: inline-block;
+}
 .notice, .alert {
   padding: 8px 35px 8px 14px;
   margin-bottom: 20px;
@@ -1164,14 +1192,6 @@ a:active {
 	font-weight: 900;
 	margin: -4.0em 0px 0px 9.9em;
 	opacity: 0;
-}
-#logo3tagline {
-	font-size: 1.3em;
-	font-weight: 900;
-/*	border: 2px solid blue;*/
-	position: relative;
-	margin-top: 1.4em;
-	margin-left: -5px;
 }
 .glyphicon-search {
 	display: inline-block;
@@ -1279,7 +1299,9 @@ margin-right: -2%;
 	font-weight: 900;
 /*	border: 2px solid blue;*/
 	position: relative;
-	margin-top: 1.4em;
+	margin-top: -55px;
+	padding-bottom: 0px;
+	margin-bottom: 5px;
 }
 .glyphicon-search {
 	display: inline-block;
