@@ -25,7 +25,7 @@ body, html {
    user-select: none;
 }
 .notice, .alert {
-  padding: 5px 0px 0px 0px;
+  padding: 3px 0px 0px 0px;
   margin-bottom: 2px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   border: 1px solid #fbeed5;
@@ -83,6 +83,7 @@ a #logo3:hover {
 	min-height: 30px;
 	margin-left: 0.1%;
 	margin-top: 0px;
+	margin-bottom: 0px;
 	text-align:center;
 	padding: 10px 10px 0px 10px;
 }
@@ -1075,6 +1076,9 @@ a:active {
 
 /* Small devices (tablets, 768px and up) */
 @media(min-width:768px){
+#logo3-container {
+	margin-bottom: 0px;
+}
 #logo3trademark {
 	position: relative;
 	font-size: 1.6em;
