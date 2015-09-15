@@ -104,12 +104,12 @@ var data ={};
 data.items = [];
 
 $(document).ready(function() {
-	$("#rateNowButton").click(function(){
+	$("#rateNowButton").click(function(event){
 	  if ($(this).hasClass('disabled')) {
 	  	alert('You must log in to rate stuff.')
 	    return;
 	  } 
-
+		event.preventDefault();
 	$("#rateNowButton").addClass('disabled');
 
   $('.draggable').each(function() {
