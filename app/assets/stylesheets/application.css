@@ -27,6 +27,7 @@ body, html {
 .notice, .alert {
   padding: 3px 0px 0px 0px;
   margin-bottom: 2px;
+  margin-top: 0px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   border: 1px solid #fbeed5;
   -webkit-border-radius: 4px;
@@ -1117,6 +1118,7 @@ p#fbTagline {
 .notice, .alert {
   padding: 8px 35px 8px 14px;
   margin-bottom: 20px;
+  margin-top: 15px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   border: 1px solid #fbeed5;
   -webkit-border-radius: 4px;
