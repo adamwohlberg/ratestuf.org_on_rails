@@ -25,7 +25,7 @@ function tagLineLetterFallsOnLoad() {
 
 $(document).ready(function() {
 	$(".draggable").dblclick(function(){
-	    $(this).hide();
+	    $(this).fadeOut(100);
 		});
 });
 
