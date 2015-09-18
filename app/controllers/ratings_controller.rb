@@ -17,9 +17,10 @@ class RatingsController < ApplicationController
       session[:message] ||= 'Congratulations! Your rating(s) were saved.'
     end 
     @items = Item.where(id: @item_ids)
-    # respond_to do |format|
-    #   format.json { render :json => @items.to_json(:include => :ratings) } 
-    # end
+    respond_to do |format|
+      @result = custom_json(@items)
+      format.json { render :json => @result.to_json } 
+    end
   end
 
   private 
@@ -28,4 +29,33 @@ class RatingsController < ApplicationController
     true if Rating.where(user_id: current_user.id, item_id: item['id']).count > number
   end
 
+  def custom_json(items)
+
+    json = {}
+    avg_x_rating = 0
+    avg_y_rating = 0
+    cumulative_x_rating = 0.00
+    cumulative_y_rating = 0.00
+
+    items.each do |item|
+      item.ratings.each do |rating|
+        cumulative_x_rating += rating.x_rating.to_f
+        cumulative_y_rating += rating.y_rating.to_f
+      end
+      avg_x_rating = (cumulative_x_rating / item.ratings.count).to_f
+      avg_y_rating = (cumulative_y_rating / item.ratings.count).to_f
+      json.merge!({ id: item.id, name: item.name, url: item.url, avg_x_rating: avg_x_rating, avg_y_rating: avg_y_rating })
+    end
+  end
+
+
 end
+
+
+
+
+
+
+
+
+
