@@ -17,9 +17,9 @@ class RatingsController < ApplicationController
       session[:message] ||= 'Congratulations! Your rating(s) were saved.'
     end 
     @items = Item.where(id: @item_ids)
-    respond_to do |format|
-      format.json { render :json => @items.to_json(:include => :ratings) } 
-    end
+    # respond_to do |format|
+    #   format.json { render :json => @items.to_json(:include => :ratings) } 
+    # end
   end
 
   private 

@@ -1,0 +1,1 @@
+json.extract! @items, :id, :name, :url
