@@ -34,8 +34,8 @@ $(document).ready(function() {
 	  url: "/ratings",
 	  contentType: "application/json",
 	  success: function(res) {
-	  	// console.log('success');
-	  	location.reload(); 
+	  	console.log('res');
+	  	// location.reload(); 
 	  	// console.log(res);
 	  },
 	  error: function(res) {
