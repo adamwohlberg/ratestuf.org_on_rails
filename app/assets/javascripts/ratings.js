@@ -17,8 +17,8 @@ $(document).ready(function() {
 	  name = $(this).attr('name');
 	  id = $(this).attr('id');
 
-	  containerHeight = ($(this).parent().height() * 0.78 );
-	  containerWidth = ($(this).parent().width() * 0.895962732919255);
+	  containerHeight = ($(this).parent().parent().height() * 0.78 );
+	  containerWidth = ($(this).parent().parent().width() * 0.895962732919255);
 	  positionFromLeft = ($(this).position().left);
 	  positionFromTop = ($(this).position().top);
 

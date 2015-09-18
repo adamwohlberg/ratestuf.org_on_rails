@@ -101,8 +101,8 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$(".draggable").each(function(){
 
-	  xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
-	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
+	  xPosition = (Math.round(($(this).position().left / ($(this).parent().parent().width())) * 100));
+	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().parent().height())) * 100)));
 	  UpperLineSlope = 0.8965;
 	  yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
 	  LowerLineSlope = 0.8977;
@@ -131,8 +131,8 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$(".draggable").mouseover(function(){
-	  xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
-	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
+	  xPosition = (Math.round(($(this).position().left / ($(this).parent().parent().width())) * 100));
+	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().parent().height())) * 100)));
 	  UpperLineSlope = 0.8965;
 	  yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
 	  LowerLineSlope = 0.8977;
