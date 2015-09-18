@@ -1,4 +1,6 @@
-
+// *****************************************
+// CREATE RATINGS
+// *****************************************
 var data ={};
 data.items = [];
 
@@ -31,19 +33,15 @@ $(document).ready(function() {
 	  type: "POST",
 	  url: "/ratings",
 	  contentType: "application/json",
-	  success: function(response) {
-	  	// hide all the draggable balls and replace with the new position and number of ratings	  	
-	  	$('div#draggable_balls').hide();
-	  	
-	    console.log(response);
-	  	// $('div#draggable_balls').append(@items);
-	  	// location.reload(); 
+	  success: function(res) {
+	  	console.log('res');
+		  	// location.reload(); 
+			$('div#draggable_balls').html(res);
 	  },
-	  error: function(response) {
+	  error: function(res) {
 	  	console.log('error');
 	  },
-	  dataType:'json'
-	});
+	  dataType:'json'});
 
 	  $("#rateNowButton").removeClass('disabled');
 
