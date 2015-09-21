@@ -34,10 +34,7 @@ $(document).ready(function() {
 	  url: "/ratings",
 	  contentType: "application/json",
 	  success: function(json) {
-	  	 // $('.draggable').each(function() {
- 				//  $(this).style.left = 1.0
-  			//  $(this).style.top = 0.0				 
-	  	 // });
+	  	
 	  	// location.reload(); 
 	  	console.log(json);
 	  },

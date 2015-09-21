@@ -19,7 +19,7 @@ class RatingsController < ApplicationController
     end 
     @items = Item.where(id: @item_ids)
     respond_to do |format|
-        format.json { render :json => @items.to_json(:include => :ratings) }
+        format.json { render :json => @items.to_json(:include => :ratings) }       
     end
   end
 
