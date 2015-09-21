@@ -1,11 +1,10 @@
 class RatingsController < ApplicationController
-
   def create
     @items = params[:items]
     if @items.present?
       @item_ids = []
       @items.each do |item|
-        #TODO add item already rated by this user then update instead of adding a new rating
+        # TODO: add item already rated by this user then update instead of adding a new rating
         if already_rated_n_times?(item, 2)
           @last_rating = Rating.last_rating_of_user(current_user.id, item)
           @rating = @last_rating.update_attributes(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
