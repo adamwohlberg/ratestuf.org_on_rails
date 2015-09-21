@@ -9,7 +9,7 @@ $(document).ready(function() {
 	  if ($(this).hasClass('disabled')) {
 	  	alert('You must log in to rate stuff.')
 	    return;
-	  } 
+	  }
 		event.preventDefault();
 	$("#rateNowButton").addClass('disabled');
 
@@ -27,19 +27,17 @@ $(document).ready(function() {
 
   	data.items.push({"name": name, "id": id, "x_rating":x_rating, "y_rating":y_rating});
 		});
- 
-	 $.ajax({ 
+
+	 $.ajax({
 	  data: JSON.stringify(data),
 	  type: "POST",
 	  url: "/ratings",
 	  contentType: "application/json",
 	  success: function(json) {
-	  	 // $('.draggable').each(function() {
- 				//  $(this).style.left = 1.0
-  			//  $(this).style.top = 0.0				 
-	  	 // });
-	  	// location.reload(); 
 	  	console.log(json);
+			$.each(json, function(i, item) {
+			  $('#'+ json[i].id + " p").text(json[i].count);
+			});
 	  },
 	  error: function(json) {
 	  	console.log('error');
