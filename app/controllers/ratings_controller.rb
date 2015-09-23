@@ -4,13 +4,10 @@ class RatingsController < ApplicationController
     if @items.present?
       @item_ids = []
       @items.each do |item|
-        # TODO: add item already rated by this user then update instead of adding a new rating
         if already_rated_n_times?(item, 2)
-          @last_rating = Rating.last_rating_of_user(current_user.id, item)
-          @rating = @last_rating.update_attributes(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
-          session[:message] = 'Congratulations! Your rating(s) were updated.'
+          update_rating(item)
         else
-          @rating = Rating.create!(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
+          create_rating(item)
         end
         @item_ids << item['id']
       end
@@ -26,4 +23,16 @@ class RatingsController < ApplicationController
   def already_rated_n_times?(item, number)
     Rating.fetch_rating(current_user.id, item).count > number
   end
+
+  def update_rating(item) 
+    @last_rating = Rating.last_rating_of_user(current_user.id, item)
+    @rating = @last_rating.update_attributes(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
+    session[:message] = 'Congratulations! Your rating(s) were updated.'
+  end
+
+  def create_rating(item)
+    @rating = Rating.create!(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
+  end
+
+
 end

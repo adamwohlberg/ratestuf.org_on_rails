@@ -6,25 +6,20 @@ data.items = [];
 
 $(document).ready(function() {
 	$("#rateNowButton").click(function(event){
+		event.preventDefault();
 	  if ($(this).hasClass('disabled')) {
 	  	alert('You must log in to rate stuff.')
-	    return;
-	  }
-		event.preventDefault();
+	    return;}
 	$("#rateNowButton").addClass('disabled');
-
   $('.draggable').each(function() {
 	  name = $(this).attr('name');
 	  id = $(this).attr('id');
-
 	  containerHeight = ($(this).parent().height() * 0.78 );
-	  containerWidth = ($(this).parent().width() * 0.895962732919255);
+	  containerWidth = ($(this).parent().width() * 0.896);
 	  positionFromLeft = ($(this).position().left);
 	  positionFromTop = ($(this).position().top);
-
 	  x_rating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);
 	  y_rating = (Math.round((1-(positionFromTop / containerHeight))* 100 )/ 100);
-
   	data.items.push({"name": name, "id": id, "x_rating":x_rating, "y_rating":y_rating});
 		});
 
@@ -48,5 +43,6 @@ $(document).ready(function() {
 	  dataType:'json'});
 	  $("#rateNowButton").removeClass('disabled');
 	});
+
 });
 

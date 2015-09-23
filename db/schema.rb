@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904184223) do
+ActiveRecord::Schema.define(version: 20150923155104) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -68,13 +68,14 @@ ActiveRecord::Schema.define(version: 20150904184223) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.integer  "item_id",     limit: 4
-    t.decimal  "x_rating",                  precision: 10, scale: 3, default: 0.5
-    t.decimal  "y_rating",                  precision: 10, scale: 3, default: 0.5
-    t.text     "text_rating", limit: 65535
+    t.integer  "user_id",        limit: 4
+    t.integer  "item_id",        limit: 4
+    t.decimal  "x_rating",                     precision: 10, scale: 3, default: 0.5
+    t.decimal  "y_rating",                     precision: 10, scale: 3, default: 0.5
+    t.text     "text_rating",    limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "default_rating", limit: 1,                              default: false
   end
 
   create_table "users", force: :cascade do |t|
