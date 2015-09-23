@@ -3,10 +3,6 @@ class Item < ActiveRecord::Base
   has_many :categories, through: :categories_items
   has_many :ratings
 
-  # scope :avg_x_rating, 
-  # scope :avg_y_rating
-  # scope :total_ratings
-
   def self.filter_search_query(search_term, result = [])
     # order of terms with periods should be listed prior to the same term with no period to avoid duplicate results e.g. ['uber','. uber']
     terms_that_mean_versus = [' versus ', ' versus', ' versus', 'versus', ' vs.', 'vs.', ' vs', ' vs ']
