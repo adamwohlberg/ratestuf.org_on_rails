@@ -36,15 +36,16 @@ $(document).ready(function() {
 	  success: function(json) {
 	  	console.log(json);
 			$.each(json, function(i, item) {
-			  $('#'+ json[i].id + " p").text(json[i].count);
+				position_left = json[i].x_rating * containerWidth;
+				position_top  = (containerHeight - (containerHeight * json[i].y_rating));
+			  $('#'+ json[i].id + " p[class=ratings]").text(json[i].count-1 + ' ratings');
+				$('#'+ json[i].id).css("left", position_left).css('top', position_top);
 			});
 	  },
 	  error: function(json) {
 	  	console.log('error');
 	  },
 	  dataType:'json'});
-
 	  $("#rateNowButton").removeClass('disabled');
-
 	});
 });

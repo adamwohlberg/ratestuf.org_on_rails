@@ -18,12 +18,11 @@ class RatingsController < ApplicationController
     end
     @ratings = Rating.generate_format(Rating.item_ratings(@item_ids))
     respond_to do |format|
-      format.json { render json: @ratings.to_json }
+      format.json { render :json => @ratings.to_json }
     end
   end
 
   private
-
   def already_rated_n_times?(item, number)
     Rating.fetch_rating(current_user.id, item).count > number
   end
