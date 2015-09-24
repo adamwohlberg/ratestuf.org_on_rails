@@ -43,7 +43,7 @@ class RatingsController < ApplicationController
   def update_rating(item) 
     @last_rating = Rating.last_rating_of_user(current_user.id, item)
     @last_rating.update_attributes(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
-    session[:message] = 'You can only rate an item three(3) times. Your last rating was updated.'
+    session[:message] = 'You can only rate an item three (3) times. Your last rating was updated.'
   end
 
 end

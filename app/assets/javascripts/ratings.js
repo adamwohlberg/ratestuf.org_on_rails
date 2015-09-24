@@ -6,7 +6,7 @@ data.items = [];
 
 $(document).ready(function() {
 	$("#rateNowButton").click(function(event){
-	event.preventDefault();
+		event.preventDefault();
 	  if ($(this).hasClass('disabled')) {
 	  	alert('You must log in to rate stuff.')
 	    return;}
