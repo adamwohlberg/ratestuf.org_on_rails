@@ -1,6 +1,7 @@
 class RatingsController < ApplicationController
   
   def create
+    session[:message] = nil
     @items = params[:items]
     if @items.present?
       @item_ids = []
@@ -41,6 +42,7 @@ class RatingsController < ApplicationController
 
   def create_rating(item)
     Rating.create!(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'], default_rating: false)
+    session[:message] = 'Congratulations! Your rating(s) were saved.'
   end
 
   def update_rating(item) 
