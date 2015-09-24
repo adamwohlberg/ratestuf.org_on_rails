@@ -5,8 +5,9 @@ class ItemsController < ApplicationController
   def index
     flash.now[:alert] = search(params[:search])
     flash.now[:notice] = session[:message] if session[:message].present?
-    respond_to do |f|
-    	format.html
+    respond_to do |format|
+      format.html
+      format.js
     	format.json { render :json => @items.to_json }
     end
   end

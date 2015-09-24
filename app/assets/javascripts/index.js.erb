@@ -1,0 +1,43 @@
+// *****************************************
+// CREATE RATINGS
+// *****************************************
+var data ={};
+data.items = [];
+
+$(document).ready(function() {
+	$("#mainForm").submit(function(event){
+		event.preventDefault();
+		$.get(this.action, $(this).serialize(), null, "script");
+		return false;
+
+	});
+});
+
+// 	 $.ajax({
+// 	  data: JSON.stringify(data),
+// 	  type: "POST",
+// 	  url: "/ratings",
+// 	  contentType: "application/json",
+// 	  success: function(json) {
+// 	  	console.log(json);
+// 			$.each(json, function(i, item) {
+// 				position_left = json[i].x_rating * containerWidth;
+// 				position_top  = (containerHeight - (containerHeight * json[i].y_rating));
+// 			  $('#'+ json[i].id + " p[class=ratings]").text(json[i].count + ' ratings');
+// 				$('#'+ json[i].id).css("left", position_left).css('top', position_top);
+// 			  if (json[i].count === 3) {
+// 				$('p[class=notice]').text('You can only rate an item three times. Future ratings will update your last rating.');
+// 			  } else if (json[i].count < 3) {
+// 				$('p[class=notice]').text('Congratulations! Your rating(s) were saved.');
+// 				};
+// 			});
+// 	  },
+// 	  error: function(json) {
+// 	  	console.log('error');
+// 	  },
+// 	  dataType:'json'});
+// 	 data.items = [];
+// 	  $("#rateNowButton").removeClass('disabled');
+// 	});
+
+// });
