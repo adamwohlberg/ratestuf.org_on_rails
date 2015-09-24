@@ -4,7 +4,7 @@ class Rating < ActiveRecord::Base
   belongs_to :user
 
   ## Scope ##
-  scope :item_ratings, -> (item_names) { eager_load(:item).where("items.id IN (?)", item_names).group(:item_id).pluck("item_id, AVG(x_rating) as AVG_X_RATING, AVG(y_rating) as AVG_Y_RATING, COUNT(item_id) as RATE_COUNT, items.name") }
+  scope :item_ratings, -> (item_names){ eager_load(:item).where("items.id IN (?)", item_names).group(:item_id).pluck("item_id, AVG(x_rating) as AVG_X_RATING, AVG(y_rating) as AVG_Y_RATING, COUNT(item_id) as RATE_COUNT, items.name") }
   scope :fetch_rating, -> (user_id, item){ where(user_id: user_id, item_id: item['id']) }
   scope :last_rating_of_user, -> (user_id, item){ fetch_rating(user_id, item).last }
 

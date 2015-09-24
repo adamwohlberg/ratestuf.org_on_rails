@@ -6,7 +6,7 @@ data.items = [];
 
 $(document).ready(function() {
 	$("#rateNowButton").click(function(event){
-		event.preventDefault();
+	event.preventDefault();
 	  if ($(this).hasClass('disabled')) {
 	  	alert('You must log in to rate stuff.')
 	    return;}
@@ -33,7 +33,7 @@ $(document).ready(function() {
 			$.each(json, function(i, item) {
 				position_left = json[i].x_rating * containerWidth;
 				position_top  = (containerHeight - (containerHeight * json[i].y_rating));
-			  $('#'+ json[i].id + " p[class=ratings]").text(json[i].count-1 + ' ratings');
+			  $('#'+ json[i].id + " p[class=ratings]").text(json[i].count + ' ratings');
 				$('#'+ json[i].id).css("left", position_left).css('top', position_top);
 			});
 	  },
@@ -41,6 +41,7 @@ $(document).ready(function() {
 	  	console.log('error');
 	  },
 	  dataType:'json'});
+	 data.items = [];
 	  $("#rateNowButton").removeClass('disabled');
 	});
 
