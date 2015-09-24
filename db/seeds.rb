@@ -485,7 +485,7 @@ CategoriesItem.create!([{ item_id: Item.find_by_name('betty ford').id, category_
 
 # default rating
 (Item.all).each do |item|
-  Rating.create!([{ user_id: User.first.id, item_id: item.id}])
+  Rating.create!([{ user_id: User.first.id, item_id: item.id, default_rating: true }])
 end
 
 2250.times do

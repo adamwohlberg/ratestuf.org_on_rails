@@ -4,7 +4,9 @@ class RatingsController < ApplicationController
     if @items.present?
       @item_ids = []
       @items.each do |item|
-        if already_rated_n_times?(item, 2)
+        if only_has_default_rating?(item)
+          update_default_rating(item)
+        elsif already_rated_n_times?(item, 2)
           update_rating(item)
         else
           create_rating(item)
@@ -20,8 +22,18 @@ class RatingsController < ApplicationController
   end
 
   private
+
+  def only_has_default_rating?(item)
+    Item.where(name: item[:name]).first.ratings.count == 1
+  end
+
   def already_rated_n_times?(item, number)
     Rating.fetch_rating(current_user.id, item).count > number
+  end
+
+  def update_default_rating(item)
+    @default_rating = Rating.where(item_id: item['id']).first
+    @rating = @default_rating.update_attributes(user_id: current_user.id, x_rating: item['x_rating'], y_rating: item['y_rating'])
   end
 
   def update_rating(item) 
