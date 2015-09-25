@@ -1,3 +1,8 @@
-$('#the_balls').destroy;
+$('.notice').empty().hide();
+$('.alert').empty().hide();
+
+$('#the_balls').empty();
 $('#the_balls').append("<%= escape_javascript(render(:partial => 'draggables')) %>");
-// $('p[class=notice]').text('Your balls were rendered with javascript.');
+
+
+OnloadFunction();
