@@ -37,12 +37,4 @@ class Item < ActiveRecord::Base
     terms = result.flatten
     terms
   end
-
-
-
-
-
-
-
-
 end
