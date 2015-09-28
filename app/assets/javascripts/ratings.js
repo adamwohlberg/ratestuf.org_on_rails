@@ -36,7 +36,7 @@ data.items = [];
 
 				position_left = json[i].x_rating * containerWidth;
 				position_top  = (containerHeight - (containerHeight * json[i].y_rating));
-			  $('#'+ json[i].id + " p[class=ratings]").text(json[i].count + ' ratings');
+			  $('#'+ json[i].id + " p[class=ratings]").text((json[i].count == 1) ? json[i].count + ' rating' : json[i].count + ' ratings' );
 				$('#'+ json[i].id).css("left", position_left).css('top', position_top);
 
 			  if (json[i].count === 1) {
