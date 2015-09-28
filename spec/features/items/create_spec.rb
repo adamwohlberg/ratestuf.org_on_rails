@@ -9,6 +9,7 @@ describe 'Searching for and creating items' do
   fill_in(:search, :with => '')
   page.execute_script("$('form#searchTags').submit()")
   expect(page).to have_content("Please search for something")
+  expect(page).not_to have_content("Ipsum factum") 
   end
 
   it "displays a draggable ball when user is not logged in and searches for a single item that already exists in the db" do
@@ -16,8 +17,9 @@ describe 'Searching for and creating items' do
   fill_in(:search, :with => 'uber')
   page.execute_script("$('form#searchTags').submit()")
   expect(page).to have_link("uber")
-  expect(page).to have_no_link("xxxuberxxx")
-  # TODO add test for flash messages
+  expect(page).to have_no_link("ipsum factum")
+  # expect(page).not_to have_css("p.alert")
+  # expect(page).not_to have_css("p.notice")
   end
 
   it "displays the correct flash message when user is not logged in and searches for a single item that does not exist in the db" do
@@ -25,7 +27,7 @@ describe 'Searching for and creating items' do
   fill_in(:search, :with => 'akdfsfdaxxxxffadsljkda')
   page.execute_script("$('form#searchTags').submit()")
   expect(page).to have_no_link('akdfsfdaxxxxffadsljkda')
-  # expect(flash[:alert]).to eql("One or more of your items is new to our system. You must log in to complete this search.")
+  expect(page).to have_css('p.alert', text: 'One or more of your items is new to our system. You must log in to complete this search.')
   end
   
   it "displays the correct flash message when user is not logged in and searches for two items in a versus search one of which exists and one of which does not exist in the db" do
