@@ -95,21 +95,18 @@ $(".draggable").mousemove(function(){
 	  // alert('xposition: ' + xPosition + ', yposition: ' + yPosition + ' yposition of lowerline: ' + yPositionOnLowerLine + ' yposition of upperline: ' + yPositionOnUpperLine);
 
 	  if (yPosition > yPositionOnUpperLine) {
-	  	alert('worse');
 	        $(this).removeClass('bestValue');
 	        $(this).removeClass('fairValue');  
 	        $(this).addClass('worseValue');
 	  }
 	  
 	  if (yPosition <= yPositionOnUpperLine && yPosition >= yPositionOnLowerLine) {
-	  	alert('fair');
 	        $(this).removeClass('worseValue');
 	        $(this).removeClass('bestValue');        
 	        $(this).addClass('fairValue'); 
 	  } 
 	  
 	  if (yPosition < yPositionOnLowerLine) {
-	  	alert('best');
 	        $(this).removeClass('worseValue');
 	        $(this).removeClass('fairValue');  
 	        $(this).addClass('bestValue'); 
