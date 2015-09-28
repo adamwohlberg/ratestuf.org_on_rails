@@ -22,3 +22,5 @@ $(document).ready(function() {
 	$('.notice').empty().hide();
 	$('.alert').empty().hide();
 });
+
+

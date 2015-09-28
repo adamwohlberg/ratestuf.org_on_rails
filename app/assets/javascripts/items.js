@@ -23,6 +23,8 @@ function tagLineLetterFallsOnLoad() {
  },1900);
 }
 
+tagLineLetterFallsOnLoad();
+
 	$(".draggable").dblclick(function(){
 	    $(this).fadeOut(100);
 		});
