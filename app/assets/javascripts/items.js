@@ -139,6 +139,10 @@ $(".draggable").mousemove(function(){
 	  }
 	}); 
 
+	$('.notice').empty().hide();
+	$('.alert').empty().hide();
+	$('#flash_messages').html = "";
+
 // *****************************************
 // CREATE RATINGS
 // *****************************************
@@ -171,6 +175,9 @@ data.items = [];
 	  contentType: "application/json",
 	  success: function(json) {
 	  	console.log(json);
+	  	$('.notice').empty().hide();
+			$('.alert').empty().hide();
+			$('#flash_messages').html = "";
 			$.each(json, function(i, item) {
 				position_left = json[i].x_rating * containerWidth;
 				position_top  = (containerHeight - (containerHeight * json[i].y_rating));

@@ -13,7 +13,6 @@ class RatingsController < ApplicationController
         else
           create_rating(item)
         end
-        # byebug
         @item_ids << item['id']
       end
       session[:message] ||= 'Congratulations! Your rating(s) were saved.'
@@ -36,6 +35,7 @@ class RatingsController < ApplicationController
   end
 
   def update_default_rating(item)
+    byebug
     @default_rating = Rating.where(item_id: item['id']).first
     @default_rating.update_attributes(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'], default_rating: false)
     session[:message] = 'Congratulations! Your rating(s) were saved.'
