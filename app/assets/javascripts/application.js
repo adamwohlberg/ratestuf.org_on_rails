@@ -17,10 +17,4 @@
 //= require_tree .
 
 
-$(document).ready(function() {
-	$('#flash_messages').html = "";
-	$('.notice').empty().hide();
-	$('.alert').empty().hide();
-});
-
 

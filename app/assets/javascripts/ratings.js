@@ -40,11 +40,12 @@ data.items = [];
 				$('#'+ json[i].id).css("left", position_left).css('top', position_top);
 
 			  if (json[i].count === 1) {
-			  	$('.notice').show();
-			  	$('.notice').html('You can only rate an item (1) one time. Future ratings will update your rating.');
+			  	$('p.notice').show();
+			  	$('p.notice').text('You can only rate an item (1) one time. Future ratings will update your rating.');
 			  } else if (json[i].count < 1) {
-			  	$('.notice').show();
-			  	$('.notice').text('Congratulations! Your rating(s) were saved.');
+			  	alert(json[i].count);
+			  	$('p.notice').show();
+			  	$('p.notice').text('Congratulations! Your rating(s) were saved.');
 				};
 			});
 	  },

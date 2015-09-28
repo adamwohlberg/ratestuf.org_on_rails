@@ -2,17 +2,18 @@ class RatingsController < ApplicationController
   
   def create
     session[:message] = nil
-    flash[:message] = nil
     @items = params[:items]
     if @items.present?
       @item_ids = []
       @items.each do |item|
         if only_has_default_rating?(item)
           update_default_rating(item)
+          flash.now[:notice] = 'Congratulations! Your rating(s) were saved.'
         elsif already_rated_n_times?(item, 0)
           update_rating(item)
         else
           create_rating(item)
+          flash.now[:notice] = 'Congratulations! Your rating(s) were saved.'
         end
         @item_ids << item['id']
       end
@@ -37,12 +38,10 @@ class RatingsController < ApplicationController
   def update_default_rating(item)
     @default_rating = Rating.where(item_id: item['id']).first
     @default_rating.update_attributes(user_id: current_user.id, x_rating: item['x_rating'], y_rating: item['y_rating'], default_rating: false)
-    flash[:notice] = 'Congratulations! Your rating(s) were saved.'
   end
 
   def create_rating(item)
     @rating = Rating.create!(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'], default_rating: false)
-    flash[:notice] = 'Congratulations! Your rating(s) were saved.'
   end
 
   def update_rating(item) 
