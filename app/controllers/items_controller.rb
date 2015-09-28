@@ -7,8 +7,8 @@ class ItemsController < ApplicationController
     flash.now[:notice] = session[:message] if session[:message].present?
 
     respond_to do |format|
-      format.html
-      format.js
+      format.html {}
+      format.js {}
     end
   end
 

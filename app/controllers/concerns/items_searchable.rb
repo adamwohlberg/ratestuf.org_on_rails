@@ -45,7 +45,7 @@ extend ActiveSupport::Concern
 	end
 
 	def user_has_created_too_many_items?
-			current_user && (Item.where(user_id: current_user.id).count > 50)
+			current_user && (Item.where(user_id: current_user.id).count > 10)
 	end
 
 	def contains_a_new_item?

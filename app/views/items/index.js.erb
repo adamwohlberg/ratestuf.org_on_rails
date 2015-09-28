@@ -2,6 +2,7 @@ $('.notice').empty().hide();
 $('.alert').empty().hide();
 
 $('#the_balls').empty();
+
 $('#the_balls').append("<%= escape_javascript(render(:partial => 'draggables')) %>");
 $('#flash_messages').html("<%= escape_javascript(render(:partial => 'layouts/flash_messages')) %>");
 
