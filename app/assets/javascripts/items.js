@@ -86,8 +86,8 @@ $(".draggable").mousemove(function(){
 
 	$(".draggable").each(function(){
 
-	  xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
-	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
+	  xPosition = (Math.round(($(this).position().left / ($(this).parent().parent().width())) * 100));
+	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().parent().height())) * 100)));
 	  UpperLineSlope = 0.8965;
 	  yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
 	  LowerLineSlope = 0.8977;
@@ -95,18 +95,21 @@ $(".draggable").mousemove(function(){
 	  // alert('xposition: ' + xPosition + ', yposition: ' + yPosition + ' yposition of lowerline: ' + yPositionOnLowerLine + ' yposition of upperline: ' + yPositionOnUpperLine);
 
 	  if (yPosition > yPositionOnUpperLine) {
+	  	alert('worse');
 	        $(this).removeClass('bestValue');
 	        $(this).removeClass('fairValue');  
 	        $(this).addClass('worseValue');
 	  }
 	  
 	  if (yPosition <= yPositionOnUpperLine && yPosition >= yPositionOnLowerLine) {
+	  	alert('fair');
 	        $(this).removeClass('worseValue');
 	        $(this).removeClass('bestValue');        
 	        $(this).addClass('fairValue'); 
 	  } 
 	  
 	  if (yPosition < yPositionOnLowerLine) {
+	  	alert('best');
 	        $(this).removeClass('worseValue');
 	        $(this).removeClass('fairValue');  
 	        $(this).addClass('bestValue'); 
@@ -114,8 +117,8 @@ $(".draggable").mousemove(function(){
 	}); 
 
 	$(".draggable").mouseover(function(){
-	  xPosition = (Math.round(($(this).position().left / ($(this).parent().width())) * 100));
-	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().height())) * 100)));
+	  xPosition = (Math.round(($(this).position().left / ($(this).parent().parent().width())) * 100));
+	  yPosition = (100-(Math.round(($(this).position().top / ($(this).parent().parent().height())) * 100)));
 	  UpperLineSlope = 0.8965;
 	  yPositionOnUpperLine = ((UpperLineSlope * xPosition) + 25);
 	  LowerLineSlope = 0.8977;
@@ -154,8 +157,8 @@ data.items = [];
   $('.draggable').each(function() {
 	  name = $(this).attr('name');
 	  id = $(this).attr('id');
-	  containerHeight = ($(this).parent().height() * 0.78 );
-	  containerWidth = ($(this).parent().width() * 0.896);
+	  containerHeight = ($(this).parent().parent().height() * 0.78 );
+	  containerWidth = ($(this).parent().parent().width() * 0.896);
 	  positionFromLeft = ($(this).position().left);
 	  positionFromTop = ($(this).position().top);
 	  x_rating = (Math.round((positionFromLeft / containerWidth) * 100 )/ 100);

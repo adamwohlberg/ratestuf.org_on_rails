@@ -41,11 +41,11 @@ extend ActiveSupport::Concern
 	end
 
 	def create_item_and_associated_records
-	  	ItemFactory.create!(@search_string)
+	  	ItemFactory.create!(@search_string, current_user)
 	end
 
 	def user_has_created_too_many_items?
-			current_user && (Item.where(user_id: current_user.id).count > 10)
+			current_user && (Item.where(user_id: current_user.id).count > 20)
 	end
 
 	def contains_a_new_item?

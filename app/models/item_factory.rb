@@ -1,19 +1,20 @@
 class ItemFactory
   DELIMITERS = [' versus ', ' versus', ' versus', 'versus', ' vs.', 'vs.', ' vs', ' vs ']
 
-  def self.create!(input)
-    new(input).create_items
+  def self.create!(input, user)
+    new(input, user).create_items
   end
 
-  def initialize(input)
+  def initialize(input, user)
     @input = input
+    @user = user
   end
 
   def create_items
     tokenize.each do |token|
       next if Item.exists?(name: token)
       break if Category.where("name LIKE concat('%', '#{token}', '%')").exists?
-        Item.create!(name: token, url: "http://www.#{token}.com") 
+        Item.create!(name: token, url: "http://www.#{token}.com", user_id: @user.id) 
         item_id = Item.where(name: token).first.id
         Rating.create!(user_id: User.first.id, item_id: item_id, x_rating: 0.5, y_rating: 0.55, default_rating: true)
         CategoriesItem.create!(item_id: item_id, category_id: Category.find_by_name("new item - category pending").id)    
