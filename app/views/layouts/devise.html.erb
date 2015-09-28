@@ -15,16 +15,13 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <p class="notice"><%= notice %></p> 
-    <% end %>
-    <% if flash[:alert] %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-<div class=row>
-  <div class="small-10 columns small-centered medium-5 medium-centered large-5 large-centered">
-    <%= yield %>
-  </div>
+
+    <%=  render 'layouts/flash_messages' %>
+
+  <div class="row">
+    <div class="small-10 columns small-centered medium-5 medium-centered large-5 large-centered">
+      <%= yield %>
+    </div>
 
       <%=  render 'items/footer' %>
     
