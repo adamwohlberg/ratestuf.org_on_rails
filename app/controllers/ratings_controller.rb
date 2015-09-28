@@ -8,7 +8,7 @@ class RatingsController < ApplicationController
       @items.each do |item|
         if only_has_default_rating?(item)
           update_default_rating(item)
-        elsif already_rated_n_times?(item, 3)
+        elsif already_rated_n_times?(item, 2)
           update_rating(item)
         else
           create_rating(item)
