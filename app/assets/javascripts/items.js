@@ -2,7 +2,7 @@ function OnloadFunction ()
 {
 
 $(document).foundation();
-
+  
   setTimeout(function() {
 	$("#starCounter").css("display", "block");
 	}, 100);	

@@ -7,7 +7,6 @@ data.items = [];
 
 	$("#rateNowButton").click(function(event){
 		event.preventDefault();
-		console.log('click the button');
 	  if ($(this).hasClass('disabled')) {
 	  	alert('You must log in to rate stuff.')
 	    return;}
@@ -33,16 +32,19 @@ data.items = [];
 	  	console.log(json);
 	  	$('.notice').empty().hide();
 			$('.alert').empty().hide();
-			$('#flash_messages').html = "";
 			$.each(json, function(i, item) {
+
 				position_left = json[i].x_rating * containerWidth;
 				position_top  = (containerHeight - (containerHeight * json[i].y_rating));
 			  $('#'+ json[i].id + " p[class=ratings]").text(json[i].count + ' ratings');
 				$('#'+ json[i].id).css("left", position_left).css('top', position_top);
-			  if (json[i].count === 3) {
-				$('p[class=notice]').text('You can only rate an item three times. Future ratings will update your last rating.');
-			  } else if (json[i].count < 3) {
-				$('p[class=notice]').text('Congratulations! Your rating(s) were saved.');
+
+			  if (json[i].count === 1) {
+			  	$('.notice').show();
+			  	$('.notice').html('You can only rate an item (1) one time. Future ratings will update your rating.');
+			  } else if (json[i].count < 1) {
+			  	$('.notice').show();
+			  	$('.notice').text('Congratulations! Your rating(s) were saved.');
 				};
 			});
 	  },
