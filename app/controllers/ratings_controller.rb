@@ -13,6 +13,7 @@ class RatingsController < ApplicationController
         else
           create_rating(item)
         end
+        # byebug
         @item_ids << item['id']
       end
       session[:message] ||= 'Congratulations! Your rating(s) were saved.'
