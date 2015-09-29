@@ -36,12 +36,7 @@ data.items = [];
 				position_top  = (containerHeight - (containerHeight * json[i].y_rating));
 			  $('#'+ json[i].id + " p[class=ratings]").text((json[i].count == 1) ? json[i].count + ' rating' : json[i].count + ' ratings' );
 				$('#'+ json[i].id).css("left", position_left).css('top', position_top);
-
-			  if (json[i].count == 1) {
-			  	$("#flash_messages").html("<p class='notice'>You can only rate an item (1) one time. Future ratings will update your rating.</p>");
-			  } else if (json[i].count > 1) {
-					$("#flash_messages").html("<p class='notice'>Congratulations! Your rating(s) were saved.</p>");
-				}
+				$("#flash_messages").html("<p class='notice'>Congratulations! Your rating(s) were saved. Note: you can only rate an item one (1) time. Future attempts will simply update your previous rating.</p>");
 			});
 	  },
 	  error: function(json) {
