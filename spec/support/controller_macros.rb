@@ -6,4 +6,3 @@ module ControllerMacros
     @current_user = user
   end
 end
-
