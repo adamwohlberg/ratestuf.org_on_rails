@@ -1,8 +1,6 @@
-    <div id="flash_messages">
-      <% if flash[:notice] %>
-        <p class="notice"><%= notice %></p> 
-      <% end %>
-      <% if flash[:alert] %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-    </div>
+<% if flash[:notice] %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<% if flash[:alert] %>
+  <p class="alert"><%= alert %></p>
+<% end %>

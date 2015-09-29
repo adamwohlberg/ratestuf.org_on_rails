@@ -1,40 +1,40 @@
 require 'rails_helper'
 
 describe 'Searching for and creating items' do
-
   # case when !user_signed_in?
 
   it "displays the correct flash message when user is not logged in and searches with an empty search bar" do
   visit root_path
   fill_in(:search, :with => '')
-  page.execute_script("$('form#searchTags').submit()")
-  expect(page).to have_content("Please search for something")
-  expect(page).not_to have_content("Ipsum factum") 
+  page.execute_script("$('form#mainForm').submit()")
+  expect(page).to have_content("Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.")
+  expect(page).not_to have_content("Ipsum factum")
   end
 
   it "displays a draggable ball when user is not logged in and searches for a single item that already exists in the db" do
   visit root_path
-  fill_in(:search, :with => 'uber')
-  page.execute_script("$('form#searchTags').submit()")
+  item = FactoryGirl.create(:item, name: 'uber', url: 'www.uber.com', user_id: 1)
+  puts Item.find_by(name: "uber").inspect
+  fill_in(:search, with: "uber")
+  page.execute_script("$('form#mainForm').submit()")
   expect(page).to have_link("uber")
-  expect(page).to have_no_link("ipsum factum")
-  # expect(page).not_to have_css("p.alert")
-  # expect(page).not_to have_css("p.notice")
+  #expect(page).not_to have_css("p.alert")
+  #expect(page).not_to have_css("p.notice")
   end
 
-  it "displays the correct flash message when user is not logged in and searches for a single item that does not exist in the db" do
+  it "displays the correct flash message when user is not logged in and searches for a single item that does not exist in the db", js: true do
   visit root_path
-  fill_in(:search, :with => 'akdfsfdaxxxxffadsljkda')
-  page.execute_script("$('form#searchTags').submit()")
-  expect(page).to have_no_link('akdfsfdaxxxxffadsljkda')
+  fill_in(:search, :with => 'test_123')
+  page.execute_script("$('form#mainForm').submit()")
+  expect(page).to have_no_link('test_123')
   expect(page).to have_css('p.alert', text: 'One or more of your items is new to our system. You must log in to complete this search.')
   end
-  
+
   it "displays the correct flash message when user is not logged in and searches for two items in a versus search one of which exists and one of which does not exist in the db" do
   visit root_path
   fill_in(:search, :with => 'uber vs. asdfkjldakjs')
-  page.execute_script("$('form#searchTags').submit()")
-  # expect(page).to have_no_content("Please search for something")
+  page.execute_script("$('form#mainForm').submit()")
+  expect(page).to have_no_content("Please search for something")
   end
 
   it "displays the correct flash message when user is not logged in and searches for two items in a versus search neither of which exists in the db" do

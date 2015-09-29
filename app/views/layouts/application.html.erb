@@ -4,28 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= favicon_link_tag 'favicon.ico' %>
-      <%=  render 'items/header' %>
-
+    <%=  render 'items/header' %>
     <title><% content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-
-    <%=  render 'layouts/flash_messages' %>
-
+    <div id="flash_messages">
+      <%= render 'layouts/flash_messages' %>
+    </div>
     <%= yield %>
-
-      <%=  render 'items/footer' %>
-    
+    <%= render 'items/footer' %>
   </body>
-
   <% unless user_signed_in? %>
     <%= javascript_tag "tagLineLetterFallsOnLoad()" %>
   <% end %>
-
 </html>

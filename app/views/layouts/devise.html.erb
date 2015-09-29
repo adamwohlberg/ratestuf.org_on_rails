@@ -3,27 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-      <%=  render 'items/header' %>
-
+    <%=  render 'items/header' %>
     <title><% content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-
-    <%=  render 'layouts/flash_messages' %>
-
-  <div class="row">
-    <div class="small-10 columns small-centered medium-5 medium-centered large-5 large-centered">
-      <%= yield %>
+    <div id="flash_messages">
+      <%= render 'layouts/flash_messages' %>
     </div>
-
+    <div class="row">
+      <div class="small-10 columns small-centered medium-5 medium-centered large-5 large-centered">
+        <%= yield %>
+      </div>
       <%=  render 'items/footer' %>
-    
+    </div>
   </body>
 </html>
