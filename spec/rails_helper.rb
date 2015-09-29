@@ -45,8 +45,6 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 
-  config.include Devise::TestHelpers 
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
@@ -62,7 +60,12 @@ RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
   config.include FactoryGirl::Syntax::Methods
 
-  config.include ControllerMacros
+  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::TestHelpers, type: :view
+
+  config.include ControllerMacros, type: :controller
+  config.include ControllerMacros, type: :view
+
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
