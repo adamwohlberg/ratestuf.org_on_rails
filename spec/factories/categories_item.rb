@@ -4,3 +4,4 @@ FactoryGirl.define do
    association :item
   end
 end
+
