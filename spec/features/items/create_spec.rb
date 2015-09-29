@@ -18,8 +18,6 @@ describe 'Searching for and creating items' do
   fill_in(:search, with: "uber")
   page.execute_script("$('form#mainForm').submit()")
   expect(page).to have_link("uber")
-  #expect(page).not_to have_css("p.alert")
-  #expect(page).not_to have_css("p.notice")
   end
 
   it "displays the correct flash message when user is not logged in and searches for a single item that does not exist in the db", js: true do
@@ -34,19 +32,24 @@ describe 'Searching for and creating items' do
   visit root_path
   fill_in(:search, :with => 'uber vs. asdfkjldakjs')
   page.execute_script("$('form#mainForm').submit()")
-  expect(page).to have_no_content("Please search for something")
+  expect(page).to have_css('p.alert', text: 'One or more of your items is new to our system. You must log in to complete this search.') 
   end
 
   it "displays the correct flash message when user is not logged in and searches for two items in a versus search neither of which exists in the db" do
   visit root_path
   fill_in(:search, :with => 'adlfdajfdfd vs adsfasddfdfsafdsddsfdfs')
-  page.execute_script("$('form#searchTags').submit()")
+  page.execute_script("$('form#mainForm').submit()")
+  expect(page).to have_css('p.alert', text: 'One or more of your items is new to our system. You must log in to complete this search.') 
   end
 
-  it "displays the correct flash message when user is not logged in and searches for a single item which is a category" do
+  it "displays the correct flash message when user is not logged in and searches for a single item which is a category that does exist in the db" do
+  FactoryGirl.create(:categories_item, item: { name: "delta", url: "www.delta.com" } )
+
   visit root_path
   fill_in(:search, :with => 'airlines')
-  page.execute_script("$('form#searchTags').submit()")
+  page.execute_script("$('form#mainForm').submit()")
+  expect(page).not_to have_css('p.alert')  
+  expect(page).not_to have_css('p.notice') 
   end
 
   it "displays the correct flash message when user is not logged in and searches for two items the first of which is a category and the second of which exists in the db" do

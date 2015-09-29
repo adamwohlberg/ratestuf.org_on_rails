@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :category do
-    name "new item category undefined"
+    name "airlines"
+    factory :category_with_items
   end
 end
