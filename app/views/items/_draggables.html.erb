@@ -1,5 +1,5 @@
-      <% @items.each do |item| %>
-       <div id="<%= item.id %>" class="draggable1 draggable greyedOut fairValue" name="<%= item.name %>" title="Log in. Then move this ball to rate an item." style="position: absolute; left:<%= item.xRating * 0.8959 %>%; bottom: <%= item.yRating * 0.78%>%"><a href="<%= item.url %>" target="_blank"><p class="itemName" style="display: block;"><%= item.name %>™</p></a>
-            <%= image_tag('speechbubble.png', :class => "speechBubble", :size => '150x150') %><p class="ratings"><%= pluralize((item.votes == 1 && item.ratings.first.default_rating == true ? 0 : item.votes ), 'rating') %></p>
-       </div>
-      <% end %> 
+<% @items.each do |item| %>
+ <div id="<%= item.id %>" class="draggable1 draggable greyedOut fairValue" name="<%= item.name %>" title="Log in. Then move this ball to rate an item." style="position: absolute; left:<%= item.xRating * 0.8959 %>%; bottom: <%= item.yRating * 0.78%>%"><a href="<%= item.url %>" target="_blank"><p class="itemName" style="display: block;"><%= item.name %>™</p></a>
+    <%= image_tag('speechbubble.png', :class => "speechBubble", :size => '150x150') %><p class="ratings"><%= pluralize((item.votes == 1 && item.ratings.first.default_rating == true ? 0 : item.votes ), 'rating') %></p>
+ </div>
+<% end %>

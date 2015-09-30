@@ -1,1 +1,7 @@
-alert('ajax');
+<% @ratings.each do |item| %>
+  position_left = <%= item[:x_rating] %> * containerWidth;
+  position_top  = (containerHeight - (containerHeight * <%= item[:y_rating] %>));
+  $("#<%= item[:id] %> p[class=ratings]").text("<%= pluralize(item[:count], 'rating') %>");
+  $("<%= item[:id] %>").css("left", position_left).css('top', position_top);
+  $('#flash_messages').html("<%= escape_javascript(render(:partial => 'layouts/flash_messages')) %>");
+<% end %>
