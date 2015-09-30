@@ -18,6 +18,5 @@
 
 #Ignore coverage
 coverage
-public/assets
 config/database.yml
 config/secrets.yml
