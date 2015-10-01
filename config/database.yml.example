@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: ratestuf_dot_org
+  pool: 5
+  username: root
+  password:
+  host: localhost
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  # database: db/development.sqlite3
+
+test:
+  <<: *default
+  database: ratestuf_dot_org_test
+
+production:
+  <<: *default
+  database: ENV['CLEARDB_DATABASE_URL']
