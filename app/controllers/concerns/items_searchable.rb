@@ -30,7 +30,6 @@ extend ActiveSupport::Concern
 	end
 
 	def new_item_but_not_signed_in?
-			# user not signed in and the count of items in the search is not equal to the count of items in the database
 			!user_signed_in? && (Item.filter_search_query(@search_string).count > @items.count)
 	end
 
