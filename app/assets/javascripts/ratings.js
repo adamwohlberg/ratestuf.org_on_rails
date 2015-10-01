@@ -36,7 +36,5 @@ $( document ).ready(function() {
 
 		data.items = [];
 		$("#rateNowButton").removeClass('disabled');
-
 	});
-
 });

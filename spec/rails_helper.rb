@@ -14,15 +14,14 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-  end
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+   DatabaseCleaner.logger = Rails.logger
+   DatabaseCleaner.strategy = :truncation
+   DatabaseCleaner.clean_with(:truncation)
+ end
 
+ config.around(:each) do |example|
+  DatabaseCleaner.cleaning { example.run }
+ end
   config.include Rails.application.routes.url_helpers
   config.include FactoryGirl::Syntax::Methods
 

@@ -1,8 +1,12 @@
 class Item < ActiveRecord::Base
-  has_many :categories_items
-  has_many :categories, through: :categories_items
+  ## Associations ##
+  has_and_belongs_to_many :categories, join_table: :categories_items
   has_many :ratings
 
+  ## Scopes ##
+  scope :search_terms_ratings, -> (params){ joins(:ratings, :categories).where("items.name REGEXP '#{params}' OR categories.name REGEXP '#{params}'") }
+
+  ## Class Methods ##
   def self.filter_search_query(search_term, result = [])
     # order of terms with periods should be listed prior to the same term with no period to avoid duplicate results e.g. ['uber','. uber']
     terms_that_mean_versus = [' versus ', ' versus', ' versus', 'versus', ' vs.', 'vs.', ' vs', ' vs ']
@@ -20,21 +24,8 @@ class Item < ActiveRecord::Base
   end
 
   def self.search(search_term, result = [])
-    params = filter_search_query(search_term)
-    params.each do |query|
-      result << Item.find_by_sql([
-        "SELECT (AVG(x_rating)*100) AS xRating, (AVG(y_rating)*100) AS yRating, ratings.default_rating,
-        COUNT(ratings.id) AS votes, items.name, items.id, items.url FROM items 
-        JOIN categories_items ON items.id = categories_items.item_id 
-        JOIN categories ON categories.id = categories_items.category_id 
-        JOIN ratings ON ratings.item_id = items.id
-        WHERE items.name LIKE concat('%', ?, '%') 
-        OR categories.name LIKE concat('%', ?, '%') 
-        GROUP BY items.name
-        LIMIT 10", query, query
-        ])
-    end
-    terms = result.flatten
-    terms
+    params = filter_search_query(search_term).join('|')
+    items = Item.search_terms_ratings(params).ids
+    Rating.generate_format(Rating.item_ratings(items))
   end
 end

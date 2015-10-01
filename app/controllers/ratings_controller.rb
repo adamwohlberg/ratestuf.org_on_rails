@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-  
+
   def create
     session[:message] = nil
     @items = params['items']
@@ -38,15 +38,16 @@ class RatingsController < ApplicationController
   end
 
   def update_default_rating(item)
-    @default_rating = Rating.where(item_id: item['id']).first
+    @default_rating = Rating.find_by(item_id: item['id'])
     @default_rating.update_attributes(user_id: current_user.id, x_rating: item['x_rating'], y_rating: item['y_rating'], default_rating: false)
+    Rating.where(item_id: item['id']).update_all(default_rating: false)
   end
 
   def create_rating(item)
     @rating = Rating.create!(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'], default_rating: false)
   end
 
-  def update_rating(item) 
+  def update_rating(item)
     @last_rating = Rating.last_rating_of_user(current_user.id, item)
     @last_rating.update_attributes(user_id: current_user.id, item_id: item['id'], x_rating: item['x_rating'], y_rating: item['y_rating'])
   end
