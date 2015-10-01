@@ -53,9 +53,10 @@ describe 'Searching for and creating items' do
     end
 
     it "displays the correct flash message when user is not logged in and searches for two items the first of which is a category and the second of which exists in the db" do
+      item = FactoryGirl.create(:item_with_ratings, :name "Bob")
       c = FactoryGirl.create(:category_with_items, name: 'airlines')
       visit root_path
-      fill_in(:search, :with => "airlines vs #{c.items.last.name}")
+      fill_in(:search, :with => "airlines vs #{item.name}")
       page.execute_script("$('form#mainForm').submit()")
       expect(page).not_to have_css('p.alert')
       expect(page).not_to have_css('p.notice')
@@ -65,7 +66,7 @@ describe 'Searching for and creating items' do
     it "displays the correct flash message when user is not logged in and searches for two items the first of which exists in the db and the second of which is a category" do
       c = FactoryGirl.create(:category_with_items, name: 'airlines')
       visit root_path
-      fill_in(:search, :with => "airlines vs #{c.items.last.name}")
+      fill_in(:search, :with => "airlines vs #{FFaker::Name.name}")
       page.execute_script("$('form#mainForm').submit()")
       expect(page).not_to have_css('p.alert')
       expect(page).not_to have_css('p.notice')
