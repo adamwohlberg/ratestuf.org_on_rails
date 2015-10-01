@@ -1,5 +1,9 @@
-User.create!([ { email: 'disregard@example.com', password: 'asdfjkl;'} ])
-User.create!([ { email: 'test@example.com', password: 'asdfjkl;'} ])
+u = User.find_or_create_by( email: 'disregard@example.com' )
+u.password = "asdfjkl;"
+u.save
+u = User.find_or_create_by( email: 'test@example.com' )
+u.password = "asdfjkl;"
+u.save
 
 Category.create!([
   { name: 'new item - category pending' },
@@ -488,6 +492,6 @@ CategoriesItem.create!([{ item_id: Item.find_by_name('betty ford').id, category_
   Rating.create!([{ user_id: User.first.id, item_id: item.id, default_rating: true }])
 end
 
-2250.times do
+1250.times do
   Rating.create!([{ user_id: User.first.id, item_id: Item.all.sample.id, x_rating: rand(0.0..1.0), y_rating: rand(0.0..1.0)}])
 end

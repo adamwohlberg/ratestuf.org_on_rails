@@ -1,6 +1,6 @@
 <% @items.each do |item| %>
  <div id="<%= item[:id] %>" class="draggable1 draggable greyedOut fairValue" name="<%= item[:name] %>" title="Log in. Then move this ball to rate an item." style="position: absolute; left:<%= item[:x_rating] * 89.59 %>%; bottom: <%= item[:y_rating] * 78%>%"><a href="<%= item[:url] %>" target="_blank"><p class="itemName" style="display: block;"><%= item[:name] %>™</p></a>
     <%= image_tag('speechbubble.png', :class => "speechBubble", :size => '150x150') %><p class="ratings">
-    <%= pluralize(item[:default_rating] == true ? 0 : item[:count], 'rating') %></p>
+    <%= pluralize(item[:count] == 1 && item[:default_rating] == true ? 0 : item[:count], 'rating') %></p>
  </div>
 <% end %>
