@@ -77,8 +77,8 @@ $(".draggable").mousemove(function(){
 	});
 
   $(".draggable").mouseenter(function() {
-      $(this).find(".speechBubble").fadeIn(1000).delay(50).fadeOut(2500);
-      $(this).find(".ratings").fadeIn(1000).delay(50).fadeOut(2500);
+      $(this).find(".speechBubble").stop( true, true ).fadeIn(1000).delay(50).fadeOut(2500);
+      $(this).find(".ratings").stop( true, true ).fadeIn(1000).delay(50).fadeOut(2500);
   });
 
 	$(function() {
