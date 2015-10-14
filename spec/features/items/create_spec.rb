@@ -7,7 +7,7 @@ describe 'Searching for and creating items' do
       visit root_path
       fill_in(:search, :with => '')
       page.execute_script("$('form#mainForm').submit()")
-      expect(page).to have_content("Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.")
+      expect(page).to have_content("Please search for something to rate (e.g. 'uber', 'uber vs. lyft', or 'airlines').")
       expect(page).not_to have_content("Ipsum factum")
     end
 
@@ -53,7 +53,7 @@ describe 'Searching for and creating items' do
     end
 
     it "displays the correct flash message when user is not logged in and searches for two items the first of which is a category and the second of which exists in the db" do
-      item = FactoryGirl.create(:item_with_ratings, :name "Bob")
+      item = FactoryGirl.create(:item_with_ratings, name: "Bob")
       c = FactoryGirl.create(:category_with_items, name: 'airlines')
       visit root_path
       fill_in(:search, :with => "airlines vs #{item.name}")
@@ -87,7 +87,7 @@ describe 'Searching for and creating items' do
       visit root_path
       fill_in(:search, :with => '')
       page.execute_script("$('form#mainForm').submit()")
-      expect(page).to have_content("Please search for something (e.g. 'uber', 'uber vs. lyft', or 'airlines') to rate.")
+      expect(page).to have_content("Please search for something to rate (e.g. 'uber', 'uber vs. lyft', or 'airlines').")
       expect(page).not_to have_content("Ipsum factum")
     end
 

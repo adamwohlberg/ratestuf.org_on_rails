@@ -495,3 +495,11 @@ end
 1250.times do
   Rating.create!([{ user_id: User.first.id, item_id: Item.all.sample.id, x_rating: rand(0.0..1.0), y_rating: rand(0.0..1.0)}])
 end
+
+20.times do
+  Rating.create([{ user_id: User.first.id, item_id: Item.find_by(name: "dollar shave club").id, x_rating: 0.95, y_rating: 0.1}])
+  Rating.create([{ user_id: User.first.id, item_id: Item.find_by(name: "gillette").id, x_rating: 0.1, y_rating: 0.97}])
+end
+
+
+
